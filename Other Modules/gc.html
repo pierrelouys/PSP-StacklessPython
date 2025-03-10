@@ -1,0 +1,99 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module gc</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>gc</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)<br><a href="http://www.python.org/doc/current/lib/module-gc.html">Module Docs</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;access&nbsp;to&nbsp;the&nbsp;garbage&nbsp;collector&nbsp;for&nbsp;reference&nbsp;cycles.<br>
+&nbsp;<br>
+<a href="#-enable">enable</a>()&nbsp;--&nbsp;Enable&nbsp;automatic&nbsp;garbage&nbsp;collection.<br>
+<a href="#-disable">disable</a>()&nbsp;--&nbsp;Disable&nbsp;automatic&nbsp;garbage&nbsp;collection.<br>
+<a href="#-isenabled">isenabled</a>()&nbsp;--&nbsp;Returns&nbsp;true&nbsp;if&nbsp;automatic&nbsp;collection&nbsp;is&nbsp;enabled.<br>
+<a href="#-collect">collect</a>()&nbsp;--&nbsp;Do&nbsp;a&nbsp;full&nbsp;collection&nbsp;right&nbsp;now.<br>
+<a href="#-get_count">get_count</a>()&nbsp;--&nbsp;Return&nbsp;the&nbsp;current&nbsp;collection&nbsp;counts.<br>
+<a href="#-set_debug">set_debug</a>()&nbsp;--&nbsp;Set&nbsp;debugging&nbsp;flags.<br>
+<a href="#-get_debug">get_debug</a>()&nbsp;--&nbsp;Get&nbsp;debugging&nbsp;flags.<br>
+<a href="#-set_threshold">set_threshold</a>()&nbsp;--&nbsp;Set&nbsp;the&nbsp;collection&nbsp;thresholds.<br>
+<a href="#-get_threshold">get_threshold</a>()&nbsp;--&nbsp;Return&nbsp;the&nbsp;current&nbsp;the&nbsp;collection&nbsp;thresholds.<br>
+<a href="#-get_objects">get_objects</a>()&nbsp;--&nbsp;Return&nbsp;a&nbsp;list&nbsp;of&nbsp;all&nbsp;objects&nbsp;tracked&nbsp;by&nbsp;the&nbsp;collector.<br>
+<a href="#-get_referrers">get_referrers</a>()&nbsp;--&nbsp;Return&nbsp;the&nbsp;list&nbsp;of&nbsp;objects&nbsp;that&nbsp;refer&nbsp;to&nbsp;an&nbsp;object.<br>
+<a href="#-get_referents">get_referents</a>()&nbsp;--&nbsp;Return&nbsp;the&nbsp;list&nbsp;of&nbsp;objects&nbsp;that&nbsp;an&nbsp;object&nbsp;refers&nbsp;to.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-collect"><strong>collect</strong></a>(...)</dt><dd><tt><a href="#-collect">collect</a>([generation])&nbsp;-&gt;&nbsp;n<br>
+&nbsp;<br>
+With&nbsp;no&nbsp;arguments,&nbsp;run&nbsp;a&nbsp;full&nbsp;collection.&nbsp;&nbsp;The&nbsp;optional&nbsp;argument<br>
+may&nbsp;be&nbsp;an&nbsp;integer&nbsp;specifying&nbsp;which&nbsp;generation&nbsp;to&nbsp;collect.&nbsp;&nbsp;A&nbsp;ValueError<br>
+is&nbsp;raised&nbsp;if&nbsp;the&nbsp;generation&nbsp;number&nbsp;is&nbsp;invalid.<br>
+&nbsp;<br>
+The&nbsp;number&nbsp;of&nbsp;unreachable&nbsp;objects&nbsp;is&nbsp;returned.</tt></dd></dl>
+ <dl><dt><a name="-disable"><strong>disable</strong></a>(...)</dt><dd><tt><a href="#-disable">disable</a>()&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Disable&nbsp;automatic&nbsp;garbage&nbsp;collection.</tt></dd></dl>
+ <dl><dt><a name="-enable"><strong>enable</strong></a>(...)</dt><dd><tt><a href="#-enable">enable</a>()&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Enable&nbsp;automatic&nbsp;garbage&nbsp;collection.</tt></dd></dl>
+ <dl><dt><a name="-get_count"><strong>get_count</strong></a>(...)</dt><dd><tt><a href="#-get_count">get_count</a>()&nbsp;-&gt;&nbsp;(count0,&nbsp;count1,&nbsp;count2)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;current&nbsp;collection&nbsp;counts</tt></dd></dl>
+ <dl><dt><a name="-get_debug"><strong>get_debug</strong></a>(...)</dt><dd><tt><a href="#-get_debug">get_debug</a>()&nbsp;-&gt;&nbsp;flags<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;garbage&nbsp;collection&nbsp;debugging&nbsp;flags.</tt></dd></dl>
+ <dl><dt><a name="-get_objects"><strong>get_objects</strong></a>(...)</dt><dd><tt><a href="#-get_objects">get_objects</a>()&nbsp;-&gt;&nbsp;[...]<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;objects&nbsp;tracked&nbsp;by&nbsp;the&nbsp;collector&nbsp;(excluding&nbsp;the&nbsp;list<br>
+returned).</tt></dd></dl>
+ <dl><dt><a name="-get_referents"><strong>get_referents</strong></a>(...)</dt><dd><tt><a href="#-get_referents">get_referents</a>(*objs)&nbsp;-&gt;&nbsp;list<br>
+Return&nbsp;the&nbsp;list&nbsp;of&nbsp;objects&nbsp;that&nbsp;are&nbsp;directly&nbsp;referred&nbsp;to&nbsp;by&nbsp;objs.</tt></dd></dl>
+ <dl><dt><a name="-get_referrers"><strong>get_referrers</strong></a>(...)</dt><dd><tt><a href="#-get_referrers">get_referrers</a>(*objs)&nbsp;-&gt;&nbsp;list<br>
+Return&nbsp;the&nbsp;list&nbsp;of&nbsp;objects&nbsp;that&nbsp;directly&nbsp;refer&nbsp;to&nbsp;any&nbsp;of&nbsp;objs.</tt></dd></dl>
+ <dl><dt><a name="-get_threshold"><strong>get_threshold</strong></a>(...)</dt><dd><tt><a href="#-get_threshold">get_threshold</a>()&nbsp;-&gt;&nbsp;(threshold0,&nbsp;threshold1,&nbsp;threshold2)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;current&nbsp;collection&nbsp;thresholds</tt></dd></dl>
+ <dl><dt><a name="-isenabled"><strong>isenabled</strong></a>(...)</dt><dd><tt><a href="#-isenabled">isenabled</a>()&nbsp;-&gt;&nbsp;status<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;automatic&nbsp;garbage&nbsp;collection&nbsp;is&nbsp;enabled.</tt></dd></dl>
+ <dl><dt><a name="-set_debug"><strong>set_debug</strong></a>(...)</dt><dd><tt><a href="#-set_debug">set_debug</a>(flags)&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;garbage&nbsp;collection&nbsp;debugging&nbsp;flags.&nbsp;Debugging&nbsp;information&nbsp;is<br>
+written&nbsp;to&nbsp;sys.stderr.<br>
+&nbsp;<br>
+flags&nbsp;is&nbsp;an&nbsp;integer&nbsp;and&nbsp;can&nbsp;have&nbsp;the&nbsp;following&nbsp;bits&nbsp;turned&nbsp;on:<br>
+&nbsp;<br>
+&nbsp;&nbsp;DEBUG_STATS&nbsp;-&nbsp;Print&nbsp;statistics&nbsp;during&nbsp;collection.<br>
+&nbsp;&nbsp;DEBUG_COLLECTABLE&nbsp;-&nbsp;Print&nbsp;collectable&nbsp;objects&nbsp;found.<br>
+&nbsp;&nbsp;DEBUG_UNCOLLECTABLE&nbsp;-&nbsp;Print&nbsp;unreachable&nbsp;but&nbsp;uncollectable&nbsp;objects&nbsp;found.<br>
+&nbsp;&nbsp;DEBUG_INSTANCES&nbsp;-&nbsp;Print&nbsp;instance&nbsp;objects.<br>
+&nbsp;&nbsp;DEBUG_OBJECTS&nbsp;-&nbsp;Print&nbsp;objects&nbsp;other&nbsp;than&nbsp;instances.<br>
+&nbsp;&nbsp;DEBUG_SAVEALL&nbsp;-&nbsp;Save&nbsp;objects&nbsp;to&nbsp;gc.garbage&nbsp;rather&nbsp;than&nbsp;freeing&nbsp;them.<br>
+&nbsp;&nbsp;DEBUG_LEAK&nbsp;-&nbsp;Debug&nbsp;leaking&nbsp;programs&nbsp;(everything&nbsp;but&nbsp;STATS).</tt></dd></dl>
+ <dl><dt><a name="-set_threshold"><strong>set_threshold</strong></a>(...)</dt><dd><tt><a href="#-set_threshold">set_threshold</a>(threshold0,&nbsp;[threshold1,&nbsp;threshold2])&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;collection&nbsp;thresholds.&nbsp;&nbsp;Setting&nbsp;threshold0&nbsp;to&nbsp;zero&nbsp;disables<br>
+collection.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEBUG_COLLECTABLE</strong> = 2<br>
+<strong>DEBUG_INSTANCES</strong> = 8<br>
+<strong>DEBUG_LEAK</strong> = 62<br>
+<strong>DEBUG_OBJECTS</strong> = 16<br>
+<strong>DEBUG_SAVEALL</strong> = 32<br>
+<strong>DEBUG_STATS</strong> = 1<br>
+<strong>DEBUG_UNCOLLECTABLE</strong> = 4<br>
+<strong>garbage</strong> = []</td></tr></table>
+</body></html>

@@ -1,0 +1,85 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module _codecs</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>_codecs</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-ascii_decode"><strong>ascii_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ascii_encode"><strong>ascii_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-charbuffer_encode"><strong>charbuffer_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-charmap_build"><strong>charmap_build</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-charmap_decode"><strong>charmap_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-charmap_encode"><strong>charmap_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-decode"><strong>decode</strong></a>(...)</dt><dd><tt><a href="#-decode">decode</a>(obj,&nbsp;[encoding[,errors]])&nbsp;-&gt;&nbsp;object<br>
+&nbsp;<br>
+Decodes&nbsp;obj&nbsp;using&nbsp;the&nbsp;codec&nbsp;registered&nbsp;for&nbsp;encoding.&nbsp;encoding&nbsp;defaults<br>
+to&nbsp;the&nbsp;default&nbsp;encoding.&nbsp;errors&nbsp;may&nbsp;be&nbsp;given&nbsp;to&nbsp;set&nbsp;a&nbsp;different&nbsp;error<br>
+handling&nbsp;scheme.&nbsp;Default&nbsp;is&nbsp;'strict'&nbsp;meaning&nbsp;that&nbsp;encoding&nbsp;errors&nbsp;raise<br>
+a&nbsp;ValueError.&nbsp;Other&nbsp;possible&nbsp;values&nbsp;are&nbsp;'ignore'&nbsp;and&nbsp;'replace'<br>
+as&nbsp;well&nbsp;as&nbsp;any&nbsp;other&nbsp;name&nbsp;registerd&nbsp;with&nbsp;codecs.register_error&nbsp;that&nbsp;is<br>
+able&nbsp;to&nbsp;handle&nbsp;ValueErrors.</tt></dd></dl>
+ <dl><dt><a name="-encode"><strong>encode</strong></a>(...)</dt><dd><tt><a href="#-encode">encode</a>(obj,&nbsp;[encoding[,errors]])&nbsp;-&gt;&nbsp;object<br>
+&nbsp;<br>
+Encodes&nbsp;obj&nbsp;using&nbsp;the&nbsp;codec&nbsp;registered&nbsp;for&nbsp;encoding.&nbsp;encoding&nbsp;defaults<br>
+to&nbsp;the&nbsp;default&nbsp;encoding.&nbsp;errors&nbsp;may&nbsp;be&nbsp;given&nbsp;to&nbsp;set&nbsp;a&nbsp;different&nbsp;error<br>
+handling&nbsp;scheme.&nbsp;Default&nbsp;is&nbsp;'strict'&nbsp;meaning&nbsp;that&nbsp;encoding&nbsp;errors&nbsp;raise<br>
+a&nbsp;ValueError.&nbsp;Other&nbsp;possible&nbsp;values&nbsp;are&nbsp;'ignore',&nbsp;'replace'&nbsp;and<br>
+'xmlcharrefreplace'&nbsp;as&nbsp;well&nbsp;as&nbsp;any&nbsp;other&nbsp;name&nbsp;registered&nbsp;with<br>
+codecs.register_error&nbsp;that&nbsp;can&nbsp;handle&nbsp;ValueErrors.</tt></dd></dl>
+ <dl><dt><a name="-escape_decode"><strong>escape_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-escape_encode"><strong>escape_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-latin_1_decode"><strong>latin_1_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-latin_1_encode"><strong>latin_1_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-lookup"><strong>lookup</strong></a>(...)</dt><dd><tt><a href="#-lookup">lookup</a>(encoding)&nbsp;-&gt;&nbsp;(encoder,&nbsp;decoder,&nbsp;stream_reader,&nbsp;stream_writer)<br>
+&nbsp;<br>
+Looks&nbsp;up&nbsp;a&nbsp;codec&nbsp;tuple&nbsp;in&nbsp;the&nbsp;Python&nbsp;codec&nbsp;registry&nbsp;and&nbsp;returns<br>
+a&nbsp;tuple&nbsp;of&nbsp;functions.</tt></dd></dl>
+ <dl><dt><a name="-lookup_error"><strong>lookup_error</strong></a>(...)</dt><dd><tt><a href="#-lookup_error">lookup_error</a>(errors)&nbsp;-&gt;&nbsp;handler<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;error&nbsp;handler&nbsp;for&nbsp;the&nbsp;specified&nbsp;error&nbsp;handling&nbsp;name<br>
+or&nbsp;raise&nbsp;a&nbsp;LookupError,&nbsp;if&nbsp;no&nbsp;handler&nbsp;exists&nbsp;under&nbsp;this&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-raw_unicode_escape_decode"><strong>raw_unicode_escape_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-raw_unicode_escape_encode"><strong>raw_unicode_escape_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-readbuffer_encode"><strong>readbuffer_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-register"><strong>register</strong></a>(...)</dt><dd><tt><a href="#-register">register</a>(search_function)<br>
+&nbsp;<br>
+Register&nbsp;a&nbsp;codec&nbsp;search&nbsp;function.&nbsp;Search&nbsp;functions&nbsp;are&nbsp;expected&nbsp;to&nbsp;take<br>
+one&nbsp;argument,&nbsp;the&nbsp;encoding&nbsp;name&nbsp;in&nbsp;all&nbsp;lower&nbsp;case&nbsp;letters,&nbsp;and&nbsp;return<br>
+a&nbsp;tuple&nbsp;of&nbsp;functions&nbsp;(encoder,&nbsp;decoder,&nbsp;stream_reader,&nbsp;stream_writer).</tt></dd></dl>
+ <dl><dt><a name="-register_error"><strong>register_error</strong></a>(...)</dt><dd><tt><a href="#-register_error">register_error</a>(errors,&nbsp;handler)<br>
+&nbsp;<br>
+Register&nbsp;the&nbsp;specified&nbsp;error&nbsp;handler&nbsp;under&nbsp;the&nbsp;name<br>
+errors.&nbsp;handler&nbsp;must&nbsp;be&nbsp;a&nbsp;callable&nbsp;object,&nbsp;that<br>
+will&nbsp;be&nbsp;called&nbsp;with&nbsp;an&nbsp;exception&nbsp;instance&nbsp;containing<br>
+information&nbsp;about&nbsp;the&nbsp;location&nbsp;of&nbsp;the&nbsp;encoding/decoding<br>
+error&nbsp;and&nbsp;must&nbsp;return&nbsp;a&nbsp;(replacement,&nbsp;new&nbsp;position)&nbsp;tuple.</tt></dd></dl>
+ <dl><dt><a name="-unicode_escape_decode"><strong>unicode_escape_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-unicode_escape_encode"><strong>unicode_escape_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-unicode_internal_decode"><strong>unicode_internal_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-unicode_internal_encode"><strong>unicode_internal_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_be_decode"><strong>utf_16_be_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_be_encode"><strong>utf_16_be_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_decode"><strong>utf_16_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_encode"><strong>utf_16_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_ex_decode"><strong>utf_16_ex_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_le_decode"><strong>utf_16_le_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_16_le_encode"><strong>utf_16_le_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_7_decode"><strong>utf_7_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_7_encode"><strong>utf_7_encode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_8_decode"><strong>utf_8_decode</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-utf_8_encode"><strong>utf_8_encode</strong></a>(...)</dt></dl>
+</td></tr></table>
+</body></html>

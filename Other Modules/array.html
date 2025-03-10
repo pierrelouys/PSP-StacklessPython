@@ -1,0 +1,475 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module array</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>array</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;defines&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;type&nbsp;which&nbsp;can&nbsp;efficiently&nbsp;represent<br>
+an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;basic&nbsp;values:&nbsp;characters,&nbsp;integers,&nbsp;floating&nbsp;point<br>
+numbers.&nbsp;&nbsp;Arrays&nbsp;are&nbsp;sequence&nbsp;types&nbsp;and&nbsp;behave&nbsp;very&nbsp;much&nbsp;like&nbsp;lists,<br>
+except&nbsp;that&nbsp;the&nbsp;type&nbsp;of&nbsp;objects&nbsp;stored&nbsp;in&nbsp;them&nbsp;is&nbsp;constrained.&nbsp;&nbsp;The<br>
+type&nbsp;is&nbsp;specified&nbsp;at&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;creation&nbsp;time&nbsp;by&nbsp;using&nbsp;a&nbsp;type&nbsp;code,&nbsp;which<br>
+is&nbsp;a&nbsp;single&nbsp;character.&nbsp;&nbsp;The&nbsp;following&nbsp;type&nbsp;codes&nbsp;are&nbsp;defined:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Type&nbsp;code&nbsp;&nbsp;&nbsp;C&nbsp;Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Minimum&nbsp;size&nbsp;in&nbsp;bytes&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'c'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'b'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed&nbsp;integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'B'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;integer&nbsp;&nbsp;&nbsp;1&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'u'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unicode&nbsp;character&nbsp;&nbsp;2&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'h'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed&nbsp;integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'H'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;integer&nbsp;&nbsp;&nbsp;2&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'i'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed&nbsp;integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'I'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;integer&nbsp;&nbsp;&nbsp;2&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'l'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;signed&nbsp;integer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'L'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unsigned&nbsp;integer&nbsp;&nbsp;&nbsp;4&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'f'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;floating&nbsp;point&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'d'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;floating&nbsp;point&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8&nbsp;<br>
+&nbsp;<br>
+The&nbsp;constructor&nbsp;is:<br>
+&nbsp;<br>
+<a href="#array">array</a>(typecode&nbsp;[,&nbsp;initializer])&nbsp;--&nbsp;create&nbsp;a&nbsp;new&nbsp;<a href="#array">array</a></tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="array.html#array">array</a>
+</font></dt><dt><font face="helvetica, arial"><a href="array.html#array">array</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>ArrayType</strong> = <a name="ArrayType">class array</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#array">array</a>(typecode&nbsp;[,&nbsp;initializer])&nbsp;-&gt;&nbsp;<a href="#array">array</a><br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;new&nbsp;<a href="#array">array</a>&nbsp;whose&nbsp;items&nbsp;are&nbsp;restricted&nbsp;by&nbsp;typecode,&nbsp;and<br>
+initialized&nbsp;from&nbsp;the&nbsp;optional&nbsp;initializer&nbsp;value,&nbsp;which&nbsp;must&nbsp;be&nbsp;a&nbsp;list,<br>
+string.&nbsp;or&nbsp;iterable&nbsp;over&nbsp;elements&nbsp;of&nbsp;the&nbsp;appropriate&nbsp;type.<br>
+&nbsp;<br>
+Arrays&nbsp;represent&nbsp;basic&nbsp;values&nbsp;and&nbsp;behave&nbsp;very&nbsp;much&nbsp;like&nbsp;lists,&nbsp;except<br>
+the&nbsp;type&nbsp;of&nbsp;objects&nbsp;stored&nbsp;in&nbsp;them&nbsp;is&nbsp;constrained.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;<br>
+<a href="#ArrayType-append">append</a>()&nbsp;--&nbsp;append&nbsp;a&nbsp;new&nbsp;item&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#ArrayType-buffer_info">buffer_info</a>()&nbsp;--&nbsp;return&nbsp;information&nbsp;giving&nbsp;the&nbsp;current&nbsp;memory&nbsp;info<br>
+<a href="#ArrayType-byteswap">byteswap</a>()&nbsp;--&nbsp;byteswap&nbsp;all&nbsp;the&nbsp;items&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#ArrayType-count">count</a>()&nbsp;--&nbsp;return&nbsp;number&nbsp;of&nbsp;occurences&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#ArrayType-extend">extend</a>()&nbsp;--&nbsp;extend&nbsp;<a href="#array">array</a>&nbsp;by&nbsp;appending&nbsp;multiple&nbsp;elements&nbsp;from&nbsp;an&nbsp;iterable<br>
+<a href="#ArrayType-fromfile">fromfile</a>()&nbsp;--&nbsp;read&nbsp;items&nbsp;from&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#ArrayType-fromlist">fromlist</a>()&nbsp;--&nbsp;append&nbsp;items&nbsp;from&nbsp;the&nbsp;list<br>
+<a href="#ArrayType-fromstring">fromstring</a>()&nbsp;--&nbsp;append&nbsp;items&nbsp;from&nbsp;the&nbsp;string<br>
+<a href="#ArrayType-index">index</a>()&nbsp;--&nbsp;return&nbsp;index&nbsp;of&nbsp;first&nbsp;occurence&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#ArrayType-insert">insert</a>()&nbsp;--&nbsp;insert&nbsp;a&nbsp;new&nbsp;item&nbsp;into&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;at&nbsp;a&nbsp;provided&nbsp;position<br>
+<a href="#ArrayType-pop">pop</a>()&nbsp;--&nbsp;remove&nbsp;and&nbsp;return&nbsp;item&nbsp;(default&nbsp;last)<br>
+<a href="#ArrayType-read">read</a>()&nbsp;--&nbsp;DEPRECATED,&nbsp;use&nbsp;<a href="#ArrayType-fromfile">fromfile</a>()<br>
+<a href="#ArrayType-remove">remove</a>()&nbsp;--&nbsp;remove&nbsp;first&nbsp;occurence&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#ArrayType-reverse">reverse</a>()&nbsp;--&nbsp;reverse&nbsp;the&nbsp;order&nbsp;of&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#ArrayType-tofile">tofile</a>()&nbsp;--&nbsp;write&nbsp;all&nbsp;items&nbsp;to&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#ArrayType-tolist">tolist</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;converted&nbsp;to&nbsp;an&nbsp;ordinary&nbsp;list<br>
+<a href="#ArrayType-tostring">tostring</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;converted&nbsp;to&nbsp;a&nbsp;string<br>
+<a href="#ArrayType-write">write</a>()&nbsp;--&nbsp;DEPRECATED,&nbsp;use&nbsp;<a href="#ArrayType-tofile">tofile</a>()<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;<br>
+typecode&nbsp;--&nbsp;the&nbsp;typecode&nbsp;character&nbsp;used&nbsp;to&nbsp;create&nbsp;the&nbsp;<a href="#array">array</a><br>
+itemsize&nbsp;--&nbsp;the&nbsp;length&nbsp;in&nbsp;bytes&nbsp;of&nbsp;one&nbsp;<a href="#array">array</a>&nbsp;item<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="array-__add__"><strong>__add__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__add__">__add__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+y</tt></dd></dl>
+
+<dl><dt><a name="array-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__contains__">__contains__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="array-__copy__"><strong>__copy__</strong></a>(...)</dt><dd><tt>copy(<a href="#array">array</a>)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-__deepcopy__"><strong>__deepcopy__</strong></a>(...)</dt><dd><tt>copy(<a href="#array">array</a>)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="array-__delslice__"><strong>__delslice__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__delslice__">__delslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-__eq__"><strong>__eq__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__eq__">__eq__</a>(y)&nbsp;&lt;==&gt;&nbsp;x==y</tt></dd></dl>
+
+<dl><dt><a name="array-__ge__"><strong>__ge__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__ge__">__ge__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;=y</tt></dd></dl>
+
+<dl><dt><a name="array-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="array-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="array-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-__gt__"><strong>__gt__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__gt__">__gt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;y</tt></dd></dl>
+
+<dl><dt><a name="array-__iadd__"><strong>__iadd__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__iadd__">__iadd__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+=y</tt></dd></dl>
+
+<dl><dt><a name="array-__imul__"><strong>__imul__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__imul__">__imul__</a>(y)&nbsp;&lt;==&gt;&nbsp;x*=y</tt></dd></dl>
+
+<dl><dt><a name="array-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__le__"><strong>__le__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__le__">__le__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;=y</tt></dd></dl>
+
+<dl><dt><a name="array-__len__"><strong>__len__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__len__">__len__</a>()&nbsp;&lt;==&gt;&nbsp;len(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__lt__"><strong>__lt__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__lt__">__lt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;y</tt></dd></dl>
+
+<dl><dt><a name="array-__mul__"><strong>__mul__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__mul__">__mul__</a>(n)&nbsp;&lt;==&gt;&nbsp;x*n</tt></dd></dl>
+
+<dl><dt><a name="array-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
+
+<dl><dt><a name="array-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Return&nbsp;state&nbsp;information&nbsp;for&nbsp;pickling.</tt></dd></dl>
+
+<dl><dt><a name="array-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__rmul__"><strong>__rmul__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__rmul__">__rmul__</a>(n)&nbsp;&lt;==&gt;&nbsp;n*x</tt></dd></dl>
+
+<dl><dt><a name="array-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
+
+<dl><dt><a name="array-__setslice__"><strong>__setslice__</strong></a>(...)</dt><dd><tt>x.<a href="#ArrayType-__setslice__">__setslice__</a>(i,&nbsp;j,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i:j]=y<br>
+&nbsp;<br>
+Use&nbsp;&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-append"><strong>append</strong></a>(...)</dt><dd><tt><a href="#ArrayType-append">append</a>(x)<br>
+&nbsp;<br>
+Append&nbsp;new&nbsp;value&nbsp;x&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-buffer_info"><strong>buffer_info</strong></a>(...)</dt><dd><tt><a href="#ArrayType-buffer_info">buffer_info</a>()&nbsp;-&gt;&nbsp;(address,&nbsp;length)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;tuple&nbsp;(address,&nbsp;length)&nbsp;giving&nbsp;the&nbsp;current&nbsp;memory&nbsp;address&nbsp;and<br>
+the&nbsp;length&nbsp;in&nbsp;items&nbsp;of&nbsp;the&nbsp;buffer&nbsp;used&nbsp;to&nbsp;hold&nbsp;<a href="#array">array</a>'s&nbsp;contents<br>
+The&nbsp;length&nbsp;should&nbsp;be&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;itemsize&nbsp;attribute&nbsp;to&nbsp;calculate<br>
+the&nbsp;buffer&nbsp;length&nbsp;in&nbsp;bytes.</tt></dd></dl>
+
+<dl><dt><a name="array-byteswap"><strong>byteswap</strong></a>(...)</dt><dd><tt><a href="#ArrayType-byteswap">byteswap</a>()<br>
+&nbsp;<br>
+Byteswap&nbsp;all&nbsp;items&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.&nbsp;&nbsp;If&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;are&nbsp;not&nbsp;1,&nbsp;2,<br>
+4,&nbsp;or&nbsp;8&nbsp;bytes&nbsp;in&nbsp;size,&nbsp;RuntimeError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="array-count"><strong>count</strong></a>(...)</dt><dd><tt><a href="#ArrayType-count">count</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;number&nbsp;of&nbsp;occurences&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-extend"><strong>extend</strong></a>(...)</dt><dd><tt><a href="#ArrayType-extend">extend</a>(<a href="#array">array</a>&nbsp;or&nbsp;iterable)<br>
+&nbsp;<br>
+Append&nbsp;items&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-fromfile"><strong>fromfile</strong></a>(...)</dt><dd><tt><a href="#ArrayType-fromfile">fromfile</a>(f,&nbsp;n)<br>
+&nbsp;<br>
+Read&nbsp;n&nbsp;objects&nbsp;from&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f&nbsp;and&nbsp;append&nbsp;them&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+<a href="#array">array</a>.&nbsp;&nbsp;Also&nbsp;called&nbsp;as&nbsp;read.</tt></dd></dl>
+
+<dl><dt><a name="array-fromlist"><strong>fromlist</strong></a>(...)</dt><dd><tt><a href="#ArrayType-fromlist">fromlist</a>(list)<br>
+&nbsp;<br>
+Append&nbsp;items&nbsp;to&nbsp;<a href="#array">array</a>&nbsp;from&nbsp;list.</tt></dd></dl>
+
+<dl><dt><a name="array-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#ArrayType-fromstring">fromstring</a>(string)<br>
+&nbsp;<br>
+Appends&nbsp;items&nbsp;from&nbsp;the&nbsp;string,&nbsp;interpreting&nbsp;it&nbsp;as&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;machine<br>
+values,as&nbsp;if&nbsp;it&nbsp;had&nbsp;been&nbsp;read&nbsp;from&nbsp;a&nbsp;file&nbsp;using&nbsp;the&nbsp;<a href="#ArrayType-fromfile">fromfile</a>()&nbsp;method).</tt></dd></dl>
+
+<dl><dt><a name="array-fromunicode"><strong>fromunicode</strong></a>(...)</dt><dd><tt><a href="#ArrayType-fromunicode">fromunicode</a>(ustr)<br>
+&nbsp;<br>
+Extends&nbsp;this&nbsp;<a href="#array">array</a>&nbsp;with&nbsp;data&nbsp;from&nbsp;the&nbsp;unicode&nbsp;string&nbsp;ustr.<br>
+The&nbsp;<a href="#array">array</a>&nbsp;must&nbsp;be&nbsp;a&nbsp;type&nbsp;'u'&nbsp;<a href="#array">array</a>;&nbsp;otherwise&nbsp;a&nbsp;ValueError<br>
+is&nbsp;raised.&nbsp;&nbsp;Use&nbsp;<a href="#array">array</a>.<a href="#ArrayType-fromstring">fromstring</a>(ustr.decode(...))&nbsp;to<br>
+append&nbsp;Unicode&nbsp;data&nbsp;to&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;some&nbsp;other&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="array-index"><strong>index</strong></a>(...)</dt><dd><tt><a href="#ArrayType-index">index</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;index&nbsp;of&nbsp;first&nbsp;occurence&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-insert"><strong>insert</strong></a>(...)</dt><dd><tt><a href="#ArrayType-insert">insert</a>(i,x)<br>
+&nbsp;<br>
+Insert&nbsp;a&nbsp;new&nbsp;item&nbsp;x&nbsp;into&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;before&nbsp;position&nbsp;i.</tt></dd></dl>
+
+<dl><dt><a name="array-pop"><strong>pop</strong></a>(...)</dt><dd><tt><a href="#ArrayType-pop">pop</a>([i])<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;i-th&nbsp;element&nbsp;and&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;<a href="#array">array</a>.&nbsp;i&nbsp;defaults&nbsp;to&nbsp;-1.</tt></dd></dl>
+
+<dl><dt><a name="array-read"><strong>read</strong></a>(...)</dt><dd><tt><a href="#ArrayType-fromfile">fromfile</a>(f,&nbsp;n)<br>
+&nbsp;<br>
+Read&nbsp;n&nbsp;objects&nbsp;from&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f&nbsp;and&nbsp;append&nbsp;them&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+<a href="#array">array</a>.&nbsp;&nbsp;Also&nbsp;called&nbsp;as&nbsp;read.</tt></dd></dl>
+
+<dl><dt><a name="array-remove"><strong>remove</strong></a>(...)</dt><dd><tt><a href="#ArrayType-remove">remove</a>(x)<br>
+&nbsp;<br>
+Remove&nbsp;the&nbsp;first&nbsp;occurence&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-reverse"><strong>reverse</strong></a>(...)</dt><dd><tt><a href="#ArrayType-reverse">reverse</a>()<br>
+&nbsp;<br>
+Reverse&nbsp;the&nbsp;order&nbsp;of&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-tofile"><strong>tofile</strong></a>(...)</dt><dd><tt><a href="#ArrayType-tofile">tofile</a>(f)<br>
+&nbsp;<br>
+Write&nbsp;all&nbsp;items&nbsp;(as&nbsp;machine&nbsp;values)&nbsp;to&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f.&nbsp;&nbsp;Also&nbsp;called&nbsp;as<br>
+write.</tt></dd></dl>
+
+<dl><dt><a name="array-tolist"><strong>tolist</strong></a>(...)</dt><dd><tt><a href="#ArrayType-tolist">tolist</a>()&nbsp;-&gt;&nbsp;list<br>
+&nbsp;<br>
+Convert&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;an&nbsp;ordinary&nbsp;list&nbsp;with&nbsp;the&nbsp;same&nbsp;items.</tt></dd></dl>
+
+<dl><dt><a name="array-tostring"><strong>tostring</strong></a>(...)</dt><dd><tt><a href="#ArrayType-tostring">tostring</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Convert&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;machine&nbsp;values&nbsp;and&nbsp;return&nbsp;the&nbsp;string<br>
+representation.</tt></dd></dl>
+
+<dl><dt><a name="array-tounicode"><strong>tounicode</strong></a>(...)</dt><dd><tt><a href="#ArrayType-tounicode">tounicode</a>()&nbsp;-&gt;&nbsp;unicode<br>
+&nbsp;<br>
+Convert&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;a&nbsp;unicode&nbsp;string.&nbsp;&nbsp;The&nbsp;<a href="#array">array</a>&nbsp;must&nbsp;be<br>
+a&nbsp;type&nbsp;'u'&nbsp;<a href="#array">array</a>;&nbsp;otherwise&nbsp;a&nbsp;ValueError&nbsp;is&nbsp;raised.&nbsp;&nbsp;Use<br>
+<a href="#array">array</a>.<a href="#ArrayType-tostring">tostring</a>().decode()&nbsp;to&nbsp;obtain&nbsp;a&nbsp;unicode&nbsp;string&nbsp;from<br>
+an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;some&nbsp;other&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="array-write"><strong>write</strong></a>(...)</dt><dd><tt><a href="#ArrayType-tofile">tofile</a>(f)<br>
+&nbsp;<br>
+Write&nbsp;all&nbsp;items&nbsp;(as&nbsp;machine&nbsp;values)&nbsp;to&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f.&nbsp;&nbsp;Also&nbsp;called&nbsp;as<br>
+write.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>itemsize</strong></dt>
+<dd><tt>the&nbsp;size,&nbsp;in&nbsp;bytes,&nbsp;of&nbsp;one&nbsp;array&nbsp;item</tt></dd>
+</dl>
+<dl><dt><strong>typecode</strong></dt>
+<dd><tt>the&nbsp;typecode&nbsp;character&nbsp;used&nbsp;to&nbsp;create&nbsp;the&nbsp;array</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a86970&gt;<dd><tt>T.<a href="#ArrayType-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="array">class <strong>array</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#array">array</a>(typecode&nbsp;[,&nbsp;initializer])&nbsp;-&gt;&nbsp;<a href="#array">array</a><br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;new&nbsp;<a href="#array">array</a>&nbsp;whose&nbsp;items&nbsp;are&nbsp;restricted&nbsp;by&nbsp;typecode,&nbsp;and<br>
+initialized&nbsp;from&nbsp;the&nbsp;optional&nbsp;initializer&nbsp;value,&nbsp;which&nbsp;must&nbsp;be&nbsp;a&nbsp;list,<br>
+string.&nbsp;or&nbsp;iterable&nbsp;over&nbsp;elements&nbsp;of&nbsp;the&nbsp;appropriate&nbsp;type.<br>
+&nbsp;<br>
+Arrays&nbsp;represent&nbsp;basic&nbsp;values&nbsp;and&nbsp;behave&nbsp;very&nbsp;much&nbsp;like&nbsp;lists,&nbsp;except<br>
+the&nbsp;type&nbsp;of&nbsp;objects&nbsp;stored&nbsp;in&nbsp;them&nbsp;is&nbsp;constrained.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;<br>
+<a href="#array-append">append</a>()&nbsp;--&nbsp;append&nbsp;a&nbsp;new&nbsp;item&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#array-buffer_info">buffer_info</a>()&nbsp;--&nbsp;return&nbsp;information&nbsp;giving&nbsp;the&nbsp;current&nbsp;memory&nbsp;info<br>
+<a href="#array-byteswap">byteswap</a>()&nbsp;--&nbsp;byteswap&nbsp;all&nbsp;the&nbsp;items&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#array-count">count</a>()&nbsp;--&nbsp;return&nbsp;number&nbsp;of&nbsp;occurences&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#array-extend">extend</a>()&nbsp;--&nbsp;extend&nbsp;<a href="#array">array</a>&nbsp;by&nbsp;appending&nbsp;multiple&nbsp;elements&nbsp;from&nbsp;an&nbsp;iterable<br>
+<a href="#array-fromfile">fromfile</a>()&nbsp;--&nbsp;read&nbsp;items&nbsp;from&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#array-fromlist">fromlist</a>()&nbsp;--&nbsp;append&nbsp;items&nbsp;from&nbsp;the&nbsp;list<br>
+<a href="#array-fromstring">fromstring</a>()&nbsp;--&nbsp;append&nbsp;items&nbsp;from&nbsp;the&nbsp;string<br>
+<a href="#array-index">index</a>()&nbsp;--&nbsp;return&nbsp;index&nbsp;of&nbsp;first&nbsp;occurence&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#array-insert">insert</a>()&nbsp;--&nbsp;insert&nbsp;a&nbsp;new&nbsp;item&nbsp;into&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;at&nbsp;a&nbsp;provided&nbsp;position<br>
+<a href="#array-pop">pop</a>()&nbsp;--&nbsp;remove&nbsp;and&nbsp;return&nbsp;item&nbsp;(default&nbsp;last)<br>
+<a href="#array-read">read</a>()&nbsp;--&nbsp;DEPRECATED,&nbsp;use&nbsp;<a href="#array-fromfile">fromfile</a>()<br>
+<a href="#array-remove">remove</a>()&nbsp;--&nbsp;remove&nbsp;first&nbsp;occurence&nbsp;of&nbsp;an&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#array-reverse">reverse</a>()&nbsp;--&nbsp;reverse&nbsp;the&nbsp;order&nbsp;of&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a><br>
+<a href="#array-tofile">tofile</a>()&nbsp;--&nbsp;write&nbsp;all&nbsp;items&nbsp;to&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a><br>
+<a href="#array-tolist">tolist</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;converted&nbsp;to&nbsp;an&nbsp;ordinary&nbsp;list<br>
+<a href="#array-tostring">tostring</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;converted&nbsp;to&nbsp;a&nbsp;string<br>
+<a href="#array-write">write</a>()&nbsp;--&nbsp;DEPRECATED,&nbsp;use&nbsp;<a href="#array-tofile">tofile</a>()<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;<br>
+typecode&nbsp;--&nbsp;the&nbsp;typecode&nbsp;character&nbsp;used&nbsp;to&nbsp;create&nbsp;the&nbsp;<a href="#array">array</a><br>
+itemsize&nbsp;--&nbsp;the&nbsp;length&nbsp;in&nbsp;bytes&nbsp;of&nbsp;one&nbsp;<a href="#array">array</a>&nbsp;item<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="array-__add__"><strong>__add__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__add__">__add__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+y</tt></dd></dl>
+
+<dl><dt><a name="array-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__contains__">__contains__</a>(y)&nbsp;&lt;==&gt;&nbsp;y&nbsp;in&nbsp;x</tt></dd></dl>
+
+<dl><dt><a name="array-__copy__"><strong>__copy__</strong></a>(...)</dt><dd><tt>copy(<a href="#array">array</a>)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-__deepcopy__"><strong>__deepcopy__</strong></a>(...)</dt><dd><tt>copy(<a href="#array">array</a>)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="array-__delslice__"><strong>__delslice__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__delslice__">__delslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-__eq__"><strong>__eq__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__eq__">__eq__</a>(y)&nbsp;&lt;==&gt;&nbsp;x==y</tt></dd></dl>
+
+<dl><dt><a name="array-__ge__"><strong>__ge__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__ge__">__ge__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;=y</tt></dd></dl>
+
+<dl><dt><a name="array-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="array-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="array-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-__gt__"><strong>__gt__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__gt__">__gt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;y</tt></dd></dl>
+
+<dl><dt><a name="array-__iadd__"><strong>__iadd__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__iadd__">__iadd__</a>(y)&nbsp;&lt;==&gt;&nbsp;x+=y</tt></dd></dl>
+
+<dl><dt><a name="array-__imul__"><strong>__imul__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__imul__">__imul__</a>(y)&nbsp;&lt;==&gt;&nbsp;x*=y</tt></dd></dl>
+
+<dl><dt><a name="array-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__le__"><strong>__le__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__le__">__le__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;=y</tt></dd></dl>
+
+<dl><dt><a name="array-__len__"><strong>__len__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__len__">__len__</a>()&nbsp;&lt;==&gt;&nbsp;len(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__lt__"><strong>__lt__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__lt__">__lt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;y</tt></dd></dl>
+
+<dl><dt><a name="array-__mul__"><strong>__mul__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__mul__">__mul__</a>(n)&nbsp;&lt;==&gt;&nbsp;x*n</tt></dd></dl>
+
+<dl><dt><a name="array-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
+
+<dl><dt><a name="array-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Return&nbsp;state&nbsp;information&nbsp;for&nbsp;pickling.</tt></dd></dl>
+
+<dl><dt><a name="array-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="array-__rmul__"><strong>__rmul__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__rmul__">__rmul__</a>(n)&nbsp;&lt;==&gt;&nbsp;n*x</tt></dd></dl>
+
+<dl><dt><a name="array-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
+
+<dl><dt><a name="array-__setslice__"><strong>__setslice__</strong></a>(...)</dt><dd><tt>x.<a href="#array-__setslice__">__setslice__</a>(i,&nbsp;j,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i:j]=y<br>
+&nbsp;<br>
+Use&nbsp;&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="array-append"><strong>append</strong></a>(...)</dt><dd><tt><a href="#array-append">append</a>(x)<br>
+&nbsp;<br>
+Append&nbsp;new&nbsp;value&nbsp;x&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-buffer_info"><strong>buffer_info</strong></a>(...)</dt><dd><tt><a href="#array-buffer_info">buffer_info</a>()&nbsp;-&gt;&nbsp;(address,&nbsp;length)<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;tuple&nbsp;(address,&nbsp;length)&nbsp;giving&nbsp;the&nbsp;current&nbsp;memory&nbsp;address&nbsp;and<br>
+the&nbsp;length&nbsp;in&nbsp;items&nbsp;of&nbsp;the&nbsp;buffer&nbsp;used&nbsp;to&nbsp;hold&nbsp;<a href="#array">array</a>'s&nbsp;contents<br>
+The&nbsp;length&nbsp;should&nbsp;be&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;itemsize&nbsp;attribute&nbsp;to&nbsp;calculate<br>
+the&nbsp;buffer&nbsp;length&nbsp;in&nbsp;bytes.</tt></dd></dl>
+
+<dl><dt><a name="array-byteswap"><strong>byteswap</strong></a>(...)</dt><dd><tt><a href="#array-byteswap">byteswap</a>()<br>
+&nbsp;<br>
+Byteswap&nbsp;all&nbsp;items&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.&nbsp;&nbsp;If&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;are&nbsp;not&nbsp;1,&nbsp;2,<br>
+4,&nbsp;or&nbsp;8&nbsp;bytes&nbsp;in&nbsp;size,&nbsp;RuntimeError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="array-count"><strong>count</strong></a>(...)</dt><dd><tt><a href="#array-count">count</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;number&nbsp;of&nbsp;occurences&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-extend"><strong>extend</strong></a>(...)</dt><dd><tt><a href="#array-extend">extend</a>(<a href="#array">array</a>&nbsp;or&nbsp;iterable)<br>
+&nbsp;<br>
+Append&nbsp;items&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-fromfile"><strong>fromfile</strong></a>(...)</dt><dd><tt><a href="#array-fromfile">fromfile</a>(f,&nbsp;n)<br>
+&nbsp;<br>
+Read&nbsp;n&nbsp;objects&nbsp;from&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f&nbsp;and&nbsp;append&nbsp;them&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+<a href="#array">array</a>.&nbsp;&nbsp;Also&nbsp;called&nbsp;as&nbsp;read.</tt></dd></dl>
+
+<dl><dt><a name="array-fromlist"><strong>fromlist</strong></a>(...)</dt><dd><tt><a href="#array-fromlist">fromlist</a>(list)<br>
+&nbsp;<br>
+Append&nbsp;items&nbsp;to&nbsp;<a href="#array">array</a>&nbsp;from&nbsp;list.</tt></dd></dl>
+
+<dl><dt><a name="array-fromstring"><strong>fromstring</strong></a>(...)</dt><dd><tt><a href="#array-fromstring">fromstring</a>(string)<br>
+&nbsp;<br>
+Appends&nbsp;items&nbsp;from&nbsp;the&nbsp;string,&nbsp;interpreting&nbsp;it&nbsp;as&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;machine<br>
+values,as&nbsp;if&nbsp;it&nbsp;had&nbsp;been&nbsp;read&nbsp;from&nbsp;a&nbsp;file&nbsp;using&nbsp;the&nbsp;<a href="#array-fromfile">fromfile</a>()&nbsp;method).</tt></dd></dl>
+
+<dl><dt><a name="array-fromunicode"><strong>fromunicode</strong></a>(...)</dt><dd><tt><a href="#array-fromunicode">fromunicode</a>(ustr)<br>
+&nbsp;<br>
+Extends&nbsp;this&nbsp;<a href="#array">array</a>&nbsp;with&nbsp;data&nbsp;from&nbsp;the&nbsp;unicode&nbsp;string&nbsp;ustr.<br>
+The&nbsp;<a href="#array">array</a>&nbsp;must&nbsp;be&nbsp;a&nbsp;type&nbsp;'u'&nbsp;<a href="#array">array</a>;&nbsp;otherwise&nbsp;a&nbsp;ValueError<br>
+is&nbsp;raised.&nbsp;&nbsp;Use&nbsp;<a href="#array">array</a>.<a href="#array-fromstring">fromstring</a>(ustr.decode(...))&nbsp;to<br>
+append&nbsp;Unicode&nbsp;data&nbsp;to&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;some&nbsp;other&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="array-index"><strong>index</strong></a>(...)</dt><dd><tt><a href="#array-index">index</a>(x)<br>
+&nbsp;<br>
+Return&nbsp;index&nbsp;of&nbsp;first&nbsp;occurence&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-insert"><strong>insert</strong></a>(...)</dt><dd><tt><a href="#array-insert">insert</a>(i,x)<br>
+&nbsp;<br>
+Insert&nbsp;a&nbsp;new&nbsp;item&nbsp;x&nbsp;into&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;before&nbsp;position&nbsp;i.</tt></dd></dl>
+
+<dl><dt><a name="array-pop"><strong>pop</strong></a>(...)</dt><dd><tt><a href="#array-pop">pop</a>([i])<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;i-th&nbsp;element&nbsp;and&nbsp;delete&nbsp;it&nbsp;from&nbsp;the&nbsp;<a href="#array">array</a>.&nbsp;i&nbsp;defaults&nbsp;to&nbsp;-1.</tt></dd></dl>
+
+<dl><dt><a name="array-read"><strong>read</strong></a>(...)</dt><dd><tt><a href="#array-fromfile">fromfile</a>(f,&nbsp;n)<br>
+&nbsp;<br>
+Read&nbsp;n&nbsp;objects&nbsp;from&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f&nbsp;and&nbsp;append&nbsp;them&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+<a href="#array">array</a>.&nbsp;&nbsp;Also&nbsp;called&nbsp;as&nbsp;read.</tt></dd></dl>
+
+<dl><dt><a name="array-remove"><strong>remove</strong></a>(...)</dt><dd><tt><a href="#array-remove">remove</a>(x)<br>
+&nbsp;<br>
+Remove&nbsp;the&nbsp;first&nbsp;occurence&nbsp;of&nbsp;x&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-reverse"><strong>reverse</strong></a>(...)</dt><dd><tt><a href="#array-reverse">reverse</a>()<br>
+&nbsp;<br>
+Reverse&nbsp;the&nbsp;order&nbsp;of&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;<a href="#array">array</a>.</tt></dd></dl>
+
+<dl><dt><a name="array-tofile"><strong>tofile</strong></a>(...)</dt><dd><tt><a href="#array-tofile">tofile</a>(f)<br>
+&nbsp;<br>
+Write&nbsp;all&nbsp;items&nbsp;(as&nbsp;machine&nbsp;values)&nbsp;to&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f.&nbsp;&nbsp;Also&nbsp;called&nbsp;as<br>
+write.</tt></dd></dl>
+
+<dl><dt><a name="array-tolist"><strong>tolist</strong></a>(...)</dt><dd><tt><a href="#array-tolist">tolist</a>()&nbsp;-&gt;&nbsp;list<br>
+&nbsp;<br>
+Convert&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;an&nbsp;ordinary&nbsp;list&nbsp;with&nbsp;the&nbsp;same&nbsp;items.</tt></dd></dl>
+
+<dl><dt><a name="array-tostring"><strong>tostring</strong></a>(...)</dt><dd><tt><a href="#array-tostring">tostring</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Convert&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;machine&nbsp;values&nbsp;and&nbsp;return&nbsp;the&nbsp;string<br>
+representation.</tt></dd></dl>
+
+<dl><dt><a name="array-tounicode"><strong>tounicode</strong></a>(...)</dt><dd><tt><a href="#array-tounicode">tounicode</a>()&nbsp;-&gt;&nbsp;unicode<br>
+&nbsp;<br>
+Convert&nbsp;the&nbsp;<a href="#array">array</a>&nbsp;to&nbsp;a&nbsp;unicode&nbsp;string.&nbsp;&nbsp;The&nbsp;<a href="#array">array</a>&nbsp;must&nbsp;be<br>
+a&nbsp;type&nbsp;'u'&nbsp;<a href="#array">array</a>;&nbsp;otherwise&nbsp;a&nbsp;ValueError&nbsp;is&nbsp;raised.&nbsp;&nbsp;Use<br>
+<a href="#array">array</a>.<a href="#array-tostring">tostring</a>().decode()&nbsp;to&nbsp;obtain&nbsp;a&nbsp;unicode&nbsp;string&nbsp;from<br>
+an&nbsp;<a href="#array">array</a>&nbsp;of&nbsp;some&nbsp;other&nbsp;type.</tt></dd></dl>
+
+<dl><dt><a name="array-write"><strong>write</strong></a>(...)</dt><dd><tt><a href="#array-tofile">tofile</a>(f)<br>
+&nbsp;<br>
+Write&nbsp;all&nbsp;items&nbsp;(as&nbsp;machine&nbsp;values)&nbsp;to&nbsp;the&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;f.&nbsp;&nbsp;Also&nbsp;called&nbsp;as<br>
+write.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>itemsize</strong></dt>
+<dd><tt>the&nbsp;size,&nbsp;in&nbsp;bytes,&nbsp;of&nbsp;one&nbsp;array&nbsp;item</tt></dd>
+</dl>
+<dl><dt><strong>typecode</strong></dt>
+<dd><tt>the&nbsp;typecode&nbsp;character&nbsp;used&nbsp;to&nbsp;create&nbsp;the&nbsp;array</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a86970&gt;<dd><tt>T.<a href="#array-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

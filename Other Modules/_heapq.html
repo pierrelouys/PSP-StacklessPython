@@ -1,0 +1,73 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module _heapq</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>_heapq</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>Heap&nbsp;queue&nbsp;algorithm&nbsp;(a.k.a.&nbsp;priority&nbsp;queue).<br>
+&nbsp;<br>
+Heaps&nbsp;are&nbsp;arrays&nbsp;for&nbsp;which&nbsp;a[k]&nbsp;&lt;=&nbsp;a[2*k+1]&nbsp;and&nbsp;a[k]&nbsp;&lt;=&nbsp;a[2*k+2]&nbsp;for<br>
+all&nbsp;k,&nbsp;counting&nbsp;elements&nbsp;from&nbsp;0.&nbsp;&nbsp;For&nbsp;the&nbsp;sake&nbsp;of&nbsp;comparison,<br>
+non-existing&nbsp;elements&nbsp;are&nbsp;considered&nbsp;to&nbsp;be&nbsp;infinite.&nbsp;&nbsp;The&nbsp;interesting<br>
+property&nbsp;of&nbsp;a&nbsp;heap&nbsp;is&nbsp;that&nbsp;a[0]&nbsp;is&nbsp;always&nbsp;its&nbsp;smallest&nbsp;element.<br>
+&nbsp;<br>
+Usage:<br>
+&nbsp;<br>
+heap&nbsp;=&nbsp;[]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;creates&nbsp;an&nbsp;empty&nbsp;heap<br>
+<a href="#-heappush">heappush</a>(heap,&nbsp;item)&nbsp;#&nbsp;pushes&nbsp;a&nbsp;new&nbsp;item&nbsp;on&nbsp;the&nbsp;heap<br>
+item&nbsp;=&nbsp;<a href="#-heappop">heappop</a>(heap)&nbsp;#&nbsp;pops&nbsp;the&nbsp;smallest&nbsp;item&nbsp;from&nbsp;the&nbsp;heap<br>
+item&nbsp;=&nbsp;heap[0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;smallest&nbsp;item&nbsp;on&nbsp;the&nbsp;heap&nbsp;without&nbsp;popping&nbsp;it<br>
+<a href="#-heapify">heapify</a>(x)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;transforms&nbsp;list&nbsp;into&nbsp;a&nbsp;heap,&nbsp;in-place,&nbsp;in&nbsp;linear&nbsp;time<br>
+item&nbsp;=&nbsp;<a href="#-heapreplace">heapreplace</a>(heap,&nbsp;item)&nbsp;#&nbsp;pops&nbsp;and&nbsp;returns&nbsp;smallest&nbsp;item,&nbsp;and&nbsp;adds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;new&nbsp;item;&nbsp;the&nbsp;heap&nbsp;size&nbsp;is&nbsp;unchanged<br>
+&nbsp;<br>
+Our&nbsp;API&nbsp;differs&nbsp;from&nbsp;textbook&nbsp;heap&nbsp;algorithms&nbsp;as&nbsp;follows:<br>
+&nbsp;<br>
+-&nbsp;We&nbsp;use&nbsp;0-based&nbsp;indexing.&nbsp;&nbsp;This&nbsp;makes&nbsp;the&nbsp;relationship&nbsp;between&nbsp;the<br>
+&nbsp;&nbsp;index&nbsp;for&nbsp;a&nbsp;node&nbsp;and&nbsp;the&nbsp;indexes&nbsp;for&nbsp;its&nbsp;children&nbsp;slightly&nbsp;less<br>
+&nbsp;&nbsp;obvious,&nbsp;but&nbsp;is&nbsp;more&nbsp;suitable&nbsp;since&nbsp;Python&nbsp;uses&nbsp;0-based&nbsp;indexing.<br>
+&nbsp;<br>
+-&nbsp;Our&nbsp;<a href="#-heappop">heappop</a>()&nbsp;method&nbsp;returns&nbsp;the&nbsp;smallest&nbsp;item,&nbsp;not&nbsp;the&nbsp;largest.<br>
+&nbsp;<br>
+These&nbsp;two&nbsp;make&nbsp;it&nbsp;possible&nbsp;to&nbsp;view&nbsp;the&nbsp;heap&nbsp;as&nbsp;a&nbsp;regular&nbsp;Python&nbsp;list<br>
+without&nbsp;surprises:&nbsp;heap[0]&nbsp;is&nbsp;the&nbsp;smallest&nbsp;item,&nbsp;and&nbsp;heap.sort()<br>
+maintains&nbsp;the&nbsp;heap&nbsp;invariant!</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-heapify"><strong>heapify</strong></a>(...)</dt><dd><tt>Transform&nbsp;list&nbsp;into&nbsp;a&nbsp;heap,&nbsp;in-place,&nbsp;in&nbsp;O(len(heap))&nbsp;time.</tt></dd></dl>
+ <dl><dt><a name="-heappop"><strong>heappop</strong></a>(...)</dt><dd><tt>Pop&nbsp;the&nbsp;smallest&nbsp;item&nbsp;off&nbsp;the&nbsp;heap,&nbsp;maintaining&nbsp;the&nbsp;heap&nbsp;invariant.</tt></dd></dl>
+ <dl><dt><a name="-heappush"><strong>heappush</strong></a>(...)</dt><dd><tt>Push&nbsp;item&nbsp;onto&nbsp;heap,&nbsp;maintaining&nbsp;the&nbsp;heap&nbsp;invariant.</tt></dd></dl>
+ <dl><dt><a name="-heapreplace"><strong>heapreplace</strong></a>(...)</dt><dd><tt>Pop&nbsp;and&nbsp;return&nbsp;the&nbsp;current&nbsp;smallest&nbsp;value,&nbsp;and&nbsp;add&nbsp;the&nbsp;new&nbsp;item.<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;more&nbsp;efficient&nbsp;than&nbsp;<a href="#-heappop">heappop</a>()&nbsp;followed&nbsp;by&nbsp;<a href="#-heappush">heappush</a>(),&nbsp;and&nbsp;can&nbsp;be<br>
+more&nbsp;appropriate&nbsp;when&nbsp;using&nbsp;a&nbsp;fixed-size&nbsp;heap.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;value<br>
+returned&nbsp;may&nbsp;be&nbsp;larger&nbsp;than&nbsp;item!&nbsp;&nbsp;That&nbsp;constrains&nbsp;reasonable&nbsp;uses&nbsp;of<br>
+this&nbsp;routine&nbsp;unless&nbsp;written&nbsp;as&nbsp;part&nbsp;of&nbsp;a&nbsp;conditional&nbsp;replacement:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;item&nbsp;&gt;&nbsp;heap[0]:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item&nbsp;=&nbsp;<a href="#-heapreplace">heapreplace</a>(heap,&nbsp;item)</tt></dd></dl>
+ <dl><dt><a name="-nlargest"><strong>nlargest</strong></a>(...)</dt><dd><tt>Find&nbsp;the&nbsp;n&nbsp;largest&nbsp;elements&nbsp;in&nbsp;a&nbsp;dataset.<br>
+&nbsp;<br>
+Equivalent&nbsp;to:&nbsp;&nbsp;sorted(iterable,&nbsp;reverse=True)[:n]</tt></dd></dl>
+ <dl><dt><a name="-nsmallest"><strong>nsmallest</strong></a>(...)</dt><dd><tt>Find&nbsp;the&nbsp;n&nbsp;smallest&nbsp;elements&nbsp;in&nbsp;a&nbsp;dataset.<br>
+&nbsp;<br>
+Equivalent&nbsp;to:&nbsp;&nbsp;sorted(iterable)[:n]</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__about__</strong> = 'Heap queues<font color="#c040c0">\n\n</font>[explanation by Fran<font color="#c040c0">\xe7</font>ois Pinard]<font color="#c040c0">\n\n</font>H... times, sorting has always been a Great Art! :-)<font color="#c040c0">\n</font>'</td></tr></table>
+</body></html>

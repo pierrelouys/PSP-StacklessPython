@@ -1,0 +1,215 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module collections</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>collections</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>High&nbsp;performance&nbsp;data&nbsp;structures.<br>
+-&nbsp;<a href="#deque">deque</a>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ordered&nbsp;collection&nbsp;accessible&nbsp;from&nbsp;endpoints&nbsp;only<br>
+-&nbsp;<a href="#defaultdict">defaultdict</a>:&nbsp;&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;subclass&nbsp;with&nbsp;a&nbsp;default&nbsp;value&nbsp;factory</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#dict">__builtin__.dict</a>(<a href="__builtin__.html#object">__builtin__.object</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="collections.html#defaultdict">defaultdict</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="collections.html#deque">deque</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="defaultdict">class <strong>defaultdict</strong></a>(<a href="__builtin__.html#dict">__builtin__.dict</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#defaultdict">defaultdict</a>(default_factory)&nbsp;--&gt;&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;with&nbsp;default&nbsp;factory<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;factory&nbsp;is&nbsp;called&nbsp;without&nbsp;arguments&nbsp;to&nbsp;produce<br>
+a&nbsp;new&nbsp;value&nbsp;when&nbsp;a&nbsp;key&nbsp;is&nbsp;not&nbsp;present,&nbsp;in&nbsp;__getitem__&nbsp;only.<br>
+A&nbsp;<a href="#defaultdict">defaultdict</a>&nbsp;compares&nbsp;equal&nbsp;to&nbsp;a&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;with&nbsp;the&nbsp;same&nbsp;items.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="collections.html#defaultdict">defaultdict</a></dd>
+<dd><a href="__builtin__.html#dict">__builtin__.dict</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="defaultdict-__copy__"><strong>__copy__</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-copy">copy</a>()&nbsp;-&gt;&nbsp;a&nbsp;shallow&nbsp;copy&nbsp;of&nbsp;D.</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__missing__"><strong>__missing__</strong></a>(...)</dt><dd><tt><a href="#defaultdict-__missing__">__missing__</a>(key)&nbsp;#&nbsp;Called&nbsp;by&nbsp;__getitem__&nbsp;for&nbsp;missing&nbsp;key;&nbsp;pseudo-code:<br>
+if&nbsp;self.<strong>default_factory</strong>&nbsp;is&nbsp;None:&nbsp;raise&nbsp;KeyError((key,))<br>
+self[key]&nbsp;=&nbsp;value&nbsp;=&nbsp;<a href="#defaultdict-default_factory">default_factory</a>()<br>
+return&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Return&nbsp;state&nbsp;information&nbsp;for&nbsp;pickling.</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-copy"><strong>copy</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-copy">copy</a>()&nbsp;-&gt;&nbsp;a&nbsp;shallow&nbsp;copy&nbsp;of&nbsp;D.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>default_factory</strong></dt>
+<dd><tt>Factory&nbsp;for&nbsp;default&nbsp;value&nbsp;called&nbsp;by&nbsp;__missing__().</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="__builtin__.html#dict">__builtin__.dict</a>:<br>
+<dl><dt><a name="defaultdict-__cmp__"><strong>__cmp__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__cmp__">__cmp__</a>(y)&nbsp;&lt;==&gt;&nbsp;cmp(x,y)</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__contains__"><strong>__contains__</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-__contains__">__contains__</a>(k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__eq__"><strong>__eq__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__eq__">__eq__</a>(y)&nbsp;&lt;==&gt;&nbsp;x==y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__ge__"><strong>__ge__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__ge__">__ge__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;=y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__gt__"><strong>__gt__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__gt__">__gt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__le__"><strong>__le__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__le__">__le__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;=y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__len__"><strong>__len__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__len__">__len__</a>()&nbsp;&lt;==&gt;&nbsp;len(x)</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__lt__"><strong>__lt__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__lt__">__lt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#defaultdict-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-clear"><strong>clear</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-clear">clear</a>()&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Remove&nbsp;all&nbsp;items&nbsp;from&nbsp;D.</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-get"><strong>get</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-get">get</a>(k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;else&nbsp;d.&nbsp;&nbsp;d&nbsp;defaults&nbsp;to&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-has_key"><strong>has_key</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-has_key">has_key</a>(k)&nbsp;-&gt;&nbsp;True&nbsp;if&nbsp;D&nbsp;has&nbsp;a&nbsp;key&nbsp;k,&nbsp;else&nbsp;False</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-items"><strong>items</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-items">items</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;(key,&nbsp;value)&nbsp;pairs,&nbsp;as&nbsp;2-tuples</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-iteritems"><strong>iteritems</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-iteritems">iteritems</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;(key,&nbsp;value)&nbsp;items&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-iterkeys"><strong>iterkeys</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-iterkeys">iterkeys</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;keys&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-itervalues"><strong>itervalues</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-itervalues">itervalues</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;values&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-keys"><strong>keys</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-keys">keys</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;keys</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-pop"><strong>pop</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-pop">pop</a>(k[,d])&nbsp;-&gt;&nbsp;v,&nbsp;remove&nbsp;specified&nbsp;key&nbsp;and&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;value<br>
+If&nbsp;key&nbsp;is&nbsp;not&nbsp;found,&nbsp;d&nbsp;is&nbsp;returned&nbsp;if&nbsp;given,&nbsp;otherwise&nbsp;KeyError&nbsp;is&nbsp;raised</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-popitem"><strong>popitem</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-popitem">popitem</a>()&nbsp;-&gt;&nbsp;(k,&nbsp;v),&nbsp;remove&nbsp;and&nbsp;return&nbsp;some&nbsp;(key,&nbsp;value)&nbsp;pair&nbsp;as&nbsp;a<br>
+2-tuple;&nbsp;but&nbsp;raise&nbsp;KeyError&nbsp;if&nbsp;D&nbsp;is&nbsp;empty</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-setdefault"><strong>setdefault</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-setdefault">setdefault</a>(k[,d])&nbsp;-&gt;&nbsp;D.<a href="#defaultdict-get">get</a>(k,d),&nbsp;also&nbsp;set&nbsp;D[k]=d&nbsp;if&nbsp;k&nbsp;not&nbsp;in&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-update"><strong>update</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-update">update</a>(E,&nbsp;**F)&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Update&nbsp;D&nbsp;from&nbsp;E&nbsp;and&nbsp;F:&nbsp;for&nbsp;k&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;E[k]<br>
+(if&nbsp;E&nbsp;has&nbsp;keys&nbsp;else:&nbsp;for&nbsp;(k,&nbsp;v)&nbsp;in&nbsp;E:&nbsp;D[k]&nbsp;=&nbsp;v)&nbsp;then:&nbsp;for&nbsp;k&nbsp;in&nbsp;F:&nbsp;D[k]&nbsp;=&nbsp;F[k]</tt></dd></dl>
+
+<dl><dt><a name="defaultdict-values"><strong>values</strong></a>(...)</dt><dd><tt>D.<a href="#defaultdict-values">values</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;values</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="__builtin__.html#dict">__builtin__.dict</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ab3e48&gt;<dd><tt>T.<a href="#defaultdict-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<dl><dt><strong>fromkeys</strong> = &lt;built-in method fromkeys of type object at 0x8a7a0ac&gt;<dd><tt><a href="__builtin__.html#dict">dict</a>.<a href="#defaultdict-fromkeys">fromkeys</a>(S[,v])&nbsp;-&gt;&nbsp;New&nbsp;<a href="__builtin__.html#dict">dict</a>&nbsp;with&nbsp;keys&nbsp;from&nbsp;S&nbsp;and&nbsp;values&nbsp;equal&nbsp;to&nbsp;v.<br>
+v&nbsp;defaults&nbsp;to&nbsp;None.</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="deque">class <strong>deque</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#deque">deque</a>(iterable)&nbsp;--&gt;&nbsp;<a href="#deque">deque</a>&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Build&nbsp;an&nbsp;ordered&nbsp;collection&nbsp;accessible&nbsp;from&nbsp;endpoints&nbsp;only.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="deque-__copy__"><strong>__copy__</strong></a>(...)</dt><dd><tt>Return&nbsp;a&nbsp;shallow&nbsp;copy&nbsp;of&nbsp;a&nbsp;<a href="#deque">deque</a>.</tt></dd></dl>
+
+<dl><dt><a name="deque-__delitem__"><strong>__delitem__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__delitem__">__delitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;del&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="deque-__eq__"><strong>__eq__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__eq__">__eq__</a>(y)&nbsp;&lt;==&gt;&nbsp;x==y</tt></dd></dl>
+
+<dl><dt><a name="deque-__ge__"><strong>__ge__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__ge__">__ge__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;=y</tt></dd></dl>
+
+<dl><dt><a name="deque-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="deque-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="deque-__gt__"><strong>__gt__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__gt__">__gt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&gt;y</tt></dd></dl>
+
+<dl><dt><a name="deque-__hash__"><strong>__hash__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__hash__">__hash__</a>()&nbsp;&lt;==&gt;&nbsp;hash(x)</tt></dd></dl>
+
+<dl><dt><a name="deque-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="deque-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="deque-__le__"><strong>__le__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__le__">__le__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;=y</tt></dd></dl>
+
+<dl><dt><a name="deque-__len__"><strong>__len__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__len__">__len__</a>()&nbsp;&lt;==&gt;&nbsp;len(x)</tt></dd></dl>
+
+<dl><dt><a name="deque-__lt__"><strong>__lt__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__lt__">__lt__</a>(y)&nbsp;&lt;==&gt;&nbsp;x&lt;y</tt></dd></dl>
+
+<dl><dt><a name="deque-__ne__"><strong>__ne__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__ne__">__ne__</a>(y)&nbsp;&lt;==&gt;&nbsp;x!=y</tt></dd></dl>
+
+<dl><dt><a name="deque-__reduce__"><strong>__reduce__</strong></a>(...)</dt><dd><tt>Return&nbsp;state&nbsp;information&nbsp;for&nbsp;pickling.</tt></dd></dl>
+
+<dl><dt><a name="deque-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="deque-__reversed__"><strong>__reversed__</strong></a>(...)</dt><dd><tt>D.<a href="#deque-__reversed__">__reversed__</a>()&nbsp;--&nbsp;return&nbsp;a&nbsp;reverse&nbsp;iterator&nbsp;over&nbsp;the&nbsp;<a href="#deque">deque</a></tt></dd></dl>
+
+<dl><dt><a name="deque-__setitem__"><strong>__setitem__</strong></a>(...)</dt><dd><tt>x.<a href="#deque-__setitem__">__setitem__</a>(i,&nbsp;y)&nbsp;&lt;==&gt;&nbsp;x[i]=y</tt></dd></dl>
+
+<dl><dt><a name="deque-append"><strong>append</strong></a>(...)</dt><dd><tt>Add&nbsp;an&nbsp;element&nbsp;to&nbsp;the&nbsp;right&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#deque">deque</a>.</tt></dd></dl>
+
+<dl><dt><a name="deque-appendleft"><strong>appendleft</strong></a>(...)</dt><dd><tt>Add&nbsp;an&nbsp;element&nbsp;to&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#deque">deque</a>.</tt></dd></dl>
+
+<dl><dt><a name="deque-clear"><strong>clear</strong></a>(...)</dt><dd><tt>Remove&nbsp;all&nbsp;elements&nbsp;from&nbsp;the&nbsp;<a href="#deque">deque</a>.</tt></dd></dl>
+
+<dl><dt><a name="deque-extend"><strong>extend</strong></a>(...)</dt><dd><tt>Extend&nbsp;the&nbsp;right&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#deque">deque</a>&nbsp;with&nbsp;elements&nbsp;from&nbsp;the&nbsp;iterable</tt></dd></dl>
+
+<dl><dt><a name="deque-extendleft"><strong>extendleft</strong></a>(...)</dt><dd><tt>Extend&nbsp;the&nbsp;left&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#deque">deque</a>&nbsp;with&nbsp;elements&nbsp;from&nbsp;the&nbsp;iterable</tt></dd></dl>
+
+<dl><dt><a name="deque-pop"><strong>pop</strong></a>(...)</dt><dd><tt>Remove&nbsp;and&nbsp;return&nbsp;the&nbsp;rightmost&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="deque-popleft"><strong>popleft</strong></a>(...)</dt><dd><tt>Remove&nbsp;and&nbsp;return&nbsp;the&nbsp;leftmost&nbsp;element.</tt></dd></dl>
+
+<dl><dt><a name="deque-remove"><strong>remove</strong></a>(...)</dt><dd><tt>D.<a href="#deque-remove">remove</a>(value)&nbsp;--&nbsp;remove&nbsp;first&nbsp;occurrence&nbsp;of&nbsp;value.</tt></dd></dl>
+
+<dl><dt><a name="deque-rotate"><strong>rotate</strong></a>(...)</dt><dd><tt>Rotate&nbsp;the&nbsp;<a href="#deque">deque</a>&nbsp;n&nbsp;steps&nbsp;to&nbsp;the&nbsp;right&nbsp;(default&nbsp;n=1).&nbsp;&nbsp;If&nbsp;n&nbsp;is&nbsp;negative,&nbsp;rotates&nbsp;left.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a79eb0&gt;<dd><tt>T.<a href="#deque-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

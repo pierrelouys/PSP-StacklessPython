@@ -1,0 +1,696 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module osl</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>osl</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="osl.html#Controller">Controller</a>
+</font></dt><dt><font face="helvetica, arial"><a href="osl.html#Font">Font</a>
+</font></dt><dt><font face="helvetica, arial"><a href="osl.html#Image">Image</a>
+</font></dt><dt><font face="helvetica, arial"><a href="osl.html#Map">Map</a>
+</font></dt><dt><font face="helvetica, arial"><a href="osl.html#SFont">SFont</a>
+</font></dt><dt><font face="helvetica, arial"><a href="osl.html#Sound">Sound</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="osl.html#Error">Error</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Controller">class <strong>Controller</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Controller">Controller</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Controller-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Controller-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>analogX</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>analogY</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>autoRepeatCounter</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>autoRepeatInit</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>autoRepeatInterval</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>autoRepeatMask</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_L</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_R</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_circle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_cross</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_down</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_hold</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_home</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_left</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_note</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_right</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_select</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_square</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_start</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_triangle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>held_up</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_L</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_R</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_circle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_cross</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_down</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_hold</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_home</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_left</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_note</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_right</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_select</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_square</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_start</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_triangle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>pressed_up</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_L</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_R</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_circle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_cross</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_down</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_hold</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_home</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_left</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_note</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_right</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_select</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_square</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_start</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_triangle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>released_up</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ac9380&gt;<dd><tt>T.<a href="#Controller-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Error">class <strong>Error</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="osl.html#Error">Error</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="Error-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#Error-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="Error-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="Error-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="Error-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="Error-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="Error-__reduce__"><strong>__reduce__</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Error-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="Error-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="Error-__setstate__"><strong>__setstate__</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Error-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#Error-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Font">class <strong>Font</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Font">Font</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Font-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Font-__init__">__init__</a>(filename)&nbsp;Loads a font from a file. </tt></dd></dl>
+
+<dl><dt><a name="Font-set"><strong>set</strong></a>(...)</dt><tt>Sets this font as the current font.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ac9e5c&gt;<dd><tt>T.<a href="#Font-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Image">class <strong>Image</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Image">Image</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Image-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Image-__init__">__init__</a><blockquote>
+<p>
+<tt>__init__(filename, location=osl.IN_VRAM, pf=osl.PF_8888)</tt>
+</p>
+</blockquote>
+<p>
+This constructor loads an image from a file (OSLib only supports PNG at the moment).
+</p>
+<blockquote>
+<p>
+<tt>__init__((w, h), location=osl.IN_VRAM, pf=osl.PF_8888)</tt>
+</p>
+</blockquote>
+<p>
+This constructor creates an image. Initial content is undefined. Note that the first argument is a 2-tuple of integers.
+</p></tt></dd></dl>
+
+<dl><dt><a name="Image-clear"><strong>clear</strong></a>(color)</dt><tt>oslClearImage(self, color)</tt></dd></dl>
+
+<dl><dt><a name="Image-convert"><strong>convert</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-copy"><strong>copy</strong></a>(...)</dt><tt>Copies another image into this one. They must have the same pixel format. Maps to oslCopyImage.</tt></dd></dl>
+
+<dl><dt><a name="Image-correctHalfBorder"><strong>correctHalfBorder</strong></a>(...)</dt><tt>Wraps oslCorrectImageHalfBorder(). I don't event know what this is for.</tt></dd></dl>
+
+<dl><dt><a name="Image-draw"><strong>draw</strong></a>(...)</dt><tt>Wraps oslDrawImage().</tt></dd></dl>
+
+<dl><dt><a name="Image-getpixel"><strong>getpixel</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-lock"><strong>lock</strong></a>(...)</dt><tt>oslLockImage()</tt></dd></dl>
+
+<dl><dt><a name="Image-mirrorH"><strong>mirrorH</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-mirrorV"><strong>mirrorV</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-move"><strong>move</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-rotate"><strong>rotate</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-setFrame"><strong>setFrame</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-setFrameSize"><strong>setFrameSize</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-setRotationCenter"><strong>setRotationCenter</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-setpixel"><strong>setpixel</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-swizzle"><strong>swizzle</strong></a>(dst)</dt><tt>oslSwizzleImage(dst, self)</tt></dd></dl>
+
+<dl><dt><a name="Image-swizzleto"><strong>swizzleto</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="Image-tile"><strong>tile</strong></a>(x0, y0, x1, y1)</dt><tt>oslCreateImageTile()</tt></dd></dl>
+
+<dl><dt><a name="Image-uncache"><strong>uncache</strong></a>(...)</dt><tt>Wraps oslUncacheImage().</tt></dd></dl>
+
+<dl><dt><a name="Image-unlock"><strong>unlock</strong></a>(...)</dt><tt>oslUnlockImage()</tt></dd></dl>
+
+<dl><dt><a name="Image-write"><strong>write</strong></a>(...)</dt><tt><p>
+Writes the image to a file
+</p>
+<p>Warning!</p>
+<p>
+When images are created in VRAM, the last created one must be destroyed first. This isn't handled yet, so avoid using images in VRAM, or ensure you delete the references in the right order.
+</p></tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>angle</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>autoStrip</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>centerX</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>centerY</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>offsetX0</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>offsetX1</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>offsetY0</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>offsetY1</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>sizeX</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>sizeY</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>stretchX</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>stretchY</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>x</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>y</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ac8ef4&gt;<dd><tt>T.<a href="#Image-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Map">class <strong>Map</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Map">Map</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Map-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Map-__init__">__init__</a>(img, data, tileX, tileY)&nbsp;'img' must be an instance of osl.Image or a subclass thereof. 'data' must be a list of list of integers. See the Maps sample.</tt></dd></dl>
+
+<dl><dt><a name="Map-draw"><strong>draw</strong></a>(...)</dt><tt>Wraps oslDrawMap().</tt></dd></dl>
+
+<dl><dt><a name="Map-drawSimple"><strong>drawSimple</strong></a>(...)</dt><tt>Wraps oslDrawMapSimple().</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>scrollX</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>scrollY</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ac9bf0&gt;<dd><tt>T.<a href="#Map-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SFont">class <strong>SFont</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SFont">SFont</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SFont-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#SFont-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="SFont-drawString"><strong>drawString</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<dl><dt><a name="SFont-measureText"><strong>measureText</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8aca07c&gt;<dd><tt>T.<a href="#SFont-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sound">class <strong>Sound</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Sound">Sound</a>&nbsp;objects<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Sound-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#Sound-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="Sound-getChannel"><strong>getChannel</strong></a>(...)</dt><tt>Returns the channel used for this sound.</tt></dd></dl>
+
+<dl><dt><a name="Sound-loop"><strong>loop</strong></a>(loop=1)</dt><tt>Sets looping on/off.</tt></dd></dl>
+
+<dl><dt><a name="Sound-pause"><strong>pause</strong></a>(pause=1)</dt><tt>Pauses the playback.</tt></dd></dl>
+
+<dl><dt><a name="Sound-play"><strong>play</strong></a>(voice=0)</dt><tt>Plays the sound.</tt></dd></dl>
+
+<dl><dt><a name="Sound-stop"><strong>stop</strong></a>(...)</dt><tt>Stops playing.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8ac9990&gt;<dd><tt>T.<a href="#Sound-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-RGB"><strong>RGB</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGB12"><strong>RGB12</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGB15"><strong>RGB15</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGB16"><strong>RGB16</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGBA"><strong>RGBA</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGBA12"><strong>RGBA12</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-RGBA15"><strong>RGBA15</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-audioVSync"><strong>audioVSync</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-clearScreen"><strong>clearScreen</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-cls"><strong>cls</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-dialogGetResult"><strong>dialogGetResult</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-disableTransparentColor"><strong>disableTransparentColor</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-doQuit"><strong>doQuit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawDialog"><strong>drawDialog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawFillRect"><strong>drawFillRect</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawGradientRect"><strong>drawGradientRect</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawLine"><strong>drawLine</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawOsk"><strong>drawOsk</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawRect"><strong>drawRect</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-drawString"><strong>drawString</strong></a>(x, y, string)</dt><tt>Draws a string using the current font</tt></dd></dl>
+ <dl><dt><a name="-drawTextBox"><strong>drawTextBox</strong></a>(x0, y0, x1, y1, string, format)</dt><tt>oslDrawTextBox</tt></dd></dl>
+ <dl><dt><a name="-endDialog"><strong>endDialog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-endDrawing"><strong>endDrawing</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-endFrame"><strong>endFrame</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-endGfx"><strong>endGfx</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-endOsk"><strong>endOsk</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-flushDataCache"><strong>flushDataCache</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-flushKey"><strong>flushKey</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-getDialogButtonPressed"><strong>getDialogButtonPressed</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-getDialogStatus"><strong>getDialogStatus</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-getDialogType"><strong>getDialogType</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-getFPS"><strong>getFPS</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-getOskStatus"><strong>getOskStatus</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initAudio"><strong>initAudio</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initConsole"><strong>initConsole</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initErrorDialog"><strong>initErrorDialog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initGfx"><strong>initGfx</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initMessageDialog"><strong>initMessageDialog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initNetDialog"><strong>initNetDialog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-initOsk"><strong>initOsk</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-intraFontInit"><strong>intraFontInit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-intraFontSetStyle"><strong>intraFontSetStyle</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-intraFontShutdown"><strong>intraFontShutdown</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-kbhit"><strong>kbhit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-messageBox"><strong>messageBox</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-moveTo"><strong>moveTo</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-mustQuit"><strong>mustQuit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-netInit"><strong>netInit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-netTerm"><strong>netTerm</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-oskGetResult"><strong>oskGetResult</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-oskGetText"><strong>oskGetText</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-oskIsActive"><strong>oskIsActive</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-print"><strong>print</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-printxy"><strong>printxy</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-safeQuit"><strong>safeQuit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-saveScreenshot"><strong>saveScreenshot</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setAlpha"><strong>setAlpha</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setBilinearFilter"><strong>setBilinearFilter</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setBkColor"><strong>setBkColor</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setDithering"><strong>setDithering</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setDrawBuffer"><strong>setDrawBuffer</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setFrameskip"><strong>setFrameskip</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setHoldForAnalog"><strong>setHoldForAnalog</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setKeyAnalogToDPad"><strong>setKeyAnalogToDPad</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setKeyAutorepeat"><strong>setKeyAutorepeat</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setKeyAutorepeatInit"><strong>setKeyAutorepeatInit</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setKeyAutorepeatInterval"><strong>setKeyAutorepeatInterval</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setKeyAutorepeatMask"><strong>setKeyAutorepeatMask</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setMaxFrameskip"><strong>setMaxFrameskip</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setQuitOnLoadFailure"><strong>setQuitOnLoadFailure</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setScreenClipping"><strong>setScreenClipping</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setTextColor"><strong>setTextColor</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-setTransparentColor"><strong>setTransparentColor</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-startDrawing"><strong>startDrawing</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-swapBuffers"><strong>swapBuffers</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-syncDrawing"><strong>syncDrawing</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-syncFrame"><strong>syncFrame</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-syncFrameEx"><strong>syncFrameEx</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-waitKey"><strong>waitKey</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+ <dl><dt><a name="-waitVSync"><strong>waitVSync</strong></a>(...)</dt><tt>MISSING_DOC</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULT_BUFFER</strong> = 145617296<br>
+<strong>DIALOG_CANCEL</strong> = 1<br>
+<strong>DIALOG_ERROR</strong> = 2<br>
+<strong>DIALOG_MESSAGE</strong> = 1<br>
+<strong>DIALOG_NETCONF</strong> = 3<br>
+<strong>DIALOG_NONE</strong> = 0<br>
+<strong>DIALOG_OK</strong> = 0<br>
+<strong>ERR_APCTL_CONNECT</strong> = -11<br>
+<strong>ERR_APCTL_GETINFO</strong> = -10<br>
+<strong>ERR_APCTL_GETSTATE</strong> = -13<br>
+<strong>ERR_APCTL_TIMEOUT</strong> = -12<br>
+<strong>ERR_RESOLVER_CREATE</strong> = -14<br>
+<strong>ERR_RESOLVER_RESOLVING</strong> = -15<br>
+<strong>ERR_WLAN_OFF</strong> = -16<br>
+<strong>FMT_NONE</strong> = 0<br>
+<strong>FMT_STREAM</strong> = 1024<br>
+<strong>FX_ADD</strong> = 3<br>
+<strong>FX_ALPHA</strong> = 2<br>
+<strong>FX_COLOR</strong> = 4096<br>
+<strong>FX_FLAT</strong> = 1<br>
+<strong>FX_NONE</strong> = 0<br>
+<strong>FX_RGBA</strong> = 256<br>
+<strong>FX_SUB</strong> = 4<br>
+<strong>INTRAFONT_ACTIVE</strong> = 145110268<br>
+<strong>INTRAFONT_ADVANCE_H</strong> = 145109992<br>
+<strong>INTRAFONT_ADVANCE_V</strong> = 145110012<br>
+<strong>INTRAFONT_ALIGN_CENTER</strong> = 145110056<br>
+<strong>INTRAFONT_ALIGN_FULL</strong> = 145110104<br>
+<strong>INTRAFONT_ALIGN_LEFT</strong> = 145110032<br>
+<strong>INTRAFONT_ALIGN_RIGHT</strong> = 145110080<br>
+<strong>INTRAFONT_CACHE_ALL</strong> = 145110356<br>
+<strong>INTRAFONT_CACHE_ASCII</strong> = 145110332<br>
+<strong>INTRAFONT_CACHE_LARGE</strong> = 145110308<br>
+<strong>INTRAFONT_CACHE_MED</strong> = 145110288<br>
+<strong>INTRAFONT_SCROLL_LEFT</strong> = 145110128<br>
+<strong>INTRAFONT_SCROLL_RIGHT</strong> = 145110176<br>
+<strong>INTRAFONT_SCROLL_SEESAW</strong> = 145110152<br>
+<strong>INTRAFONT_SCROLL_THROUGH</strong> = 145110200<br>
+<strong>INTRAFONT_STRING_ASCII</strong> = 145110376<br>
+<strong>INTRAFONT_STRING_BIG5</strong> = 145110544<br>
+<strong>INTRAFONT_STRING_CP1251</strong> = 145110568<br>
+<strong>INTRAFONT_STRING_CP1252</strong> = 145110592<br>
+<strong>INTRAFONT_STRING_CP437</strong> = 145110400<br>
+<strong>INTRAFONT_STRING_CP850</strong> = 145110424<br>
+<strong>INTRAFONT_STRING_CP866</strong> = 145110448<br>
+<strong>INTRAFONT_STRING_GBK</strong> = 145110496<br>
+<strong>INTRAFONT_STRING_KOR</strong> = 145110520<br>
+<strong>INTRAFONT_STRING_SJIS</strong> = 145110472<br>
+<strong>INTRAFONT_STRING_UTF8</strong> = 145110616<br>
+<strong>INTRAFONT_WIDTH_FIX</strong> = 145110248<br>
+<strong>INTRAFONT_WIDTH_VAR</strong> = 145110228<br>
+<strong>IN_RAM</strong> = 2<br>
+<strong>IN_VRAM</strong> = 1<br>
+<strong>KEYMASK_CIRCLE</strong> = 8192<br>
+<strong>KEYMASK_CROSS</strong> = 16384<br>
+<strong>KEYMASK_DOWN</strong> = 64<br>
+<strong>KEYMASK_HOLD</strong> = 131072<br>
+<strong>KEYMASK_HOME</strong> = 65536<br>
+<strong>KEYMASK_L</strong> = 256<br>
+<strong>KEYMASK_LEFT</strong> = 128<br>
+<strong>KEYMASK_NOTE</strong> = 8388608<br>
+<strong>KEYMASK_R</strong> = 512<br>
+<strong>KEYMASK_RIGHT</strong> = 32<br>
+<strong>KEYMASK_SELECT</strong> = 1<br>
+<strong>KEYMASK_SQUARE</strong> = 32768<br>
+<strong>KEYMASK_START</strong> = 8<br>
+<strong>KEYMASK_TRIANGLE</strong> = 4096<br>
+<strong>KEYMASK_UP</strong> = 16<br>
+<strong>KEY_CIRCLE</strong> = 14<br>
+<strong>KEY_CROSS</strong> = 15<br>
+<strong>KEY_DOWN</strong> = 7<br>
+<strong>KEY_HOLD</strong> = 18<br>
+<strong>KEY_HOME</strong> = 17<br>
+<strong>KEY_L</strong> = 9<br>
+<strong>KEY_LEFT</strong> = 8<br>
+<strong>KEY_NOTE</strong> = 24<br>
+<strong>KEY_R</strong> = 10<br>
+<strong>KEY_RIGHT</strong> = 6<br>
+<strong>KEY_SELECT</strong> = 1<br>
+<strong>KEY_SQUARE</strong> = 16<br>
+<strong>KEY_START</strong> = 4<br>
+<strong>KEY_TRIANGLE</strong> = 13<br>
+<strong>KEY_UP</strong> = 5<br>
+<strong>MB_CANCEL</strong> = 2<br>
+<strong>MB_NO</strong> = 4<br>
+<strong>MB_OK</strong> = 1<br>
+<strong>MB_QUIT</strong> = 5<br>
+<strong>MB_YES</strong> = 3<br>
+<strong>NET_ERROR_APCTL</strong> = -4<br>
+<strong>NET_ERROR_CERT</strong> = -8<br>
+<strong>NET_ERROR_COOKIE</strong> = -9<br>
+<strong>NET_ERROR_HTTP</strong> = -6<br>
+<strong>NET_ERROR_HTTPS</strong> = -7<br>
+<strong>NET_ERROR_INET</strong> = -2<br>
+<strong>NET_ERROR_NET</strong> = -1<br>
+<strong>NET_ERROR_RESOLVER</strong> = -3<br>
+<strong>NET_ERROR_SSL</strong> = -5<br>
+<strong>OSK_CANCEL</strong> = 1<br>
+<strong>OSK_CHINESE_SIMPLIFIED</strong> = 145109972<br>
+<strong>OSK_CHINESE_TRADITIONAL</strong> = 145109948<br>
+<strong>OSK_DUTCH</strong> = 145109896<br>
+<strong>OSK_ENGLISH</strong> = 145109836<br>
+<strong>OSK_FRENCH</strong> = 145109848<br>
+<strong>OSK_GERMAN</strong> = 145109872<br>
+<strong>OSK_ITALIAN</strong> = 145109884<br>
+<strong>OSK_JAPANESE</strong> = 145109820<br>
+<strong>OSK_KOREAN</strong> = 145109936<br>
+<strong>OSK_OK</strong> = 0<br>
+<strong>OSK_PORTUGUESE</strong> = 145109908<br>
+<strong>OSK_RUSSIAN</strong> = 145109924<br>
+<strong>OSK_SPANISH</strong> = 145109860<br>
+<strong>PF_4444</strong> = 2<br>
+<strong>PF_4BIT</strong> = 4<br>
+<strong>PF_5551</strong> = 1<br>
+<strong>PF_5650</strong> = 0<br>
+<strong>PF_8888</strong> = 3<br>
+<strong>PF_8BIT</strong> = 5<br>
+<strong>SECONDARY_BUFFER</strong> = 145617380<br>
+<strong>SWIZZLED</strong> = 8<br>
+<strong>USER_ABORTED</strong> = -17</td></tr></table>
+</body></html>

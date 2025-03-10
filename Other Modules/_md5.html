@@ -1,0 +1,110 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module _md5</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>_md5</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;implements&nbsp;the&nbsp;interface&nbsp;to&nbsp;RSA's&nbsp;MD5&nbsp;message&nbsp;digest<br>
+algorithm&nbsp;(see&nbsp;also&nbsp;Internet&nbsp;<a href="http://www.rfc-editor.org/rfc/rfc1321.txt">RFC&nbsp;1321</a>).&nbsp;Its&nbsp;use&nbsp;is&nbsp;quite<br>
+straightforward:&nbsp;use&nbsp;the&nbsp;<a href="#-new">new</a>()&nbsp;to&nbsp;create&nbsp;an&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;You&nbsp;can&nbsp;now<br>
+feed&nbsp;this&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;arbitrary&nbsp;strings&nbsp;using&nbsp;the&nbsp;update()&nbsp;method,&nbsp;and<br>
+at&nbsp;any&nbsp;point&nbsp;you&nbsp;can&nbsp;ask&nbsp;it&nbsp;for&nbsp;the&nbsp;digest&nbsp;(a&nbsp;strong&nbsp;kind&nbsp;of&nbsp;128-bit<br>
+checksum,&nbsp;a.k.a.&nbsp;``fingerprint'')&nbsp;of&nbsp;the&nbsp;concatenation&nbsp;of&nbsp;the&nbsp;strings<br>
+fed&nbsp;to&nbsp;it&nbsp;so&nbsp;far&nbsp;using&nbsp;the&nbsp;digest()&nbsp;method.<br>
+&nbsp;<br>
+Functions:<br>
+&nbsp;<br>
+<a href="#-new">new</a>([arg])&nbsp;--&nbsp;return&nbsp;a&nbsp;new&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a>,&nbsp;initialized&nbsp;with&nbsp;arg&nbsp;if&nbsp;provided<br>
+md5([arg])&nbsp;--&nbsp;DEPRECATED,&nbsp;same&nbsp;as&nbsp;new,&nbsp;but&nbsp;for&nbsp;compatibility<br>
+&nbsp;<br>
+Special&nbsp;Objects:<br>
+&nbsp;<br>
+<a href="#MD5Type">MD5Type</a>&nbsp;--&nbsp;type&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;for&nbsp;md5&nbsp;objects</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">md5
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>MD5Type</strong> = <a name="MD5Type">class md5</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>An&nbsp;md5&nbsp;represents&nbsp;the&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;used&nbsp;to&nbsp;calculate&nbsp;the&nbsp;MD5&nbsp;checksum&nbsp;of&nbsp;a<br>
+string&nbsp;of&nbsp;information.<br>
+&nbsp;<br>
+Methods:<br>
+&nbsp;<br>
+<a href="#MD5Type-update">update</a>()&nbsp;--&nbsp;updates&nbsp;the&nbsp;current&nbsp;digest&nbsp;with&nbsp;an&nbsp;additional&nbsp;string<br>
+<a href="#MD5Type-digest">digest</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;current&nbsp;digest&nbsp;value<br>
+<a href="#MD5Type-hexdigest">hexdigest</a>()&nbsp;--&nbsp;return&nbsp;the&nbsp;current&nbsp;digest&nbsp;as&nbsp;a&nbsp;string&nbsp;of&nbsp;hexadecimal&nbsp;digits<br>
+<a href="#MD5Type-copy">copy</a>()&nbsp;--&nbsp;return&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;current&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="md5-copy"><strong>copy</strong></a>(...)</dt><dd><tt><a href="#MD5Type-copy">copy</a>()&nbsp;-&gt;&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;copy&nbsp;(``clone'')&nbsp;of&nbsp;the&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="md5-digest"><strong>digest</strong></a>(...)</dt><dd><tt><a href="#MD5Type-digest">digest</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;digest&nbsp;of&nbsp;the&nbsp;strings&nbsp;passed&nbsp;to&nbsp;the&nbsp;<a href="#MD5Type-update">update</a>()&nbsp;method&nbsp;so<br>
+far.&nbsp;This&nbsp;is&nbsp;a&nbsp;16-byte&nbsp;string&nbsp;which&nbsp;may&nbsp;contain&nbsp;non-ASCII&nbsp;characters,<br>
+including&nbsp;null&nbsp;bytes.</tt></dd></dl>
+
+<dl><dt><a name="md5-hexdigest"><strong>hexdigest</strong></a>(...)</dt><dd><tt><a href="#MD5Type-hexdigest">hexdigest</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Like&nbsp;<a href="#MD5Type-digest">digest</a>(),&nbsp;but&nbsp;returns&nbsp;the&nbsp;digest&nbsp;as&nbsp;a&nbsp;string&nbsp;of&nbsp;hexadecimal&nbsp;digits.</tt></dd></dl>
+
+<dl><dt><a name="md5-update"><strong>update</strong></a>(...)</dt><dd><tt>update&nbsp;(arg)<br>
+&nbsp;<br>
+Update&nbsp;the&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;the&nbsp;string&nbsp;arg.&nbsp;Repeated&nbsp;calls&nbsp;are<br>
+equivalent&nbsp;to&nbsp;a&nbsp;single&nbsp;call&nbsp;with&nbsp;the&nbsp;concatenation&nbsp;of&nbsp;all&nbsp;the<br>
+arguments.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>block_size</strong></dt>
+</dl>
+<dl><dt><strong>digest_size</strong></dt>
+</dl>
+<dl><dt><strong>digestsize</strong></dt>
+</dl>
+<dl><dt><strong>name</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-new"><strong>new</strong></a>(...)</dt><dd><tt><a href="#-new">new</a>([arg])&nbsp;-&gt;&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;new&nbsp;md5&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;If&nbsp;arg&nbsp;is&nbsp;present,&nbsp;the&nbsp;method&nbsp;call&nbsp;update(arg)<br>
+is&nbsp;made.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>digest_size</strong> = 16</td></tr></table>
+</body></html>

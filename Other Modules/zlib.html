@@ -1,0 +1,147 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module zlib</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>zlib</strong></big></big> (version 1.0)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>The&nbsp;functions&nbsp;in&nbsp;this&nbsp;module&nbsp;allow&nbsp;compression&nbsp;and&nbsp;decompression&nbsp;using&nbsp;the<br>
+zlib&nbsp;library,&nbsp;which&nbsp;is&nbsp;based&nbsp;on&nbsp;GNU&nbsp;zip.<br>
+&nbsp;<br>
+<a href="#-adler32">adler32</a>(string[,&nbsp;start])&nbsp;--&nbsp;Compute&nbsp;an&nbsp;Adler-32&nbsp;checksum.<br>
+<a href="#-compress">compress</a>(string[,&nbsp;level])&nbsp;--&nbsp;Compress&nbsp;string,&nbsp;with&nbsp;compression&nbsp;level&nbsp;in&nbsp;1-9.<br>
+<a href="#-compressobj">compressobj</a>([level])&nbsp;--&nbsp;Return&nbsp;a&nbsp;compressor&nbsp;object.<br>
+<a href="#-crc32">crc32</a>(string[,&nbsp;start])&nbsp;--&nbsp;Compute&nbsp;a&nbsp;CRC-32&nbsp;checksum.<br>
+<a href="#-decompress">decompress</a>(string,[wbits],[bufsize])&nbsp;--&nbsp;Decompresses&nbsp;a&nbsp;compressed&nbsp;string.<br>
+<a href="#-decompressobj">decompressobj</a>([wbits])&nbsp;--&nbsp;Return&nbsp;a&nbsp;decompressor&nbsp;object.<br>
+&nbsp;<br>
+'wbits'&nbsp;is&nbsp;window&nbsp;buffer&nbsp;size.<br>
+Compressor&nbsp;objects&nbsp;support&nbsp;<a href="#-compress">compress</a>()&nbsp;and&nbsp;flush()&nbsp;methods;&nbsp;decompressor<br>
+objects&nbsp;support&nbsp;<a href="#-decompress">decompress</a>()&nbsp;and&nbsp;flush().</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="zlib.html#error">error</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="error">class <strong>error</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="zlib.html#error">error</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="error-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#error-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;object&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="error-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="error-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="error-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="error-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="error-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="error-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="error-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-adler32"><strong>adler32</strong></a>(...)</dt><dd><tt><a href="#-adler32">adler32</a>(string[,&nbsp;start])&nbsp;--&nbsp;Compute&nbsp;an&nbsp;Adler-32&nbsp;checksum&nbsp;of&nbsp;string.<br>
+&nbsp;<br>
+An&nbsp;optional&nbsp;starting&nbsp;value&nbsp;can&nbsp;be&nbsp;specified.&nbsp;&nbsp;The&nbsp;returned&nbsp;checksum&nbsp;is<br>
+an&nbsp;integer.</tt></dd></dl>
+ <dl><dt><a name="-compress"><strong>compress</strong></a>(...)</dt><dd><tt><a href="#-compress">compress</a>(string[,&nbsp;level])&nbsp;--&nbsp;Returned&nbsp;compressed&nbsp;string.<br>
+&nbsp;<br>
+Optional&nbsp;arg&nbsp;level&nbsp;is&nbsp;the&nbsp;compression&nbsp;level,&nbsp;in&nbsp;1-9.</tt></dd></dl>
+ <dl><dt><a name="-compressobj"><strong>compressobj</strong></a>(...)</dt><dd><tt><a href="#-compressobj">compressobj</a>([level])&nbsp;--&nbsp;Return&nbsp;a&nbsp;compressor&nbsp;object.<br>
+&nbsp;<br>
+Optional&nbsp;arg&nbsp;level&nbsp;is&nbsp;the&nbsp;compression&nbsp;level,&nbsp;in&nbsp;1-9.</tt></dd></dl>
+ <dl><dt><a name="-crc32"><strong>crc32</strong></a>(...)</dt><dd><tt><a href="#-crc32">crc32</a>(string[,&nbsp;start])&nbsp;--&nbsp;Compute&nbsp;a&nbsp;CRC-32&nbsp;checksum&nbsp;of&nbsp;string.<br>
+&nbsp;<br>
+An&nbsp;optional&nbsp;starting&nbsp;value&nbsp;can&nbsp;be&nbsp;specified.&nbsp;&nbsp;The&nbsp;returned&nbsp;checksum&nbsp;is<br>
+an&nbsp;integer.</tt></dd></dl>
+ <dl><dt><a name="-decompress"><strong>decompress</strong></a>(...)</dt><dd><tt><a href="#-decompress">decompress</a>(string[,&nbsp;wbits[,&nbsp;bufsize]])&nbsp;--&nbsp;Return&nbsp;decompressed&nbsp;string.<br>
+&nbsp;<br>
+Optional&nbsp;arg&nbsp;wbits&nbsp;is&nbsp;the&nbsp;window&nbsp;buffer&nbsp;size.&nbsp;&nbsp;Optional&nbsp;arg&nbsp;bufsize&nbsp;is<br>
+the&nbsp;initial&nbsp;output&nbsp;buffer&nbsp;size.</tt></dd></dl>
+ <dl><dt><a name="-decompressobj"><strong>decompressobj</strong></a>(...)</dt><dd><tt><a href="#-decompressobj">decompressobj</a>([wbits])&nbsp;--&nbsp;Return&nbsp;a&nbsp;decompressor&nbsp;object.<br>
+&nbsp;<br>
+Optional&nbsp;arg&nbsp;wbits&nbsp;is&nbsp;the&nbsp;window&nbsp;buffer&nbsp;size.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFLATED</strong> = 8<br>
+<strong>DEF_MEM_LEVEL</strong> = 8<br>
+<strong>MAX_WBITS</strong> = 15<br>
+<strong>ZLIB_VERSION</strong> = '1.2.2'<br>
+<strong>Z_BEST_COMPRESSION</strong> = 9<br>
+<strong>Z_BEST_SPEED</strong> = 1<br>
+<strong>Z_DEFAULT_COMPRESSION</strong> = -1<br>
+<strong>Z_DEFAULT_STRATEGY</strong> = 0<br>
+<strong>Z_FILTERED</strong> = 1<br>
+<strong>Z_FINISH</strong> = 4<br>
+<strong>Z_FULL_FLUSH</strong> = 3<br>
+<strong>Z_HUFFMAN_ONLY</strong> = 2<br>
+<strong>Z_NO_FLUSH</strong> = 0<br>
+<strong>Z_SYNC_FLUSH</strong> = 2<br>
+<strong>__version__</strong> = '1.0'</td></tr></table>
+</body></html>

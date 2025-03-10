@@ -1,0 +1,147 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module errno</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>errno</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)<br><a href="http://www.python.org/doc/current/lib/module-errno.html">Module Docs</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;makes&nbsp;available&nbsp;standard&nbsp;errno&nbsp;system&nbsp;symbols.<br>
+&nbsp;<br>
+The&nbsp;value&nbsp;of&nbsp;each&nbsp;symbol&nbsp;is&nbsp;the&nbsp;corresponding&nbsp;integer&nbsp;value,<br>
+e.g.,&nbsp;on&nbsp;most&nbsp;systems,&nbsp;errno.ENOENT&nbsp;equals&nbsp;the&nbsp;integer&nbsp;2.<br>
+&nbsp;<br>
+The&nbsp;dictionary&nbsp;errno.errorcode&nbsp;maps&nbsp;numeric&nbsp;codes&nbsp;to&nbsp;symbol&nbsp;names,<br>
+e.g.,&nbsp;errno.errorcode[2]&nbsp;could&nbsp;be&nbsp;the&nbsp;string&nbsp;'ENOENT'.<br>
+&nbsp;<br>
+Symbols&nbsp;that&nbsp;are&nbsp;not&nbsp;relevant&nbsp;to&nbsp;the&nbsp;underlying&nbsp;system&nbsp;are&nbsp;not&nbsp;defined.<br>
+&nbsp;<br>
+To&nbsp;map&nbsp;error&nbsp;codes&nbsp;to&nbsp;error&nbsp;messages,&nbsp;use&nbsp;the&nbsp;function&nbsp;os.strerror(),<br>
+e.g.&nbsp;os.strerror(2)&nbsp;could&nbsp;return&nbsp;'No&nbsp;such&nbsp;file&nbsp;or&nbsp;directory'.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>E2BIG</strong> = 7<br>
+<strong>EACCES</strong> = 13<br>
+<strong>EADDRINUSE</strong> = 112<br>
+<strong>EADDRNOTAVAIL</strong> = 125<br>
+<strong>EADV</strong> = 68<br>
+<strong>EAFNOSUPPORT</strong> = 106<br>
+<strong>EAGAIN</strong> = 11<br>
+<strong>EALREADY</strong> = 120<br>
+<strong>EBADE</strong> = 50<br>
+<strong>EBADF</strong> = 9<br>
+<strong>EBADFD</strong> = 81<br>
+<strong>EBADMSG</strong> = 77<br>
+<strong>EBADR</strong> = 51<br>
+<strong>EBADRQC</strong> = 54<br>
+<strong>EBADSLT</strong> = 55<br>
+<strong>EBFONT</strong> = 57<br>
+<strong>EBUSY</strong> = 16<br>
+<strong>ECHILD</strong> = 10<br>
+<strong>ECHRNG</strong> = 37<br>
+<strong>ECOMM</strong> = 70<br>
+<strong>ECONNABORTED</strong> = 113<br>
+<strong>ECONNREFUSED</strong> = 111<br>
+<strong>ECONNRESET</strong> = 104<br>
+<strong>EDEADLK</strong> = 45<br>
+<strong>EDEADLOCK</strong> = 56<br>
+<strong>EDESTADDRREQ</strong> = 121<br>
+<strong>EDOM</strong> = 33<br>
+<strong>EDOTDOT</strong> = 76<br>
+<strong>EDQUOT</strong> = 132<br>
+<strong>EEXIST</strong> = 17<br>
+<strong>EFAULT</strong> = 14<br>
+<strong>EFBIG</strong> = 27<br>
+<strong>EHOSTDOWN</strong> = 117<br>
+<strong>EHOSTUNREACH</strong> = 118<br>
+<strong>EIDRM</strong> = 36<br>
+<strong>EILSEQ</strong> = 138<br>
+<strong>EINPROGRESS</strong> = 119<br>
+<strong>EINTR</strong> = 4<br>
+<strong>EINVAL</strong> = 22<br>
+<strong>EIO</strong> = 5<br>
+<strong>EISCONN</strong> = 127<br>
+<strong>EISDIR</strong> = 21<br>
+<strong>EL2HLT</strong> = 44<br>
+<strong>EL2NSYNC</strong> = 38<br>
+<strong>EL3HLT</strong> = 39<br>
+<strong>EL3RST</strong> = 40<br>
+<strong>ELIBACC</strong> = 83<br>
+<strong>ELIBBAD</strong> = 84<br>
+<strong>ELIBEXEC</strong> = 87<br>
+<strong>ELIBMAX</strong> = 86<br>
+<strong>ELIBSCN</strong> = 85<br>
+<strong>ELNRNG</strong> = 41<br>
+<strong>ELOOP</strong> = 92<br>
+<strong>EMFILE</strong> = 24<br>
+<strong>EMLINK</strong> = 31<br>
+<strong>EMSGSIZE</strong> = 122<br>
+<strong>EMULTIHOP</strong> = 74<br>
+<strong>ENAMETOOLONG</strong> = 91<br>
+<strong>ENETDOWN</strong> = 115<br>
+<strong>ENETRESET</strong> = 126<br>
+<strong>ENETUNREACH</strong> = 114<br>
+<strong>ENFILE</strong> = 23<br>
+<strong>ENOANO</strong> = 53<br>
+<strong>ENOBUFS</strong> = 105<br>
+<strong>ENOCSI</strong> = 43<br>
+<strong>ENODATA</strong> = 61<br>
+<strong>ENODEV</strong> = 19<br>
+<strong>ENOENT</strong> = 2<br>
+<strong>ENOEXEC</strong> = 8<br>
+<strong>ENOLCK</strong> = 46<br>
+<strong>ENOLINK</strong> = 67<br>
+<strong>ENOMEM</strong> = 12<br>
+<strong>ENOMSG</strong> = 35<br>
+<strong>ENONET</strong> = 64<br>
+<strong>ENOPKG</strong> = 65<br>
+<strong>ENOPROTOOPT</strong> = 109<br>
+<strong>ENOSPC</strong> = 28<br>
+<strong>ENOSR</strong> = 63<br>
+<strong>ENOSTR</strong> = 60<br>
+<strong>ENOSYS</strong> = 88<br>
+<strong>ENOTBLK</strong> = 15<br>
+<strong>ENOTCONN</strong> = 128<br>
+<strong>ENOTDIR</strong> = 20<br>
+<strong>ENOTEMPTY</strong> = 90<br>
+<strong>ENOTSOCK</strong> = 108<br>
+<strong>ENOTTY</strong> = 25<br>
+<strong>ENOTUNIQ</strong> = 80<br>
+<strong>ENXIO</strong> = 6<br>
+<strong>EOPNOTSUPP</strong> = 95<br>
+<strong>EOVERFLOW</strong> = 139<br>
+<strong>EPERM</strong> = 1<br>
+<strong>EPFNOSUPPORT</strong> = 96<br>
+<strong>EPIPE</strong> = 32<br>
+<strong>EPROTO</strong> = 71<br>
+<strong>EPROTONOSUPPORT</strong> = 123<br>
+<strong>EPROTOTYPE</strong> = 107<br>
+<strong>ERANGE</strong> = 34<br>
+<strong>EREMCHG</strong> = 82<br>
+<strong>EREMOTE</strong> = 66<br>
+<strong>EROFS</strong> = 30<br>
+<strong>ESHUTDOWN</strong> = 110<br>
+<strong>ESOCKTNOSUPPORT</strong> = 124<br>
+<strong>ESPIPE</strong> = 29<br>
+<strong>ESRCH</strong> = 3<br>
+<strong>ESRMNT</strong> = 69<br>
+<strong>ESTALE</strong> = 133<br>
+<strong>ETIME</strong> = 62<br>
+<strong>ETIMEDOUT</strong> = 116<br>
+<strong>ETOOMANYREFS</strong> = 129<br>
+<strong>ETXTBSY</strong> = 26<br>
+<strong>EUNATCH</strong> = 42<br>
+<strong>EUSERS</strong> = 131<br>
+<strong>EWOULDBLOCK</strong> = 11<br>
+<strong>EXDEV</strong> = 18<br>
+<strong>EXFULL</strong> = 52<br>
+<strong>errorcode</strong> = {1: 'EPERM', 2: 'ENOENT', 3: 'ESRCH', 4: 'EINTR', 5: 'EIO', 6: 'ENXIO', 7: 'E2BIG', 8: 'ENOEXEC', 9: 'EBADF', 10: 'ECHILD', ...}</td></tr></table>
+</body></html>

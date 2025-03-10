@@ -1,0 +1,106 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module imp</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>imp</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)<br><a href="http://www.python.org/doc/current/lib/module-imp.html">Module Docs</a></font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;the&nbsp;components&nbsp;needed&nbsp;to&nbsp;build&nbsp;your&nbsp;own<br>
+__import__&nbsp;function.&nbsp;&nbsp;Undocumented&nbsp;functions&nbsp;are&nbsp;obsolete.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="imp.html#NullImporter">NullImporter</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="NullImporter">class <strong>NullImporter</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Null&nbsp;importer&nbsp;<a href="__builtin__.html#object">object</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="NullImporter-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#NullImporter-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="NullImporter-find_module"><strong>find_module</strong></a>(...)</dt><dd><tt>Always&nbsp;return&nbsp;None</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8aa254c&gt;<dd><tt>T.<a href="#NullImporter-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-acquire_lock"><strong>acquire_lock</strong></a>(...)</dt><dd><tt><a href="#-acquire_lock">acquire_lock</a>()&nbsp;-&gt;&nbsp;None<br>
+Acquires&nbsp;the&nbsp;interpreter's&nbsp;import&nbsp;lock&nbsp;for&nbsp;the&nbsp;current&nbsp;thread.<br>
+This&nbsp;lock&nbsp;should&nbsp;be&nbsp;used&nbsp;by&nbsp;import&nbsp;hooks&nbsp;to&nbsp;ensure&nbsp;thread-safety<br>
+when&nbsp;importing&nbsp;modules.<br>
+On&nbsp;platforms&nbsp;without&nbsp;threads,&nbsp;this&nbsp;function&nbsp;does&nbsp;nothing.</tt></dd></dl>
+ <dl><dt><a name="-find_module"><strong>find_module</strong></a>(...)</dt><dd><tt><a href="#-find_module">find_module</a>(name,&nbsp;[path])&nbsp;-&gt;&nbsp;(file,&nbsp;filename,&nbsp;(suffix,&nbsp;mode,&nbsp;type))<br>
+Search&nbsp;for&nbsp;a&nbsp;module.&nbsp;&nbsp;If&nbsp;path&nbsp;is&nbsp;omitted&nbsp;or&nbsp;None,&nbsp;search&nbsp;for&nbsp;a<br>
+built-in,&nbsp;frozen&nbsp;or&nbsp;special&nbsp;module&nbsp;and&nbsp;continue&nbsp;search&nbsp;in&nbsp;sys.path.<br>
+The&nbsp;module&nbsp;name&nbsp;cannot&nbsp;contain&nbsp;'.';&nbsp;to&nbsp;search&nbsp;for&nbsp;a&nbsp;submodule&nbsp;of&nbsp;a<br>
+package,&nbsp;pass&nbsp;the&nbsp;submodule&nbsp;name&nbsp;and&nbsp;the&nbsp;package's&nbsp;__path__.</tt></dd></dl>
+ <dl><dt><a name="-get_frozen_object"><strong>get_frozen_object</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-get_magic"><strong>get_magic</strong></a>(...)</dt><dd><tt><a href="#-get_magic">get_magic</a>()&nbsp;-&gt;&nbsp;string<br>
+Return&nbsp;the&nbsp;magic&nbsp;number&nbsp;for&nbsp;.pyc&nbsp;or&nbsp;.pyo&nbsp;files.</tt></dd></dl>
+ <dl><dt><a name="-get_suffixes"><strong>get_suffixes</strong></a>(...)</dt><dd><tt><a href="#-get_suffixes">get_suffixes</a>()&nbsp;-&gt;&nbsp;[(suffix,&nbsp;mode,&nbsp;type),&nbsp;...]<br>
+Return&nbsp;a&nbsp;list&nbsp;of&nbsp;(suffix,&nbsp;mode,&nbsp;type)&nbsp;tuples&nbsp;describing&nbsp;the&nbsp;files<br>
+that&nbsp;<a href="#-find_module">find_module</a>()&nbsp;looks&nbsp;for.</tt></dd></dl>
+ <dl><dt><a name="-init_builtin"><strong>init_builtin</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-init_frozen"><strong>init_frozen</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-is_builtin"><strong>is_builtin</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-is_frozen"><strong>is_frozen</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-load_compiled"><strong>load_compiled</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-load_module"><strong>load_module</strong></a>(...)</dt><dd><tt><a href="#-load_module">load_module</a>(name,&nbsp;file,&nbsp;filename,&nbsp;(suffix,&nbsp;mode,&nbsp;type))&nbsp;-&gt;&nbsp;module<br>
+Load&nbsp;a&nbsp;module,&nbsp;given&nbsp;information&nbsp;returned&nbsp;by&nbsp;<a href="#-find_module">find_module</a>().<br>
+The&nbsp;module&nbsp;name&nbsp;must&nbsp;include&nbsp;the&nbsp;full&nbsp;package&nbsp;name,&nbsp;if&nbsp;any.</tt></dd></dl>
+ <dl><dt><a name="-load_package"><strong>load_package</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-load_source"><strong>load_source</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-lock_held"><strong>lock_held</strong></a>(...)</dt><dd><tt><a href="#-lock_held">lock_held</a>()&nbsp;-&gt;&nbsp;boolean<br>
+Return&nbsp;True&nbsp;if&nbsp;the&nbsp;import&nbsp;lock&nbsp;is&nbsp;currently&nbsp;held,&nbsp;else&nbsp;False.<br>
+On&nbsp;platforms&nbsp;without&nbsp;threads,&nbsp;return&nbsp;False.</tt></dd></dl>
+ <dl><dt><a name="-new_module"><strong>new_module</strong></a>(...)</dt><dd><tt><a href="#-new_module">new_module</a>(name)&nbsp;-&gt;&nbsp;module<br>
+Create&nbsp;a&nbsp;new&nbsp;module.&nbsp;&nbsp;Do&nbsp;not&nbsp;enter&nbsp;it&nbsp;in&nbsp;sys.modules.<br>
+The&nbsp;module&nbsp;name&nbsp;must&nbsp;include&nbsp;the&nbsp;full&nbsp;package&nbsp;name,&nbsp;if&nbsp;any.</tt></dd></dl>
+ <dl><dt><a name="-release_lock"><strong>release_lock</strong></a>(...)</dt><dd><tt><a href="#-release_lock">release_lock</a>()&nbsp;-&gt;&nbsp;None<br>
+Release&nbsp;the&nbsp;interpreter's&nbsp;import&nbsp;lock.<br>
+On&nbsp;platforms&nbsp;without&nbsp;threads,&nbsp;this&nbsp;function&nbsp;does&nbsp;nothing.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>C_BUILTIN</strong> = 6<br>
+<strong>C_EXTENSION</strong> = 3<br>
+<strong>IMP_HOOK</strong> = 9<br>
+<strong>PKG_DIRECTORY</strong> = 5<br>
+<strong>PY_CODERESOURCE</strong> = 8<br>
+<strong>PY_COMPILED</strong> = 2<br>
+<strong>PY_FROZEN</strong> = 7<br>
+<strong>PY_RESOURCE</strong> = 4<br>
+<strong>PY_SOURCE</strong> = 1<br>
+<strong>SEARCH_ERROR</strong> = 0</td></tr></table>
+</body></html>

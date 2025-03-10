@@ -1,0 +1,190 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module unicodedata</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>unicodedata</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>This&nbsp;module&nbsp;provides&nbsp;access&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;Character&nbsp;Database&nbsp;which<br>
+defines&nbsp;character&nbsp;properties&nbsp;for&nbsp;all&nbsp;Unicode&nbsp;characters.&nbsp;The&nbsp;data&nbsp;in<br>
+this&nbsp;database&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;UnicodeData.txt&nbsp;file&nbsp;version<br>
+4.1.0&nbsp;which&nbsp;is&nbsp;publically&nbsp;available&nbsp;from&nbsp;<a href="ftp://ftp.unicode.org/">ftp://ftp.unicode.org/</a>.<br>
+&nbsp;<br>
+The&nbsp;module&nbsp;uses&nbsp;the&nbsp;same&nbsp;names&nbsp;and&nbsp;symbols&nbsp;as&nbsp;defined&nbsp;by&nbsp;the<br>
+UnicodeData&nbsp;File&nbsp;Format&nbsp;4.1.0&nbsp;(see<br>
+<a href="http://www.unicode.org/Public/4.1.0/ucd/UCD.html">http://www.unicode.org/Public/4.1.0/ucd/UCD.html</a>).</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="unicodedata.html#UCD">UCD</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UCD">class <strong>UCD</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="UCD-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#UCD-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="UCD-bidirectional"><strong>bidirectional</strong></a>(...)</dt><dd><tt><a href="#UCD-bidirectional">bidirectional</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;bidirectional&nbsp;category&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;an&nbsp;empty&nbsp;string&nbsp;is<br>
+returned.</tt></dd></dl>
+
+<dl><dt><a name="UCD-category"><strong>category</strong></a>(...)</dt><dd><tt><a href="#UCD-category">category</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;general&nbsp;category&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="UCD-combining"><strong>combining</strong></a>(...)</dt><dd><tt><a href="#UCD-combining">combining</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;canonical&nbsp;combining&nbsp;class&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode<br>
+character&nbsp;unichr&nbsp;as&nbsp;integer.&nbsp;Returns&nbsp;0&nbsp;if&nbsp;no&nbsp;combining&nbsp;class&nbsp;is<br>
+defined.</tt></dd></dl>
+
+<dl><dt><a name="UCD-decimal"><strong>decimal</strong></a>(...)</dt><dd><tt><a href="#UCD-decimal">decimal</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;decimal&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr<br>
+as&nbsp;integer.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="UCD-decomposition"><strong>decomposition</strong></a>(...)</dt><dd><tt><a href="#UCD-decomposition">decomposition</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;character&nbsp;decomposition&nbsp;mapping&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode<br>
+character&nbsp;unichr&nbsp;as&nbsp;string.&nbsp;An&nbsp;empty&nbsp;string&nbsp;is&nbsp;returned&nbsp;in&nbsp;case&nbsp;no<br>
+such&nbsp;mapping&nbsp;is&nbsp;defined.</tt></dd></dl>
+
+<dl><dt><a name="UCD-digit"><strong>digit</strong></a>(...)</dt><dd><tt><a href="#UCD-digit">digit</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;digit&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr&nbsp;as<br>
+integer.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="UCD-east_asian_width"><strong>east_asian_width</strong></a>(...)</dt><dd><tt><a href="#UCD-east_asian_width">east_asian_width</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;east&nbsp;asian&nbsp;width&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="UCD-lookup"><strong>lookup</strong></a>(...)</dt><dd><tt><a href="#UCD-lookup">lookup</a>(name)<br>
+&nbsp;<br>
+Look&nbsp;up&nbsp;character&nbsp;by&nbsp;name.&nbsp;&nbsp;If&nbsp;a&nbsp;character&nbsp;with&nbsp;the<br>
+given&nbsp;name&nbsp;is&nbsp;found,&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;Unicode<br>
+character.&nbsp;&nbsp;If&nbsp;not&nbsp;found,&nbsp;KeyError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="UCD-mirrored"><strong>mirrored</strong></a>(...)</dt><dd><tt><a href="#UCD-mirrored">mirrored</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;mirrored&nbsp;property&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;integer.&nbsp;Returns&nbsp;1&nbsp;if&nbsp;the&nbsp;character&nbsp;has&nbsp;been&nbsp;identified&nbsp;as<br>
+a&nbsp;"mirrored"&nbsp;character&nbsp;in&nbsp;bidirectional&nbsp;text,&nbsp;0&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="UCD-name"><strong>name</strong></a>(...)</dt><dd><tt><a href="#UCD-name">name</a>(unichr[,&nbsp;default])<br>
+Returns&nbsp;the&nbsp;name&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr&nbsp;as&nbsp;a<br>
+string.&nbsp;If&nbsp;no&nbsp;name&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if&nbsp;not<br>
+given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="UCD-normalize"><strong>normalize</strong></a>(...)</dt><dd><tt><a href="#UCD-normalize">normalize</a>(form,&nbsp;unistr)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;normal&nbsp;form&nbsp;'form'&nbsp;for&nbsp;the&nbsp;Unicode&nbsp;string&nbsp;unistr.&nbsp;&nbsp;Valid<br>
+values&nbsp;for&nbsp;form&nbsp;are&nbsp;'NFC',&nbsp;'NFKC',&nbsp;'NFD',&nbsp;and&nbsp;'NFKD'.</tt></dd></dl>
+
+<dl><dt><a name="UCD-numeric"><strong>numeric</strong></a>(...)</dt><dd><tt><a href="#UCD-numeric">numeric</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;numeric&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr<br>
+as&nbsp;float.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>unidata_version</strong></dt>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-bidirectional"><strong>bidirectional</strong></a>(...)</dt><dd><tt><a href="#-bidirectional">bidirectional</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;bidirectional&nbsp;category&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;an&nbsp;empty&nbsp;string&nbsp;is<br>
+returned.</tt></dd></dl>
+ <dl><dt><a name="-category"><strong>category</strong></a>(...)</dt><dd><tt><a href="#-category">category</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;general&nbsp;category&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-combining"><strong>combining</strong></a>(...)</dt><dd><tt><a href="#-combining">combining</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;canonical&nbsp;combining&nbsp;class&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode<br>
+character&nbsp;unichr&nbsp;as&nbsp;integer.&nbsp;Returns&nbsp;0&nbsp;if&nbsp;no&nbsp;combining&nbsp;class&nbsp;is<br>
+defined.</tt></dd></dl>
+ <dl><dt><a name="-decimal"><strong>decimal</strong></a>(...)</dt><dd><tt><a href="#-decimal">decimal</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;decimal&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr<br>
+as&nbsp;integer.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+ <dl><dt><a name="-decomposition"><strong>decomposition</strong></a>(...)</dt><dd><tt><a href="#-decomposition">decomposition</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;character&nbsp;decomposition&nbsp;mapping&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode<br>
+character&nbsp;unichr&nbsp;as&nbsp;string.&nbsp;An&nbsp;empty&nbsp;string&nbsp;is&nbsp;returned&nbsp;in&nbsp;case&nbsp;no<br>
+such&nbsp;mapping&nbsp;is&nbsp;defined.</tt></dd></dl>
+ <dl><dt><a name="-digit"><strong>digit</strong></a>(...)</dt><dd><tt><a href="#-digit">digit</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;digit&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr&nbsp;as<br>
+integer.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+ <dl><dt><a name="-east_asian_width"><strong>east_asian_width</strong></a>(...)</dt><dd><tt><a href="#-east_asian_width">east_asian_width</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;east&nbsp;asian&nbsp;width&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;string.</tt></dd></dl>
+ <dl><dt><a name="-lookup"><strong>lookup</strong></a>(...)</dt><dd><tt><a href="#-lookup">lookup</a>(name)<br>
+&nbsp;<br>
+Look&nbsp;up&nbsp;character&nbsp;by&nbsp;name.&nbsp;&nbsp;If&nbsp;a&nbsp;character&nbsp;with&nbsp;the<br>
+given&nbsp;name&nbsp;is&nbsp;found,&nbsp;return&nbsp;the&nbsp;corresponding&nbsp;Unicode<br>
+character.&nbsp;&nbsp;If&nbsp;not&nbsp;found,&nbsp;KeyError&nbsp;is&nbsp;raised.</tt></dd></dl>
+ <dl><dt><a name="-mirrored"><strong>mirrored</strong></a>(...)</dt><dd><tt><a href="#-mirrored">mirrored</a>(unichr)<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;mirrored&nbsp;property&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character<br>
+unichr&nbsp;as&nbsp;integer.&nbsp;Returns&nbsp;1&nbsp;if&nbsp;the&nbsp;character&nbsp;has&nbsp;been&nbsp;identified&nbsp;as<br>
+a&nbsp;"mirrored"&nbsp;character&nbsp;in&nbsp;bidirectional&nbsp;text,&nbsp;0&nbsp;otherwise.</tt></dd></dl>
+ <dl><dt><a name="-name"><strong>name</strong></a>(...)</dt><dd><tt><a href="#-name">name</a>(unichr[,&nbsp;default])<br>
+Returns&nbsp;the&nbsp;name&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr&nbsp;as&nbsp;a<br>
+string.&nbsp;If&nbsp;no&nbsp;name&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if&nbsp;not<br>
+given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+ <dl><dt><a name="-normalize"><strong>normalize</strong></a>(...)</dt><dd><tt><a href="#-normalize">normalize</a>(form,&nbsp;unistr)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;normal&nbsp;form&nbsp;'form'&nbsp;for&nbsp;the&nbsp;Unicode&nbsp;string&nbsp;unistr.&nbsp;&nbsp;Valid<br>
+values&nbsp;for&nbsp;form&nbsp;are&nbsp;'NFC',&nbsp;'NFKC',&nbsp;'NFD',&nbsp;and&nbsp;'NFKD'.</tt></dd></dl>
+ <dl><dt><a name="-numeric"><strong>numeric</strong></a>(...)</dt><dd><tt><a href="#-numeric">numeric</a>(unichr[,&nbsp;default])<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;numeric&nbsp;value&nbsp;assigned&nbsp;to&nbsp;the&nbsp;Unicode&nbsp;character&nbsp;unichr<br>
+as&nbsp;float.&nbsp;If&nbsp;no&nbsp;such&nbsp;value&nbsp;is&nbsp;defined,&nbsp;default&nbsp;is&nbsp;returned,&nbsp;or,&nbsp;if<br>
+not&nbsp;given,&nbsp;ValueError&nbsp;is&nbsp;raised.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ucd_3_2_0</strong> = &lt;unicodedata.UCD object at 0x8af4d40&gt;<br>
+<strong>ucnhash_CAPI</strong> = &lt;PyCObject object at 0x8af44e8&gt;<br>
+<strong>unidata_version</strong> = '4.1.0'</td></tr></table>
+</body></html>

@@ -1,0 +1,255 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module bz2</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>bz2</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>The&nbsp;python&nbsp;bz2&nbsp;module&nbsp;provides&nbsp;a&nbsp;comprehensive&nbsp;interface&nbsp;for<br>
+the&nbsp;bz2&nbsp;compression&nbsp;library.&nbsp;It&nbsp;implements&nbsp;a&nbsp;complete&nbsp;file<br>
+interface,&nbsp;one&nbsp;shot&nbsp;(de)compression&nbsp;functions,&nbsp;and&nbsp;types&nbsp;for<br>
+sequential&nbsp;(de)compression.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="bz2.html#BZ2Compressor">BZ2Compressor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bz2.html#BZ2Decompressor">BZ2Decompressor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="bz2.html#BZ2File">BZ2File</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BZ2Compressor">class <strong>BZ2Compressor</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BZ2Compressor">BZ2Compressor</a>([compresslevel=9])&nbsp;-&gt;&nbsp;compressor&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;compressor&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;compress<br>
+data&nbsp;sequentially.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;compress&nbsp;data&nbsp;in&nbsp;one&nbsp;shot,&nbsp;use&nbsp;the<br>
+<a href="#BZ2Compressor-compress">compress</a>()&nbsp;function&nbsp;instead.&nbsp;The&nbsp;compresslevel&nbsp;parameter,&nbsp;if&nbsp;given,<br>
+must&nbsp;be&nbsp;a&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;9.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BZ2Compressor-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Compressor-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2Compressor-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Compressor-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2Compressor-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Compressor-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="BZ2Compressor-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Compressor-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="BZ2Compressor-compress"><strong>compress</strong></a>(...)</dt><dd><tt><a href="#BZ2Compressor-compress">compress</a>(data)&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Provide&nbsp;more&nbsp;data&nbsp;to&nbsp;the&nbsp;compressor&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;It&nbsp;will&nbsp;return&nbsp;chunks&nbsp;of<br>
+compressed&nbsp;data&nbsp;whenever&nbsp;possible.&nbsp;When&nbsp;you've&nbsp;finished&nbsp;providing&nbsp;data<br>
+to&nbsp;compress,&nbsp;call&nbsp;the&nbsp;<a href="#BZ2Compressor-flush">flush</a>()&nbsp;method&nbsp;to&nbsp;finish&nbsp;the&nbsp;compression&nbsp;process,<br>
+and&nbsp;return&nbsp;what&nbsp;is&nbsp;left&nbsp;in&nbsp;the&nbsp;internal&nbsp;buffers.</tt></dd></dl>
+
+<dl><dt><a name="BZ2Compressor-flush"><strong>flush</strong></a>(...)</dt><dd><tt><a href="#BZ2Compressor-flush">flush</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Finish&nbsp;the&nbsp;compression&nbsp;process&nbsp;and&nbsp;return&nbsp;what&nbsp;is&nbsp;left&nbsp;in&nbsp;internal&nbsp;buffers.<br>
+You&nbsp;must&nbsp;not&nbsp;use&nbsp;the&nbsp;compressor&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;after&nbsp;calling&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a9f608&gt;<dd><tt>T.<a href="#BZ2Compressor-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BZ2Decompressor">class <strong>BZ2Decompressor</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BZ2Decompressor">BZ2Decompressor</a>()&nbsp;-&gt;&nbsp;decompressor&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Create&nbsp;a&nbsp;new&nbsp;decompressor&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;may&nbsp;be&nbsp;used&nbsp;to&nbsp;decompress<br>
+data&nbsp;sequentially.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;decompress&nbsp;data&nbsp;in&nbsp;one&nbsp;shot,&nbsp;use&nbsp;the<br>
+<a href="#BZ2Decompressor-decompress">decompress</a>()&nbsp;function&nbsp;instead.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BZ2Decompressor-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Decompressor-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2Decompressor-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Decompressor-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2Decompressor-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Decompressor-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="BZ2Decompressor-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2Decompressor-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="BZ2Decompressor-decompress"><strong>decompress</strong></a>(...)</dt><dd><tt><a href="#BZ2Decompressor-decompress">decompress</a>(data)&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Provide&nbsp;more&nbsp;data&nbsp;to&nbsp;the&nbsp;decompressor&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;It&nbsp;will&nbsp;return&nbsp;chunks<br>
+of&nbsp;decompressed&nbsp;data&nbsp;whenever&nbsp;possible.&nbsp;If&nbsp;you&nbsp;try&nbsp;to&nbsp;decompress&nbsp;data<br>
+after&nbsp;the&nbsp;end&nbsp;of&nbsp;stream&nbsp;is&nbsp;found,&nbsp;EOFError&nbsp;will&nbsp;be&nbsp;raised.&nbsp;If&nbsp;any&nbsp;data<br>
+was&nbsp;found&nbsp;after&nbsp;the&nbsp;end&nbsp;of&nbsp;stream,&nbsp;it'll&nbsp;be&nbsp;ignored&nbsp;and&nbsp;saved&nbsp;in<br>
+unused_data&nbsp;attribute.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>unused_data</strong></dt>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a9f804&gt;<dd><tt>T.<a href="#BZ2Decompressor-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="BZ2File">class <strong>BZ2File</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#BZ2File">BZ2File</a>(name&nbsp;[,&nbsp;mode='r',&nbsp;buffering=0,&nbsp;compresslevel=9])&nbsp;-&gt;&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Open&nbsp;a&nbsp;bz2&nbsp;file.&nbsp;The&nbsp;mode&nbsp;can&nbsp;be&nbsp;'r'&nbsp;or&nbsp;'w',&nbsp;for&nbsp;reading&nbsp;(default)&nbsp;or<br>
+writing.&nbsp;When&nbsp;opened&nbsp;for&nbsp;writing,&nbsp;the&nbsp;file&nbsp;will&nbsp;be&nbsp;created&nbsp;if&nbsp;it&nbsp;doesn't<br>
+exist,&nbsp;and&nbsp;truncated&nbsp;otherwise.&nbsp;If&nbsp;the&nbsp;buffering&nbsp;argument&nbsp;is&nbsp;given,&nbsp;0&nbsp;means<br>
+unbuffered,&nbsp;and&nbsp;larger&nbsp;numbers&nbsp;specify&nbsp;the&nbsp;buffer&nbsp;size.&nbsp;If&nbsp;compresslevel<br>
+is&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;9.<br>
+&nbsp;<br>
+Add&nbsp;a&nbsp;'U'&nbsp;to&nbsp;mode&nbsp;to&nbsp;open&nbsp;the&nbsp;file&nbsp;for&nbsp;input&nbsp;with&nbsp;universal&nbsp;newline<br>
+support.&nbsp;Any&nbsp;line&nbsp;ending&nbsp;in&nbsp;the&nbsp;input&nbsp;file&nbsp;will&nbsp;be&nbsp;seen&nbsp;as&nbsp;a&nbsp;'\n'&nbsp;in<br>
+Python.&nbsp;Also,&nbsp;a&nbsp;file&nbsp;so&nbsp;opened&nbsp;gains&nbsp;the&nbsp;attribute&nbsp;'newlines';&nbsp;the&nbsp;value<br>
+for&nbsp;this&nbsp;attribute&nbsp;is&nbsp;one&nbsp;of&nbsp;None&nbsp;(no&nbsp;newline&nbsp;read&nbsp;yet),&nbsp;'\r',&nbsp;'\n',<br>
+'\r\n'&nbsp;or&nbsp;a&nbsp;tuple&nbsp;containing&nbsp;all&nbsp;the&nbsp;newline&nbsp;types&nbsp;seen.&nbsp;Universal<br>
+newlines&nbsp;are&nbsp;available&nbsp;only&nbsp;when&nbsp;reading.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="BZ2File-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#BZ2File-close">close</a>()&nbsp;-&gt;&nbsp;None&nbsp;or&nbsp;(perhaps)&nbsp;an&nbsp;integer<br>
+&nbsp;<br>
+Close&nbsp;the&nbsp;file.&nbsp;Sets&nbsp;data&nbsp;attribute&nbsp;.closed&nbsp;to&nbsp;true.&nbsp;A&nbsp;closed&nbsp;file<br>
+cannot&nbsp;be&nbsp;used&nbsp;for&nbsp;further&nbsp;I/O&nbsp;operations.&nbsp;<a href="#BZ2File-close">close</a>()&nbsp;may&nbsp;be&nbsp;called&nbsp;more<br>
+than&nbsp;once&nbsp;without&nbsp;error.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-next"><strong>next</strong></a>(...)</dt><dd><tt>x.<a href="#BZ2File-next">next</a>()&nbsp;-&gt;&nbsp;the&nbsp;next&nbsp;value,&nbsp;or&nbsp;raise&nbsp;StopIteration</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-read"><strong>read</strong></a>(...)</dt><dd><tt><a href="#BZ2File-read">read</a>([size])&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Read&nbsp;at&nbsp;most&nbsp;size&nbsp;uncompressed&nbsp;bytes,&nbsp;returned&nbsp;as&nbsp;a&nbsp;string.&nbsp;If&nbsp;the&nbsp;size<br>
+argument&nbsp;is&nbsp;negative&nbsp;or&nbsp;omitted,&nbsp;read&nbsp;until&nbsp;EOF&nbsp;is&nbsp;reached.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-readline"><strong>readline</strong></a>(...)</dt><dd><tt><a href="#BZ2File-readline">readline</a>([size])&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;next&nbsp;line&nbsp;from&nbsp;the&nbsp;file,&nbsp;as&nbsp;a&nbsp;string,&nbsp;retaining&nbsp;newline.<br>
+A&nbsp;non-negative&nbsp;size&nbsp;argument&nbsp;will&nbsp;limit&nbsp;the&nbsp;maximum&nbsp;number&nbsp;of&nbsp;bytes&nbsp;to<br>
+return&nbsp;(an&nbsp;incomplete&nbsp;line&nbsp;may&nbsp;be&nbsp;returned&nbsp;then).&nbsp;Return&nbsp;an&nbsp;empty<br>
+string&nbsp;at&nbsp;EOF.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-readlines"><strong>readlines</strong></a>(...)</dt><dd><tt><a href="#BZ2File-readlines">readlines</a>([size])&nbsp;-&gt;&nbsp;list<br>
+&nbsp;<br>
+Call&nbsp;<a href="#BZ2File-readline">readline</a>()&nbsp;repeatedly&nbsp;and&nbsp;return&nbsp;a&nbsp;list&nbsp;of&nbsp;lines&nbsp;read.<br>
+The&nbsp;optional&nbsp;size&nbsp;argument,&nbsp;if&nbsp;given,&nbsp;is&nbsp;an&nbsp;approximate&nbsp;bound&nbsp;on&nbsp;the<br>
+total&nbsp;number&nbsp;of&nbsp;bytes&nbsp;in&nbsp;the&nbsp;lines&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-seek"><strong>seek</strong></a>(...)</dt><dd><tt><a href="#BZ2File-seek">seek</a>(offset&nbsp;[,&nbsp;whence])&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Move&nbsp;to&nbsp;new&nbsp;file&nbsp;position.&nbsp;Argument&nbsp;offset&nbsp;is&nbsp;a&nbsp;byte&nbsp;count.&nbsp;Optional<br>
+argument&nbsp;whence&nbsp;defaults&nbsp;to&nbsp;0&nbsp;(offset&nbsp;from&nbsp;start&nbsp;of&nbsp;file,&nbsp;offset<br>
+should&nbsp;be&nbsp;&gt;=&nbsp;0);&nbsp;other&nbsp;values&nbsp;are&nbsp;1&nbsp;(move&nbsp;relative&nbsp;to&nbsp;current&nbsp;position,<br>
+positive&nbsp;or&nbsp;negative),&nbsp;and&nbsp;2&nbsp;(move&nbsp;relative&nbsp;to&nbsp;end&nbsp;of&nbsp;file,&nbsp;usually<br>
+negative,&nbsp;although&nbsp;many&nbsp;platforms&nbsp;allow&nbsp;seeking&nbsp;beyond&nbsp;the&nbsp;end&nbsp;of&nbsp;a&nbsp;file).<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;seeking&nbsp;of&nbsp;bz2&nbsp;files&nbsp;is&nbsp;emulated,&nbsp;and&nbsp;depending&nbsp;on&nbsp;the&nbsp;parameters<br>
+the&nbsp;operation&nbsp;may&nbsp;be&nbsp;extremely&nbsp;slow.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-tell"><strong>tell</strong></a>(...)</dt><dd><tt><a href="#BZ2File-tell">tell</a>()&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;current&nbsp;file&nbsp;position,&nbsp;an&nbsp;integer&nbsp;(may&nbsp;be&nbsp;a&nbsp;long&nbsp;integer).</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-write"><strong>write</strong></a>(...)</dt><dd><tt><a href="#BZ2File-write">write</a>(data)&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Write&nbsp;the&nbsp;'data'&nbsp;string&nbsp;to&nbsp;file.&nbsp;Note&nbsp;that&nbsp;due&nbsp;to&nbsp;buffering,&nbsp;<a href="#BZ2File-close">close</a>()&nbsp;may<br>
+be&nbsp;needed&nbsp;before&nbsp;the&nbsp;file&nbsp;on&nbsp;disk&nbsp;reflects&nbsp;the&nbsp;data&nbsp;written.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-writelines"><strong>writelines</strong></a>(...)</dt><dd><tt><a href="#BZ2File-writelines">writelines</a>(sequence_of_strings)&nbsp;-&gt;&nbsp;None<br>
+&nbsp;<br>
+Write&nbsp;the&nbsp;sequence&nbsp;of&nbsp;strings&nbsp;to&nbsp;the&nbsp;file.&nbsp;Note&nbsp;that&nbsp;newlines&nbsp;are&nbsp;not<br>
+added.&nbsp;The&nbsp;sequence&nbsp;can&nbsp;be&nbsp;any&nbsp;iterable&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;producing&nbsp;strings.&nbsp;This&nbsp;is<br>
+equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#BZ2File-write">write</a>()&nbsp;for&nbsp;each&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="BZ2File-xreadlines"><strong>xreadlines</strong></a>(...)</dt><dd><tt><a href="#BZ2File-xreadlines">xreadlines</a>()&nbsp;-&gt;&nbsp;self<br>
+&nbsp;<br>
+For&nbsp;backward&nbsp;compatibility.&nbsp;<a href="#BZ2File">BZ2File</a>&nbsp;objects&nbsp;now&nbsp;include&nbsp;the&nbsp;performance<br>
+optimizations&nbsp;previously&nbsp;implemented&nbsp;in&nbsp;the&nbsp;xreadlines&nbsp;module.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>closed</strong></dt>
+<dd><tt>True&nbsp;if&nbsp;the&nbsp;file&nbsp;is&nbsp;closed</tt></dd>
+</dl>
+<dl><dt><strong>mode</strong></dt>
+<dd><tt>file&nbsp;mode&nbsp;('r',&nbsp;'w',&nbsp;or&nbsp;'U')</tt></dd>
+</dl>
+<dl><dt><strong>name</strong></dt>
+<dd><tt>file&nbsp;name</tt></dd>
+</dl>
+<dl><dt><strong>newlines</strong></dt>
+<dd><tt>end-of-line&nbsp;convention&nbsp;used&nbsp;in&nbsp;this&nbsp;file</tt></dd>
+</dl>
+<dl><dt><strong>softspace</strong></dt>
+<dd><tt>flag&nbsp;indicating&nbsp;that&nbsp;a&nbsp;space&nbsp;needs&nbsp;to&nbsp;be&nbsp;printed;&nbsp;used&nbsp;by&nbsp;print</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a9f40c&gt;<dd><tt>T.<a href="#BZ2File-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-compress"><strong>compress</strong></a>(...)</dt><dd><tt><a href="#-compress">compress</a>(data&nbsp;[,&nbsp;compresslevel=9])&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Compress&nbsp;data&nbsp;in&nbsp;one&nbsp;shot.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;compress&nbsp;data&nbsp;sequentially,<br>
+use&nbsp;an&nbsp;instance&nbsp;of&nbsp;<a href="#BZ2Compressor">BZ2Compressor</a>&nbsp;instead.&nbsp;The&nbsp;compresslevel&nbsp;parameter,&nbsp;if<br>
+given,&nbsp;must&nbsp;be&nbsp;a&nbsp;number&nbsp;between&nbsp;1&nbsp;and&nbsp;9.</tt></dd></dl>
+ <dl><dt><a name="-decompress"><strong>decompress</strong></a>(...)</dt><dd><tt><a href="#-decompress">decompress</a>(data)&nbsp;-&gt;&nbsp;decompressed&nbsp;data<br>
+&nbsp;<br>
+Decompress&nbsp;data&nbsp;in&nbsp;one&nbsp;shot.&nbsp;If&nbsp;you&nbsp;want&nbsp;to&nbsp;decompress&nbsp;data&nbsp;sequentially,<br>
+use&nbsp;an&nbsp;instance&nbsp;of&nbsp;<a href="#BZ2Decompressor">BZ2Decompressor</a>&nbsp;instead.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'The bz2 python module was written by:<font color="#c040c0">\n\n</font>    Gustavo Niemeyer &lt;niemeyer@conectiva.com&gt;<font color="#c040c0">\n</font>'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">The&nbsp;bz2&nbsp;python&nbsp;module&nbsp;was&nbsp;written&nbsp;by:<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Gustavo&nbsp;Niemeyer&nbsp;&lt;niemeyer@conectiva.com&gt;<br>
+</td></tr></table>
+</body></html>

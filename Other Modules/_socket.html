@@ -1,0 +1,883 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module _socket</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>_socket</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>Implementation&nbsp;module&nbsp;for&nbsp;<a href="#socket">socket</a>&nbsp;operations.<br>
+&nbsp;<br>
+See&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;module&nbsp;for&nbsp;documentation.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="_socket.html#socket">socket</a>
+</font></dt><dt><font face="helvetica, arial"><a href="_socket.html#socket">socket</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">socket.error
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">socket.gaierror
+</font></dt><dt><font face="helvetica, arial">socket.herror
+</font></dt><dt><font face="helvetica, arial">socket.timeout
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>SocketType</strong> = <a name="SocketType">class socket</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#socket">socket</a>([family[,&nbsp;type[,&nbsp;proto]]])&nbsp;-&gt;&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Open&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;of&nbsp;the&nbsp;given&nbsp;type.&nbsp;&nbsp;The&nbsp;family&nbsp;argument&nbsp;specifies&nbsp;the<br>
+address&nbsp;family;&nbsp;it&nbsp;defaults&nbsp;to&nbsp;AF_INET.&nbsp;&nbsp;The&nbsp;type&nbsp;argument&nbsp;specifies<br>
+whether&nbsp;this&nbsp;is&nbsp;a&nbsp;stream&nbsp;(SOCK_STREAM,&nbsp;this&nbsp;is&nbsp;the&nbsp;default)<br>
+or&nbsp;datagram&nbsp;(SOCK_DGRAM)&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;The&nbsp;protocol&nbsp;argument&nbsp;defaults&nbsp;to&nbsp;0,<br>
+specifying&nbsp;the&nbsp;default&nbsp;protocol.&nbsp;&nbsp;Keyword&nbsp;arguments&nbsp;are&nbsp;accepted.<br>
+&nbsp;<br>
+A&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;represents&nbsp;one&nbsp;endpoint&nbsp;of&nbsp;a&nbsp;network&nbsp;connection.<br>
+&nbsp;<br>
+Methods&nbsp;of&nbsp;<a href="#socket">socket</a>&nbsp;objects&nbsp;(keyword&nbsp;arguments&nbsp;not&nbsp;allowed):<br>
+&nbsp;<br>
+<a href="#SocketType-accept">accept</a>()&nbsp;--&nbsp;accept&nbsp;a&nbsp;connection,&nbsp;returning&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;and&nbsp;client&nbsp;address<br>
+<a href="#SocketType-bind">bind</a>(addr)&nbsp;--&nbsp;bind&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;local&nbsp;address<br>
+<a href="#SocketType-close">close</a>()&nbsp;--&nbsp;close&nbsp;the&nbsp;<a href="#socket">socket</a><br>
+<a href="#SocketType-connect">connect</a>(addr)&nbsp;--&nbsp;connect&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;remote&nbsp;address<br>
+<a href="#SocketType-connect_ex">connect_ex</a>(addr)&nbsp;--&nbsp;connect,&nbsp;return&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;code&nbsp;instead&nbsp;of&nbsp;an&nbsp;exception<br>
+dup()&nbsp;--&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;identical&nbsp;to&nbsp;the&nbsp;current&nbsp;one&nbsp;[*]<br>
+<a href="#SocketType-fileno">fileno</a>()&nbsp;--&nbsp;return&nbsp;underlying&nbsp;file&nbsp;descriptor<br>
+<a href="#SocketType-getpeername">getpeername</a>()&nbsp;--&nbsp;return&nbsp;remote&nbsp;address&nbsp;[*]<br>
+<a href="#SocketType-getsockname">getsockname</a>()&nbsp;--&nbsp;return&nbsp;local&nbsp;address<br>
+<a href="#SocketType-getsockopt">getsockopt</a>(level,&nbsp;optname[,&nbsp;buflen])&nbsp;--&nbsp;get&nbsp;<a href="#socket">socket</a>&nbsp;options<br>
+<a href="#SocketType-gettimeout">gettimeout</a>()&nbsp;--&nbsp;return&nbsp;<a href="#timeout">timeout</a>&nbsp;or&nbsp;None<br>
+<a href="#SocketType-listen">listen</a>(n)&nbsp;--&nbsp;start&nbsp;listening&nbsp;for&nbsp;incoming&nbsp;connections<br>
+makefile([mode,&nbsp;[bufsize]])&nbsp;--&nbsp;return&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;for&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;[*]<br>
+<a href="#SocketType-recv">recv</a>(buflen[,&nbsp;flags])&nbsp;--&nbsp;receive&nbsp;data<br>
+<a href="#SocketType-recv_into">recv_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;--&nbsp;receive&nbsp;data&nbsp;(into&nbsp;a&nbsp;buffer)<br>
+<a href="#SocketType-recvfrom">recvfrom</a>(buflen[,&nbsp;flags])&nbsp;--&nbsp;receive&nbsp;data&nbsp;and&nbsp;sender's&nbsp;address<br>
+<a href="#SocketType-recvfrom_into">recvfrom_into</a>(buffer[,&nbsp;nbytes,&nbsp;[,&nbsp;flags])<br>
+&nbsp;&nbsp;--&nbsp;receive&nbsp;data&nbsp;and&nbsp;sender's&nbsp;address&nbsp;(into&nbsp;a&nbsp;buffer)<br>
+<a href="#SocketType-sendall">sendall</a>(data[,&nbsp;flags])&nbsp;--&nbsp;send&nbsp;all&nbsp;data<br>
+<a href="#SocketType-send">send</a>(data[,&nbsp;flags])&nbsp;--&nbsp;send&nbsp;data,&nbsp;may&nbsp;not&nbsp;send&nbsp;all&nbsp;of&nbsp;it<br>
+<a href="#SocketType-sendto">sendto</a>(data[,&nbsp;flags],&nbsp;addr)&nbsp;--&nbsp;send&nbsp;data&nbsp;to&nbsp;a&nbsp;given&nbsp;address<br>
+<a href="#SocketType-setblocking">setblocking</a>(0&nbsp;|&nbsp;1)&nbsp;--&nbsp;set&nbsp;or&nbsp;clear&nbsp;the&nbsp;blocking&nbsp;I/O&nbsp;flag<br>
+<a href="#SocketType-setsockopt">setsockopt</a>(level,&nbsp;optname,&nbsp;value)&nbsp;--&nbsp;set&nbsp;<a href="#socket">socket</a>&nbsp;options<br>
+<a href="#SocketType-settimeout">settimeout</a>(None&nbsp;|&nbsp;float)&nbsp;--&nbsp;set&nbsp;or&nbsp;clear&nbsp;the&nbsp;<a href="#timeout">timeout</a><br>
+<a href="#SocketType-shutdown">shutdown</a>(how)&nbsp;--&nbsp;shut&nbsp;down&nbsp;traffic&nbsp;in&nbsp;one&nbsp;or&nbsp;both&nbsp;directions<br>
+&nbsp;<br>
+&nbsp;[*]&nbsp;not&nbsp;available&nbsp;on&nbsp;all&nbsp;platforms!<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="socket-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#SocketType-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="socket-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#SocketType-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="socket-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#SocketType-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="socket-accept"><strong>accept</strong></a>(...)</dt><dd><tt><a href="#SocketType-accept">accept</a>()&nbsp;-&gt;&nbsp;(<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Wait&nbsp;for&nbsp;an&nbsp;incoming&nbsp;connection.&nbsp;&nbsp;Return&nbsp;a&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;representing&nbsp;the<br>
+connection,&nbsp;and&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;client.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-bind"><strong>bind</strong></a>(...)</dt><dd><tt><a href="#SocketType-bind">bind</a>(address)<br>
+&nbsp;<br>
+Bind&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;local&nbsp;address.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address&nbsp;is&nbsp;a<br>
+pair&nbsp;(host,&nbsp;port);&nbsp;the&nbsp;host&nbsp;must&nbsp;refer&nbsp;to&nbsp;the&nbsp;local&nbsp;host.&nbsp;For&nbsp;raw&nbsp;packet<br>
+sockets&nbsp;the&nbsp;address&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(ifname,&nbsp;proto&nbsp;[,pkttype&nbsp;[,hatype]])</tt></dd></dl>
+
+<dl><dt><a name="socket-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#SocketType-close">close</a>()<br>
+&nbsp;<br>
+Close&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;It&nbsp;cannot&nbsp;be&nbsp;used&nbsp;after&nbsp;this&nbsp;call.</tt></dd></dl>
+
+<dl><dt><a name="socket-connect"><strong>connect</strong></a>(...)</dt><dd><tt><a href="#SocketType-connect">connect</a>(address)<br>
+&nbsp;<br>
+Connect&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;remote&nbsp;address.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+is&nbsp;a&nbsp;pair&nbsp;(host,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-connect_ex"><strong>connect_ex</strong></a>(...)</dt><dd><tt><a href="#SocketType-connect_ex">connect_ex</a>(address)&nbsp;-&gt;&nbsp;errno<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;like&nbsp;<a href="#SocketType-connect">connect</a>(address),&nbsp;but&nbsp;returns&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;code&nbsp;(the&nbsp;errno&nbsp;value)<br>
+instead&nbsp;of&nbsp;raising&nbsp;an&nbsp;exception&nbsp;when&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;occurs.</tt></dd></dl>
+
+<dl><dt><a name="socket-fileno"><strong>fileno</strong></a>(...)</dt><dd><tt><a href="#SocketType-fileno">fileno</a>()&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;integer&nbsp;file&nbsp;descriptor&nbsp;of&nbsp;the&nbsp;<a href="#socket">socket</a>.</tt></dd></dl>
+
+<dl><dt><a name="socket-getpeername"><strong>getpeername</strong></a>(...)</dt><dd><tt><a href="#SocketType-getpeername">getpeername</a>()&nbsp;-&gt;&nbsp;address&nbsp;info<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;remote&nbsp;endpoint.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-getsockname"><strong>getsockname</strong></a>(...)</dt><dd><tt><a href="#SocketType-getsockname">getsockname</a>()&nbsp;-&gt;&nbsp;address&nbsp;info<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;local&nbsp;endpoint.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-getsockopt"><strong>getsockopt</strong></a>(...)</dt><dd><tt><a href="#SocketType-getsockopt">getsockopt</a>(level,&nbsp;option[,&nbsp;buffersize])&nbsp;-&gt;&nbsp;value<br>
+&nbsp;<br>
+Get&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;option.&nbsp;&nbsp;See&nbsp;the&nbsp;Unix&nbsp;manual&nbsp;for&nbsp;level&nbsp;and&nbsp;option.<br>
+If&nbsp;a&nbsp;nonzero&nbsp;buffersize&nbsp;argument&nbsp;is&nbsp;given,&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;a<br>
+string&nbsp;of&nbsp;that&nbsp;length;&nbsp;otherwise&nbsp;it&nbsp;is&nbsp;an&nbsp;integer.</tt></dd></dl>
+
+<dl><dt><a name="socket-gettimeout"><strong>gettimeout</strong></a>(...)</dt><dd><tt><a href="#SocketType-gettimeout">gettimeout</a>()&nbsp;-&gt;&nbsp;<a href="#timeout">timeout</a><br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;<a href="#timeout">timeout</a>&nbsp;in&nbsp;floating&nbsp;seconds&nbsp;associated&nbsp;with&nbsp;<a href="#socket">socket</a>&nbsp;<br>
+operations.&nbsp;A&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;None&nbsp;indicates&nbsp;that&nbsp;timeouts&nbsp;on&nbsp;<a href="#socket">socket</a>&nbsp;<br>
+operations&nbsp;are&nbsp;disabled.</tt></dd></dl>
+
+<dl><dt><a name="socket-listen"><strong>listen</strong></a>(...)</dt><dd><tt><a href="#SocketType-listen">listen</a>(backlog)<br>
+&nbsp;<br>
+Enable&nbsp;a&nbsp;server&nbsp;to&nbsp;accept&nbsp;connections.&nbsp;&nbsp;The&nbsp;backlog&nbsp;argument&nbsp;must&nbsp;be&nbsp;at<br>
+least&nbsp;1;&nbsp;it&nbsp;specifies&nbsp;the&nbsp;number&nbsp;of&nbsp;unaccepted&nbsp;connection&nbsp;that&nbsp;the&nbsp;system<br>
+will&nbsp;allow&nbsp;before&nbsp;refusing&nbsp;new&nbsp;connections.</tt></dd></dl>
+
+<dl><dt><a name="socket-recv"><strong>recv</strong></a>(...)</dt><dd><tt><a href="#SocketType-recv">recv</a>(buffersize[,&nbsp;flags])&nbsp;-&gt;&nbsp;data<br>
+&nbsp;<br>
+Receive&nbsp;up&nbsp;to&nbsp;buffersize&nbsp;bytes&nbsp;from&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;When&nbsp;no&nbsp;data&nbsp;is&nbsp;available,&nbsp;block&nbsp;until<br>
+at&nbsp;least&nbsp;one&nbsp;byte&nbsp;is&nbsp;available&nbsp;or&nbsp;until&nbsp;the&nbsp;remote&nbsp;end&nbsp;is&nbsp;closed.&nbsp;&nbsp;When<br>
+the&nbsp;remote&nbsp;end&nbsp;is&nbsp;closed&nbsp;and&nbsp;all&nbsp;data&nbsp;is&nbsp;read,&nbsp;return&nbsp;the&nbsp;empty&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="socket-recv_into"><strong>recv_into</strong></a>(...)</dt><dd><tt><a href="#SocketType-recv_into">recv_into</a>(buffer,&nbsp;[nbytes[,&nbsp;flags]])&nbsp;-&gt;&nbsp;nbytes_read<br>
+&nbsp;<br>
+A&nbsp;version&nbsp;of&nbsp;<a href="#SocketType-recv">recv</a>()&nbsp;that&nbsp;stores&nbsp;its&nbsp;data&nbsp;into&nbsp;a&nbsp;buffer&nbsp;rather&nbsp;than&nbsp;creating&nbsp;<br>
+a&nbsp;new&nbsp;string.&nbsp;&nbsp;Receive&nbsp;up&nbsp;to&nbsp;buffersize&nbsp;bytes&nbsp;from&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;If&nbsp;buffersize&nbsp;<br>
+is&nbsp;not&nbsp;specified&nbsp;(or&nbsp;0),&nbsp;receive&nbsp;up&nbsp;to&nbsp;the&nbsp;size&nbsp;available&nbsp;in&nbsp;the&nbsp;given&nbsp;buffer.<br>
+&nbsp;<br>
+See&nbsp;<a href="#SocketType-recv">recv</a>()&nbsp;for&nbsp;documentation&nbsp;about&nbsp;the&nbsp;flags.</tt></dd></dl>
+
+<dl><dt><a name="socket-recvfrom"><strong>recvfrom</strong></a>(...)</dt><dd><tt><a href="#SocketType-recvfrom">recvfrom</a>(buffersize[,&nbsp;flags])&nbsp;-&gt;&nbsp;(data,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Like&nbsp;<a href="#SocketType-recv">recv</a>(buffersize,&nbsp;flags)&nbsp;but&nbsp;also&nbsp;return&nbsp;the&nbsp;sender's&nbsp;address&nbsp;info.</tt></dd></dl>
+
+<dl><dt><a name="socket-recvfrom_into"><strong>recvfrom_into</strong></a>(...)</dt><dd><tt><a href="#SocketType-recvfrom_into">recvfrom_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;-&gt;&nbsp;(nbytes,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Like&nbsp;<a href="#SocketType-recv_into">recv_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;but&nbsp;also&nbsp;return&nbsp;the&nbsp;sender's&nbsp;address&nbsp;info.</tt></dd></dl>
+
+<dl><dt><a name="socket-send"><strong>send</strong></a>(...)</dt><dd><tt><a href="#SocketType-send">send</a>(data[,&nbsp;flags])&nbsp;-&gt;&nbsp;count<br>
+&nbsp;<br>
+Send&nbsp;a&nbsp;data&nbsp;string&nbsp;to&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;bytes<br>
+sent;&nbsp;this&nbsp;may&nbsp;be&nbsp;less&nbsp;than&nbsp;len(data)&nbsp;if&nbsp;the&nbsp;network&nbsp;is&nbsp;busy.</tt></dd></dl>
+
+<dl><dt><a name="socket-sendall"><strong>sendall</strong></a>(...)</dt><dd><tt><a href="#SocketType-sendall">sendall</a>(data[,&nbsp;flags])<br>
+&nbsp;<br>
+Send&nbsp;a&nbsp;data&nbsp;string&nbsp;to&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;This&nbsp;calls&nbsp;<a href="#SocketType-send">send</a>()&nbsp;repeatedly<br>
+until&nbsp;all&nbsp;data&nbsp;is&nbsp;sent.&nbsp;&nbsp;If&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;occurs,&nbsp;it's&nbsp;impossible<br>
+to&nbsp;tell&nbsp;how&nbsp;much&nbsp;data&nbsp;has&nbsp;been&nbsp;sent.</tt></dd></dl>
+
+<dl><dt><a name="socket-sendto"><strong>sendto</strong></a>(...)</dt><dd><tt><a href="#SocketType-sendto">sendto</a>(data[,&nbsp;flags],&nbsp;address)&nbsp;-&gt;&nbsp;count<br>
+&nbsp;<br>
+Like&nbsp;<a href="#SocketType-send">send</a>(data,&nbsp;flags)&nbsp;but&nbsp;allows&nbsp;specifying&nbsp;the&nbsp;destination&nbsp;address.<br>
+For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-setblocking"><strong>setblocking</strong></a>(...)</dt><dd><tt><a href="#SocketType-setblocking">setblocking</a>(flag)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;blocking&nbsp;(flag&nbsp;is&nbsp;true)&nbsp;or&nbsp;non-blocking&nbsp;(false).<br>
+<a href="#SocketType-setblocking">setblocking</a>(True)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#SocketType-settimeout">settimeout</a>(None);<br>
+<a href="#SocketType-setblocking">setblocking</a>(False)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#SocketType-settimeout">settimeout</a>(0.0).</tt></dd></dl>
+
+<dl><dt><a name="socket-setsockopt"><strong>setsockopt</strong></a>(...)</dt><dd><tt><a href="#SocketType-setsockopt">setsockopt</a>(level,&nbsp;option,&nbsp;value)<br>
+&nbsp;<br>
+Set&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;option.&nbsp;&nbsp;See&nbsp;the&nbsp;Unix&nbsp;manual&nbsp;for&nbsp;level&nbsp;and&nbsp;option.<br>
+The&nbsp;value&nbsp;argument&nbsp;can&nbsp;either&nbsp;be&nbsp;an&nbsp;integer&nbsp;or&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="socket-settimeout"><strong>settimeout</strong></a>(...)</dt><dd><tt><a href="#SocketType-settimeout">settimeout</a>(<a href="#timeout">timeout</a>)<br>
+&nbsp;<br>
+Set&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;on&nbsp;<a href="#socket">socket</a>&nbsp;operations.&nbsp;&nbsp;'<a href="#timeout">timeout</a>'&nbsp;can&nbsp;be&nbsp;a&nbsp;float,<br>
+giving&nbsp;in&nbsp;seconds,&nbsp;or&nbsp;None.&nbsp;&nbsp;Setting&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;None&nbsp;disables<br>
+the&nbsp;<a href="#timeout">timeout</a>&nbsp;feature&nbsp;and&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#SocketType-setblocking">setblocking</a>(1).<br>
+Setting&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;zero&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;<a href="#SocketType-setblocking">setblocking</a>(0).</tt></dd></dl>
+
+<dl><dt><a name="socket-shutdown"><strong>shutdown</strong></a>(...)</dt><dd><tt><a href="#SocketType-shutdown">shutdown</a>(flag)<br>
+&nbsp;<br>
+Shut&nbsp;down&nbsp;the&nbsp;reading&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;(flag&nbsp;==&nbsp;SHUT_RD),&nbsp;the&nbsp;writing&nbsp;side<br>
+of&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;(flag&nbsp;==&nbsp;SHUT_WR),&nbsp;or&nbsp;both&nbsp;ends&nbsp;(flag&nbsp;==&nbsp;SHUT_RDWR).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>family</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;family</tt></dd>
+</dl>
+<dl><dt><strong>proto</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;protocol</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;timeout</tt></dd>
+</dl>
+<dl><dt><strong>type</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;type</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a7cfe8&gt;<dd><tt>T.<a href="#SocketType-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="error">class <strong>error</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd>error</dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="error-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#error-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="error-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="error-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="error-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="error-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="error-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="error-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="error-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="error-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#error-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="gaierror">class <strong>gaierror</strong></a>(error)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd>gaierror</dd>
+<dd>error</dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors inherited from error:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="gaierror-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#gaierror-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="gaierror-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="gaierror-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="gaierror-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="gaierror-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#gaierror-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="herror">class <strong>herror</strong></a>(error)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd>herror</dd>
+<dd>error</dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors inherited from error:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="herror-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#herror-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="herror-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="herror-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="herror-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="herror-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="herror-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="herror-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="herror-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="herror-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="herror-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#herror-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="socket">class <strong>socket</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#socket">socket</a>([family[,&nbsp;type[,&nbsp;proto]]])&nbsp;-&gt;&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a><br>
+&nbsp;<br>
+Open&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;of&nbsp;the&nbsp;given&nbsp;type.&nbsp;&nbsp;The&nbsp;family&nbsp;argument&nbsp;specifies&nbsp;the<br>
+address&nbsp;family;&nbsp;it&nbsp;defaults&nbsp;to&nbsp;AF_INET.&nbsp;&nbsp;The&nbsp;type&nbsp;argument&nbsp;specifies<br>
+whether&nbsp;this&nbsp;is&nbsp;a&nbsp;stream&nbsp;(SOCK_STREAM,&nbsp;this&nbsp;is&nbsp;the&nbsp;default)<br>
+or&nbsp;datagram&nbsp;(SOCK_DGRAM)&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;The&nbsp;protocol&nbsp;argument&nbsp;defaults&nbsp;to&nbsp;0,<br>
+specifying&nbsp;the&nbsp;default&nbsp;protocol.&nbsp;&nbsp;Keyword&nbsp;arguments&nbsp;are&nbsp;accepted.<br>
+&nbsp;<br>
+A&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;represents&nbsp;one&nbsp;endpoint&nbsp;of&nbsp;a&nbsp;network&nbsp;connection.<br>
+&nbsp;<br>
+Methods&nbsp;of&nbsp;<a href="#socket">socket</a>&nbsp;objects&nbsp;(keyword&nbsp;arguments&nbsp;not&nbsp;allowed):<br>
+&nbsp;<br>
+<a href="#socket-accept">accept</a>()&nbsp;--&nbsp;accept&nbsp;a&nbsp;connection,&nbsp;returning&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;and&nbsp;client&nbsp;address<br>
+<a href="#socket-bind">bind</a>(addr)&nbsp;--&nbsp;bind&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;local&nbsp;address<br>
+<a href="#socket-close">close</a>()&nbsp;--&nbsp;close&nbsp;the&nbsp;<a href="#socket">socket</a><br>
+<a href="#socket-connect">connect</a>(addr)&nbsp;--&nbsp;connect&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;remote&nbsp;address<br>
+<a href="#socket-connect_ex">connect_ex</a>(addr)&nbsp;--&nbsp;connect,&nbsp;return&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;code&nbsp;instead&nbsp;of&nbsp;an&nbsp;exception<br>
+dup()&nbsp;--&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;identical&nbsp;to&nbsp;the&nbsp;current&nbsp;one&nbsp;[*]<br>
+<a href="#socket-fileno">fileno</a>()&nbsp;--&nbsp;return&nbsp;underlying&nbsp;file&nbsp;descriptor<br>
+<a href="#socket-getpeername">getpeername</a>()&nbsp;--&nbsp;return&nbsp;remote&nbsp;address&nbsp;[*]<br>
+<a href="#socket-getsockname">getsockname</a>()&nbsp;--&nbsp;return&nbsp;local&nbsp;address<br>
+<a href="#socket-getsockopt">getsockopt</a>(level,&nbsp;optname[,&nbsp;buflen])&nbsp;--&nbsp;get&nbsp;<a href="#socket">socket</a>&nbsp;options<br>
+<a href="#socket-gettimeout">gettimeout</a>()&nbsp;--&nbsp;return&nbsp;<a href="#timeout">timeout</a>&nbsp;or&nbsp;None<br>
+<a href="#socket-listen">listen</a>(n)&nbsp;--&nbsp;start&nbsp;listening&nbsp;for&nbsp;incoming&nbsp;connections<br>
+makefile([mode,&nbsp;[bufsize]])&nbsp;--&nbsp;return&nbsp;a&nbsp;file&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;for&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;[*]<br>
+<a href="#socket-recv">recv</a>(buflen[,&nbsp;flags])&nbsp;--&nbsp;receive&nbsp;data<br>
+<a href="#socket-recv_into">recv_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;--&nbsp;receive&nbsp;data&nbsp;(into&nbsp;a&nbsp;buffer)<br>
+<a href="#socket-recvfrom">recvfrom</a>(buflen[,&nbsp;flags])&nbsp;--&nbsp;receive&nbsp;data&nbsp;and&nbsp;sender's&nbsp;address<br>
+<a href="#socket-recvfrom_into">recvfrom_into</a>(buffer[,&nbsp;nbytes,&nbsp;[,&nbsp;flags])<br>
+&nbsp;&nbsp;--&nbsp;receive&nbsp;data&nbsp;and&nbsp;sender's&nbsp;address&nbsp;(into&nbsp;a&nbsp;buffer)<br>
+<a href="#socket-sendall">sendall</a>(data[,&nbsp;flags])&nbsp;--&nbsp;send&nbsp;all&nbsp;data<br>
+<a href="#socket-send">send</a>(data[,&nbsp;flags])&nbsp;--&nbsp;send&nbsp;data,&nbsp;may&nbsp;not&nbsp;send&nbsp;all&nbsp;of&nbsp;it<br>
+<a href="#socket-sendto">sendto</a>(data[,&nbsp;flags],&nbsp;addr)&nbsp;--&nbsp;send&nbsp;data&nbsp;to&nbsp;a&nbsp;given&nbsp;address<br>
+<a href="#socket-setblocking">setblocking</a>(0&nbsp;|&nbsp;1)&nbsp;--&nbsp;set&nbsp;or&nbsp;clear&nbsp;the&nbsp;blocking&nbsp;I/O&nbsp;flag<br>
+<a href="#socket-setsockopt">setsockopt</a>(level,&nbsp;optname,&nbsp;value)&nbsp;--&nbsp;set&nbsp;<a href="#socket">socket</a>&nbsp;options<br>
+<a href="#socket-settimeout">settimeout</a>(None&nbsp;|&nbsp;float)&nbsp;--&nbsp;set&nbsp;or&nbsp;clear&nbsp;the&nbsp;<a href="#timeout">timeout</a><br>
+<a href="#socket-shutdown">shutdown</a>(how)&nbsp;--&nbsp;shut&nbsp;down&nbsp;traffic&nbsp;in&nbsp;one&nbsp;or&nbsp;both&nbsp;directions<br>
+&nbsp;<br>
+&nbsp;[*]&nbsp;not&nbsp;available&nbsp;on&nbsp;all&nbsp;platforms!<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="socket-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#socket-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="socket-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#socket-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<dl><dt><a name="socket-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#socket-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="socket-accept"><strong>accept</strong></a>(...)</dt><dd><tt><a href="#socket-accept">accept</a>()&nbsp;-&gt;&nbsp;(<a href="#socket">socket</a>&nbsp;<a href="__builtin__.html#object">object</a>,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Wait&nbsp;for&nbsp;an&nbsp;incoming&nbsp;connection.&nbsp;&nbsp;Return&nbsp;a&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;representing&nbsp;the<br>
+connection,&nbsp;and&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;client.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-bind"><strong>bind</strong></a>(...)</dt><dd><tt><a href="#socket-bind">bind</a>(address)<br>
+&nbsp;<br>
+Bind&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;local&nbsp;address.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address&nbsp;is&nbsp;a<br>
+pair&nbsp;(host,&nbsp;port);&nbsp;the&nbsp;host&nbsp;must&nbsp;refer&nbsp;to&nbsp;the&nbsp;local&nbsp;host.&nbsp;For&nbsp;raw&nbsp;packet<br>
+sockets&nbsp;the&nbsp;address&nbsp;is&nbsp;a&nbsp;tuple&nbsp;(ifname,&nbsp;proto&nbsp;[,pkttype&nbsp;[,hatype]])</tt></dd></dl>
+
+<dl><dt><a name="socket-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#socket-close">close</a>()<br>
+&nbsp;<br>
+Close&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;It&nbsp;cannot&nbsp;be&nbsp;used&nbsp;after&nbsp;this&nbsp;call.</tt></dd></dl>
+
+<dl><dt><a name="socket-connect"><strong>connect</strong></a>(...)</dt><dd><tt><a href="#socket-connect">connect</a>(address)<br>
+&nbsp;<br>
+Connect&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;a&nbsp;remote&nbsp;address.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+is&nbsp;a&nbsp;pair&nbsp;(host,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-connect_ex"><strong>connect_ex</strong></a>(...)</dt><dd><tt><a href="#socket-connect_ex">connect_ex</a>(address)&nbsp;-&gt;&nbsp;errno<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;like&nbsp;<a href="#socket-connect">connect</a>(address),&nbsp;but&nbsp;returns&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;code&nbsp;(the&nbsp;errno&nbsp;value)<br>
+instead&nbsp;of&nbsp;raising&nbsp;an&nbsp;exception&nbsp;when&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;occurs.</tt></dd></dl>
+
+<dl><dt><a name="socket-fileno"><strong>fileno</strong></a>(...)</dt><dd><tt><a href="#socket-fileno">fileno</a>()&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;integer&nbsp;file&nbsp;descriptor&nbsp;of&nbsp;the&nbsp;<a href="#socket">socket</a>.</tt></dd></dl>
+
+<dl><dt><a name="socket-getpeername"><strong>getpeername</strong></a>(...)</dt><dd><tt><a href="#socket-getpeername">getpeername</a>()&nbsp;-&gt;&nbsp;address&nbsp;info<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;remote&nbsp;endpoint.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-getsockname"><strong>getsockname</strong></a>(...)</dt><dd><tt><a href="#socket-getsockname">getsockname</a>()&nbsp;-&gt;&nbsp;address&nbsp;info<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;local&nbsp;endpoint.&nbsp;&nbsp;For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address<br>
+info&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-getsockopt"><strong>getsockopt</strong></a>(...)</dt><dd><tt><a href="#socket-getsockopt">getsockopt</a>(level,&nbsp;option[,&nbsp;buffersize])&nbsp;-&gt;&nbsp;value<br>
+&nbsp;<br>
+Get&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;option.&nbsp;&nbsp;See&nbsp;the&nbsp;Unix&nbsp;manual&nbsp;for&nbsp;level&nbsp;and&nbsp;option.<br>
+If&nbsp;a&nbsp;nonzero&nbsp;buffersize&nbsp;argument&nbsp;is&nbsp;given,&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;a<br>
+string&nbsp;of&nbsp;that&nbsp;length;&nbsp;otherwise&nbsp;it&nbsp;is&nbsp;an&nbsp;integer.</tt></dd></dl>
+
+<dl><dt><a name="socket-gettimeout"><strong>gettimeout</strong></a>(...)</dt><dd><tt><a href="#socket-gettimeout">gettimeout</a>()&nbsp;-&gt;&nbsp;<a href="#timeout">timeout</a><br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;<a href="#timeout">timeout</a>&nbsp;in&nbsp;floating&nbsp;seconds&nbsp;associated&nbsp;with&nbsp;<a href="#socket">socket</a>&nbsp;<br>
+operations.&nbsp;A&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;None&nbsp;indicates&nbsp;that&nbsp;timeouts&nbsp;on&nbsp;<a href="#socket">socket</a>&nbsp;<br>
+operations&nbsp;are&nbsp;disabled.</tt></dd></dl>
+
+<dl><dt><a name="socket-listen"><strong>listen</strong></a>(...)</dt><dd><tt><a href="#socket-listen">listen</a>(backlog)<br>
+&nbsp;<br>
+Enable&nbsp;a&nbsp;server&nbsp;to&nbsp;accept&nbsp;connections.&nbsp;&nbsp;The&nbsp;backlog&nbsp;argument&nbsp;must&nbsp;be&nbsp;at<br>
+least&nbsp;1;&nbsp;it&nbsp;specifies&nbsp;the&nbsp;number&nbsp;of&nbsp;unaccepted&nbsp;connection&nbsp;that&nbsp;the&nbsp;system<br>
+will&nbsp;allow&nbsp;before&nbsp;refusing&nbsp;new&nbsp;connections.</tt></dd></dl>
+
+<dl><dt><a name="socket-recv"><strong>recv</strong></a>(...)</dt><dd><tt><a href="#socket-recv">recv</a>(buffersize[,&nbsp;flags])&nbsp;-&gt;&nbsp;data<br>
+&nbsp;<br>
+Receive&nbsp;up&nbsp;to&nbsp;buffersize&nbsp;bytes&nbsp;from&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;When&nbsp;no&nbsp;data&nbsp;is&nbsp;available,&nbsp;block&nbsp;until<br>
+at&nbsp;least&nbsp;one&nbsp;byte&nbsp;is&nbsp;available&nbsp;or&nbsp;until&nbsp;the&nbsp;remote&nbsp;end&nbsp;is&nbsp;closed.&nbsp;&nbsp;When<br>
+the&nbsp;remote&nbsp;end&nbsp;is&nbsp;closed&nbsp;and&nbsp;all&nbsp;data&nbsp;is&nbsp;read,&nbsp;return&nbsp;the&nbsp;empty&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="socket-recv_into"><strong>recv_into</strong></a>(...)</dt><dd><tt><a href="#socket-recv_into">recv_into</a>(buffer,&nbsp;[nbytes[,&nbsp;flags]])&nbsp;-&gt;&nbsp;nbytes_read<br>
+&nbsp;<br>
+A&nbsp;version&nbsp;of&nbsp;<a href="#socket-recv">recv</a>()&nbsp;that&nbsp;stores&nbsp;its&nbsp;data&nbsp;into&nbsp;a&nbsp;buffer&nbsp;rather&nbsp;than&nbsp;creating&nbsp;<br>
+a&nbsp;new&nbsp;string.&nbsp;&nbsp;Receive&nbsp;up&nbsp;to&nbsp;buffersize&nbsp;bytes&nbsp;from&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;If&nbsp;buffersize&nbsp;<br>
+is&nbsp;not&nbsp;specified&nbsp;(or&nbsp;0),&nbsp;receive&nbsp;up&nbsp;to&nbsp;the&nbsp;size&nbsp;available&nbsp;in&nbsp;the&nbsp;given&nbsp;buffer.<br>
+&nbsp;<br>
+See&nbsp;<a href="#socket-recv">recv</a>()&nbsp;for&nbsp;documentation&nbsp;about&nbsp;the&nbsp;flags.</tt></dd></dl>
+
+<dl><dt><a name="socket-recvfrom"><strong>recvfrom</strong></a>(...)</dt><dd><tt><a href="#socket-recvfrom">recvfrom</a>(buffersize[,&nbsp;flags])&nbsp;-&gt;&nbsp;(data,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Like&nbsp;<a href="#socket-recv">recv</a>(buffersize,&nbsp;flags)&nbsp;but&nbsp;also&nbsp;return&nbsp;the&nbsp;sender's&nbsp;address&nbsp;info.</tt></dd></dl>
+
+<dl><dt><a name="socket-recvfrom_into"><strong>recvfrom_into</strong></a>(...)</dt><dd><tt><a href="#socket-recvfrom_into">recvfrom_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;-&gt;&nbsp;(nbytes,&nbsp;address&nbsp;info)<br>
+&nbsp;<br>
+Like&nbsp;<a href="#socket-recv_into">recv_into</a>(buffer[,&nbsp;nbytes[,&nbsp;flags]])&nbsp;but&nbsp;also&nbsp;return&nbsp;the&nbsp;sender's&nbsp;address&nbsp;info.</tt></dd></dl>
+
+<dl><dt><a name="socket-send"><strong>send</strong></a>(...)</dt><dd><tt><a href="#socket-send">send</a>(data[,&nbsp;flags])&nbsp;-&gt;&nbsp;count<br>
+&nbsp;<br>
+Send&nbsp;a&nbsp;data&nbsp;string&nbsp;to&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;Return&nbsp;the&nbsp;number&nbsp;of&nbsp;bytes<br>
+sent;&nbsp;this&nbsp;may&nbsp;be&nbsp;less&nbsp;than&nbsp;len(data)&nbsp;if&nbsp;the&nbsp;network&nbsp;is&nbsp;busy.</tt></dd></dl>
+
+<dl><dt><a name="socket-sendall"><strong>sendall</strong></a>(...)</dt><dd><tt><a href="#socket-sendall">sendall</a>(data[,&nbsp;flags])<br>
+&nbsp;<br>
+Send&nbsp;a&nbsp;data&nbsp;string&nbsp;to&nbsp;the&nbsp;<a href="#socket">socket</a>.&nbsp;&nbsp;For&nbsp;the&nbsp;optional&nbsp;flags<br>
+argument,&nbsp;see&nbsp;the&nbsp;Unix&nbsp;manual.&nbsp;&nbsp;This&nbsp;calls&nbsp;<a href="#socket-send">send</a>()&nbsp;repeatedly<br>
+until&nbsp;all&nbsp;data&nbsp;is&nbsp;sent.&nbsp;&nbsp;If&nbsp;an&nbsp;<a href="#error">error</a>&nbsp;occurs,&nbsp;it's&nbsp;impossible<br>
+to&nbsp;tell&nbsp;how&nbsp;much&nbsp;data&nbsp;has&nbsp;been&nbsp;sent.</tt></dd></dl>
+
+<dl><dt><a name="socket-sendto"><strong>sendto</strong></a>(...)</dt><dd><tt><a href="#socket-sendto">sendto</a>(data[,&nbsp;flags],&nbsp;address)&nbsp;-&gt;&nbsp;count<br>
+&nbsp;<br>
+Like&nbsp;<a href="#socket-send">send</a>(data,&nbsp;flags)&nbsp;but&nbsp;allows&nbsp;specifying&nbsp;the&nbsp;destination&nbsp;address.<br>
+For&nbsp;IP&nbsp;sockets,&nbsp;the&nbsp;address&nbsp;is&nbsp;a&nbsp;pair&nbsp;(hostaddr,&nbsp;port).</tt></dd></dl>
+
+<dl><dt><a name="socket-setblocking"><strong>setblocking</strong></a>(...)</dt><dd><tt><a href="#socket-setblocking">setblocking</a>(flag)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;to&nbsp;blocking&nbsp;(flag&nbsp;is&nbsp;true)&nbsp;or&nbsp;non-blocking&nbsp;(false).<br>
+<a href="#socket-setblocking">setblocking</a>(True)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#socket-settimeout">settimeout</a>(None);<br>
+<a href="#socket-setblocking">setblocking</a>(False)&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#socket-settimeout">settimeout</a>(0.0).</tt></dd></dl>
+
+<dl><dt><a name="socket-setsockopt"><strong>setsockopt</strong></a>(...)</dt><dd><tt><a href="#socket-setsockopt">setsockopt</a>(level,&nbsp;option,&nbsp;value)<br>
+&nbsp;<br>
+Set&nbsp;a&nbsp;<a href="#socket">socket</a>&nbsp;option.&nbsp;&nbsp;See&nbsp;the&nbsp;Unix&nbsp;manual&nbsp;for&nbsp;level&nbsp;and&nbsp;option.<br>
+The&nbsp;value&nbsp;argument&nbsp;can&nbsp;either&nbsp;be&nbsp;an&nbsp;integer&nbsp;or&nbsp;a&nbsp;string.</tt></dd></dl>
+
+<dl><dt><a name="socket-settimeout"><strong>settimeout</strong></a>(...)</dt><dd><tt><a href="#socket-settimeout">settimeout</a>(<a href="#timeout">timeout</a>)<br>
+&nbsp;<br>
+Set&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;on&nbsp;<a href="#socket">socket</a>&nbsp;operations.&nbsp;&nbsp;'<a href="#timeout">timeout</a>'&nbsp;can&nbsp;be&nbsp;a&nbsp;float,<br>
+giving&nbsp;in&nbsp;seconds,&nbsp;or&nbsp;None.&nbsp;&nbsp;Setting&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;None&nbsp;disables<br>
+the&nbsp;<a href="#timeout">timeout</a>&nbsp;feature&nbsp;and&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;<a href="#socket-setblocking">setblocking</a>(1).<br>
+Setting&nbsp;a&nbsp;<a href="#timeout">timeout</a>&nbsp;of&nbsp;zero&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;<a href="#socket-setblocking">setblocking</a>(0).</tt></dd></dl>
+
+<dl><dt><a name="socket-shutdown"><strong>shutdown</strong></a>(...)</dt><dd><tt><a href="#socket-shutdown">shutdown</a>(flag)<br>
+&nbsp;<br>
+Shut&nbsp;down&nbsp;the&nbsp;reading&nbsp;side&nbsp;of&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;(flag&nbsp;==&nbsp;SHUT_RD),&nbsp;the&nbsp;writing&nbsp;side<br>
+of&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;(flag&nbsp;==&nbsp;SHUT_WR),&nbsp;or&nbsp;both&nbsp;ends&nbsp;(flag&nbsp;==&nbsp;SHUT_RDWR).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>family</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;family</tt></dd>
+</dl>
+<dl><dt><strong>proto</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;protocol</tt></dd>
+</dl>
+<dl><dt><strong>timeout</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;timeout</tt></dd>
+</dl>
+<dl><dt><strong>type</strong></dt>
+<dd><tt>the&nbsp;socket&nbsp;type</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8a7cfe8&gt;<dd><tt>T.<a href="#socket-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="timeout">class <strong>timeout</strong></a>(error)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd>timeout</dd>
+<dd>error</dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors inherited from error:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="timeout-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;x.__class__.__doc__&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object at 0x8abb148&gt;<dd><tt>T.<a href="#timeout-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="timeout-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="timeout-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="timeout-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="timeout-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="timeout-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="timeout-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="timeout-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="timeout-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="timeout-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#timeout-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+<dd><tt>exception&nbsp;message</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-getaddrinfo"><strong>getaddrinfo</strong></a>(...)</dt><dd><tt><a href="#-getaddrinfo">getaddrinfo</a>(host,&nbsp;port&nbsp;[,&nbsp;family,&nbsp;socktype,&nbsp;proto,&nbsp;flags])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;(family,&nbsp;socktype,&nbsp;proto,&nbsp;canonname,&nbsp;sockaddr)<br>
+&nbsp;<br>
+Resolve&nbsp;host&nbsp;and&nbsp;port&nbsp;into&nbsp;addrinfo&nbsp;struct.</tt></dd></dl>
+ <dl><dt><a name="-getdefaulttimeout"><strong>getdefaulttimeout</strong></a>(...)</dt><dd><tt><a href="#-getdefaulttimeout">getdefaulttimeout</a>()&nbsp;-&gt;&nbsp;<a href="#timeout">timeout</a><br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;default&nbsp;<a href="#timeout">timeout</a>&nbsp;in&nbsp;floating&nbsp;seconds&nbsp;for&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;objects.<br>
+A&nbsp;value&nbsp;of&nbsp;None&nbsp;indicates&nbsp;that&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;objects&nbsp;have&nbsp;no&nbsp;<a href="#timeout">timeout</a>.<br>
+When&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;module&nbsp;is&nbsp;first&nbsp;imported,&nbsp;the&nbsp;default&nbsp;is&nbsp;None.</tt></dd></dl>
+ <dl><dt><a name="-gethostbyaddr"><strong>gethostbyaddr</strong></a>(...)</dt><dd><tt><a href="#-gethostbyaddr">gethostbyaddr</a>(host)&nbsp;-&gt;&nbsp;(name,&nbsp;aliaslist,&nbsp;addresslist)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;true&nbsp;host&nbsp;name,&nbsp;a&nbsp;list&nbsp;of&nbsp;aliases,&nbsp;and&nbsp;a&nbsp;list&nbsp;of&nbsp;IP&nbsp;addresses,<br>
+for&nbsp;a&nbsp;host.&nbsp;&nbsp;The&nbsp;host&nbsp;argument&nbsp;is&nbsp;a&nbsp;string&nbsp;giving&nbsp;a&nbsp;host&nbsp;name&nbsp;or&nbsp;IP&nbsp;number.</tt></dd></dl>
+ <dl><dt><a name="-gethostbyname"><strong>gethostbyname</strong></a>(...)</dt><dd><tt><a href="#-gethostbyname">gethostbyname</a>(host)&nbsp;-&gt;&nbsp;address<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;IP&nbsp;address&nbsp;(a&nbsp;string&nbsp;of&nbsp;the&nbsp;form&nbsp;'255.255.255.255')&nbsp;for&nbsp;a&nbsp;host.</tt></dd></dl>
+ <dl><dt><a name="-gethostbyname_ex"><strong>gethostbyname_ex</strong></a>(...)</dt><dd><tt><a href="#-gethostbyname_ex">gethostbyname_ex</a>(host)&nbsp;-&gt;&nbsp;(name,&nbsp;aliaslist,&nbsp;addresslist)<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;true&nbsp;host&nbsp;name,&nbsp;a&nbsp;list&nbsp;of&nbsp;aliases,&nbsp;and&nbsp;a&nbsp;list&nbsp;of&nbsp;IP&nbsp;addresses,<br>
+for&nbsp;a&nbsp;host.&nbsp;&nbsp;The&nbsp;host&nbsp;argument&nbsp;is&nbsp;a&nbsp;string&nbsp;giving&nbsp;a&nbsp;host&nbsp;name&nbsp;or&nbsp;IP&nbsp;number.</tt></dd></dl>
+ <dl><dt><a name="-gethostname"><strong>gethostname</strong></a>(...)</dt><dd><tt><a href="#-gethostname">gethostname</a>()&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;current&nbsp;host&nbsp;name.</tt></dd></dl>
+ <dl><dt><a name="-getnameinfo"><strong>getnameinfo</strong></a>(...)</dt><dd><tt><a href="#-getnameinfo">getnameinfo</a>(sockaddr,&nbsp;flags)&nbsp;--&gt;&nbsp;(host,&nbsp;port)<br>
+&nbsp;<br>
+Get&nbsp;host&nbsp;and&nbsp;port&nbsp;for&nbsp;a&nbsp;sockaddr.</tt></dd></dl>
+ <dl><dt><a name="-getprotobyname"><strong>getprotobyname</strong></a>(...)</dt><dd><tt><a href="#-getprotobyname">getprotobyname</a>(name)&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;protocol&nbsp;number&nbsp;for&nbsp;the&nbsp;named&nbsp;protocol.&nbsp;&nbsp;(Rarely&nbsp;used.)</tt></dd></dl>
+ <dl><dt><a name="-getservbyname"><strong>getservbyname</strong></a>(...)</dt><dd><tt><a href="#-getservbyname">getservbyname</a>(servicename[,&nbsp;protocolname])&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Return&nbsp;a&nbsp;port&nbsp;number&nbsp;from&nbsp;a&nbsp;service&nbsp;name&nbsp;and&nbsp;protocol&nbsp;name.<br>
+The&nbsp;optional&nbsp;protocol&nbsp;name,&nbsp;if&nbsp;given,&nbsp;should&nbsp;be&nbsp;'tcp'&nbsp;or&nbsp;'udp',<br>
+otherwise&nbsp;any&nbsp;protocol&nbsp;will&nbsp;match.</tt></dd></dl>
+ <dl><dt><a name="-getservbyport"><strong>getservbyport</strong></a>(...)</dt><dd><tt><a href="#-getservbyport">getservbyport</a>(port[,&nbsp;protocolname])&nbsp;-&gt;&nbsp;string<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;service&nbsp;name&nbsp;from&nbsp;a&nbsp;port&nbsp;number&nbsp;and&nbsp;protocol&nbsp;name.<br>
+The&nbsp;optional&nbsp;protocol&nbsp;name,&nbsp;if&nbsp;given,&nbsp;should&nbsp;be&nbsp;'tcp'&nbsp;or&nbsp;'udp',<br>
+otherwise&nbsp;any&nbsp;protocol&nbsp;will&nbsp;match.</tt></dd></dl>
+ <dl><dt><a name="-htonl"><strong>htonl</strong></a>(...)</dt><dd><tt><a href="#-htonl">htonl</a>(integer)&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Convert&nbsp;a&nbsp;32-bit&nbsp;integer&nbsp;from&nbsp;host&nbsp;to&nbsp;network&nbsp;byte&nbsp;order.</tt></dd></dl>
+ <dl><dt><a name="-htons"><strong>htons</strong></a>(...)</dt><dd><tt><a href="#-htons">htons</a>(integer)&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Convert&nbsp;a&nbsp;16-bit&nbsp;integer&nbsp;from&nbsp;host&nbsp;to&nbsp;network&nbsp;byte&nbsp;order.</tt></dd></dl>
+ <dl><dt><a name="-inet_aton"><strong>inet_aton</strong></a>(...)</dt><dd><tt><a href="#-inet_aton">inet_aton</a>(string)&nbsp;-&gt;&nbsp;packed&nbsp;32-bit&nbsp;IP&nbsp;representation<br>
+&nbsp;<br>
+Convert&nbsp;an&nbsp;IP&nbsp;address&nbsp;in&nbsp;string&nbsp;format&nbsp;(123.45.67.89)&nbsp;to&nbsp;the&nbsp;32-bit&nbsp;packed<br>
+binary&nbsp;format&nbsp;used&nbsp;in&nbsp;low-level&nbsp;network&nbsp;functions.</tt></dd></dl>
+ <dl><dt><a name="-inet_ntoa"><strong>inet_ntoa</strong></a>(...)</dt><dd><tt><a href="#-inet_ntoa">inet_ntoa</a>(packed_ip)&nbsp;-&gt;&nbsp;ip_address_string<br>
+&nbsp;<br>
+Convert&nbsp;an&nbsp;IP&nbsp;address&nbsp;from&nbsp;32-bit&nbsp;packed&nbsp;binary&nbsp;format&nbsp;to&nbsp;string&nbsp;format</tt></dd></dl>
+ <dl><dt><a name="-inet_ntop"><strong>inet_ntop</strong></a>(...)</dt><dd><tt><a href="#-inet_ntop">inet_ntop</a>(af,&nbsp;packed_ip)&nbsp;-&gt;&nbsp;string&nbsp;formatted&nbsp;IP&nbsp;address<br>
+&nbsp;<br>
+Convert&nbsp;a&nbsp;packed&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;given&nbsp;family&nbsp;to&nbsp;string&nbsp;format.</tt></dd></dl>
+ <dl><dt><a name="-inet_pton"><strong>inet_pton</strong></a>(...)</dt><dd><tt><a href="#-inet_pton">inet_pton</a>(af,&nbsp;ip)&nbsp;-&gt;&nbsp;packed&nbsp;IP&nbsp;address&nbsp;string<br>
+&nbsp;<br>
+Convert&nbsp;an&nbsp;IP&nbsp;address&nbsp;from&nbsp;string&nbsp;format&nbsp;to&nbsp;a&nbsp;packed&nbsp;string&nbsp;suitable<br>
+for&nbsp;use&nbsp;with&nbsp;low-level&nbsp;network&nbsp;functions.</tt></dd></dl>
+ <dl><dt><a name="-ntohl"><strong>ntohl</strong></a>(...)</dt><dd><tt><a href="#-ntohl">ntohl</a>(integer)&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Convert&nbsp;a&nbsp;32-bit&nbsp;integer&nbsp;from&nbsp;network&nbsp;to&nbsp;host&nbsp;byte&nbsp;order.</tt></dd></dl>
+ <dl><dt><a name="-ntohs"><strong>ntohs</strong></a>(...)</dt><dd><tt><a href="#-ntohs">ntohs</a>(integer)&nbsp;-&gt;&nbsp;integer<br>
+&nbsp;<br>
+Convert&nbsp;a&nbsp;16-bit&nbsp;integer&nbsp;from&nbsp;network&nbsp;to&nbsp;host&nbsp;byte&nbsp;order.</tt></dd></dl>
+ <dl><dt><a name="-setdefaulttimeout"><strong>setdefaulttimeout</strong></a>(...)</dt><dd><tt><a href="#-setdefaulttimeout">setdefaulttimeout</a>(<a href="#timeout">timeout</a>)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;default&nbsp;<a href="#timeout">timeout</a>&nbsp;in&nbsp;floating&nbsp;seconds&nbsp;for&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;objects.<br>
+A&nbsp;value&nbsp;of&nbsp;None&nbsp;indicates&nbsp;that&nbsp;new&nbsp;<a href="#socket">socket</a>&nbsp;objects&nbsp;have&nbsp;no&nbsp;<a href="#timeout">timeout</a>.<br>
+When&nbsp;the&nbsp;<a href="#socket">socket</a>&nbsp;module&nbsp;is&nbsp;first&nbsp;imported,&nbsp;the&nbsp;default&nbsp;is&nbsp;None.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AF_APPLETALK</strong> = 16<br>
+<strong>AF_DECnet</strong> = 12<br>
+<strong>AF_INET</strong> = 2<br>
+<strong>AF_INET6</strong> = 24<br>
+<strong>AF_IPX</strong> = 23<br>
+<strong>AF_ROUTE</strong> = 17<br>
+<strong>AF_SNA</strong> = 11<br>
+<strong>AF_UNSPEC</strong> = 0<br>
+<strong>AI_ADDRCONFIG</strong> = 1024<br>
+<strong>AI_ALL</strong> = 256<br>
+<strong>AI_CANONNAME</strong> = 2<br>
+<strong>AI_DEFAULT</strong> = 1536<br>
+<strong>AI_MASK</strong> = 7<br>
+<strong>AI_NUMERICHOST</strong> = 4<br>
+<strong>AI_PASSIVE</strong> = 1<br>
+<strong>AI_V4MAPPED</strong> = 2048<br>
+<strong>AI_V4MAPPED_CFG</strong> = 512<br>
+<strong>CAPI</strong> = &lt;PyCObject object at 0x8af4a28&gt;<br>
+<strong>EAI_ADDRFAMILY</strong> = 1<br>
+<strong>EAI_AGAIN</strong> = 2<br>
+<strong>EAI_BADFLAGS</strong> = 3<br>
+<strong>EAI_BADHINTS</strong> = 12<br>
+<strong>EAI_FAIL</strong> = 4<br>
+<strong>EAI_FAMILY</strong> = 5<br>
+<strong>EAI_MAX</strong> = 14<br>
+<strong>EAI_MEMORY</strong> = 6<br>
+<strong>EAI_NODATA</strong> = 7<br>
+<strong>EAI_NONAME</strong> = 8<br>
+<strong>EAI_PROTOCOL</strong> = 13<br>
+<strong>EAI_SERVICE</strong> = 9<br>
+<strong>EAI_SOCKTYPE</strong> = 10<br>
+<strong>EAI_SYSTEM</strong> = 11<br>
+<strong>INADDR_ALLHOSTS_GROUP</strong> = -536870911<br>
+<strong>INADDR_ANY</strong> = 0<br>
+<strong>INADDR_BROADCAST</strong> = -1<br>
+<strong>INADDR_LOOPBACK</strong> = 2130706433<br>
+<strong>INADDR_MAX_LOCAL_GROUP</strong> = -536870657<br>
+<strong>INADDR_NONE</strong> = -1<br>
+<strong>INADDR_UNSPEC_GROUP</strong> = -536870912<br>
+<strong>IPPORT_RESERVED</strong> = 1024<br>
+<strong>IPPORT_USERRESERVED</strong> = 5000<br>
+<strong>IPPROTO_AH</strong> = 51<br>
+<strong>IPPROTO_DSTOPTS</strong> = 60<br>
+<strong>IPPROTO_EGP</strong> = 8<br>
+<strong>IPPROTO_EON</strong> = 80<br>
+<strong>IPPROTO_ESP</strong> = 50<br>
+<strong>IPPROTO_FRAGMENT</strong> = 44<br>
+<strong>IPPROTO_GGP</strong> = 3<br>
+<strong>IPPROTO_GRE</strong> = 47<br>
+<strong>IPPROTO_HOPOPTS</strong> = 0<br>
+<strong>IPPROTO_ICMP</strong> = 1<br>
+<strong>IPPROTO_ICMPV6</strong> = 58<br>
+<strong>IPPROTO_IDP</strong> = 22<br>
+<strong>IPPROTO_IGMP</strong> = 2<br>
+<strong>IPPROTO_IP</strong> = 0<br>
+<strong>IPPROTO_IPCOMP</strong> = 108<br>
+<strong>IPPROTO_IPIP</strong> = 4<br>
+<strong>IPPROTO_IPV4</strong> = 4<br>
+<strong>IPPROTO_IPV6</strong> = 41<br>
+<strong>IPPROTO_MAX</strong> = 256<br>
+<strong>IPPROTO_MOBILE</strong> = 55<br>
+<strong>IPPROTO_NONE</strong> = 59<br>
+<strong>IPPROTO_PIM</strong> = 103<br>
+<strong>IPPROTO_PUP</strong> = 12<br>
+<strong>IPPROTO_RAW</strong> = 255<br>
+<strong>IPPROTO_ROUTING</strong> = 43<br>
+<strong>IPPROTO_RSVP</strong> = 46<br>
+<strong>IPPROTO_TCP</strong> = 6<br>
+<strong>IPPROTO_TP</strong> = 29<br>
+<strong>IPPROTO_UDP</strong> = 17<br>
+<strong>IPPROTO_VRRP</strong> = 112<br>
+<strong>IP_ADD_MEMBERSHIP</strong> = 12<br>
+<strong>IP_DEFAULT_MULTICAST_LOOP</strong> = 1<br>
+<strong>IP_DEFAULT_MULTICAST_TTL</strong> = 1<br>
+<strong>IP_DROP_MEMBERSHIP</strong> = 13<br>
+<strong>IP_HDRINCL</strong> = 2<br>
+<strong>IP_MAX_MEMBERSHIPS</strong> = 20<br>
+<strong>IP_MULTICAST_IF</strong> = 9<br>
+<strong>IP_MULTICAST_LOOP</strong> = 11<br>
+<strong>IP_MULTICAST_TTL</strong> = 10<br>
+<strong>IP_OPTIONS</strong> = 1<br>
+<strong>IP_RECVDSTADDR</strong> = 7<br>
+<strong>IP_RECVOPTS</strong> = 5<br>
+<strong>IP_RECVRETOPTS</strong> = 6<br>
+<strong>IP_RETOPTS</strong> = 8<br>
+<strong>IP_TOS</strong> = 3<br>
+<strong>IP_TTL</strong> = 4<br>
+<strong>MSG_CTRUNC</strong> = 32<br>
+<strong>MSG_DONTROUTE</strong> = 4<br>
+<strong>MSG_DONTWAIT</strong> = 128<br>
+<strong>MSG_EOR</strong> = 8<br>
+<strong>MSG_OOB</strong> = 1<br>
+<strong>MSG_PEEK</strong> = 2<br>
+<strong>MSG_TRUNC</strong> = 16<br>
+<strong>MSG_WAITALL</strong> = 64<br>
+<strong>NI_DGRAM</strong> = 16<br>
+<strong>NI_MAXHOST</strong> = 1025<br>
+<strong>NI_MAXSERV</strong> = 32<br>
+<strong>NI_NAMEREQD</strong> = 4<br>
+<strong>NI_NOFQDN</strong> = 1<br>
+<strong>NI_NUMERICHOST</strong> = 2<br>
+<strong>NI_NUMERICSERV</strong> = 8<br>
+<strong>SHUT_RD</strong> = 0<br>
+<strong>SHUT_RDWR</strong> = 2<br>
+<strong>SHUT_WR</strong> = 1<br>
+<strong>SOCK_DGRAM</strong> = 2<br>
+<strong>SOCK_RAW</strong> = 3<br>
+<strong>SOCK_RDM</strong> = 4<br>
+<strong>SOCK_SEQPACKET</strong> = 5<br>
+<strong>SOCK_STREAM</strong> = 1<br>
+<strong>SOL_IP</strong> = 0<br>
+<strong>SOL_SOCKET</strong> = 65535<br>
+<strong>SOL_TCP</strong> = 6<br>
+<strong>SOL_UDP</strong> = 17<br>
+<strong>SOMAXCONN</strong> = 5<br>
+<strong>SO_ACCEPTCONN</strong> = 2<br>
+<strong>SO_BROADCAST</strong> = 32<br>
+<strong>SO_DEBUG</strong> = 1<br>
+<strong>SO_DONTROUTE</strong> = 16<br>
+<strong>SO_ERROR</strong> = 4103<br>
+<strong>SO_KEEPALIVE</strong> = 8<br>
+<strong>SO_LINGER</strong> = 128<br>
+<strong>SO_OOBINLINE</strong> = 256<br>
+<strong>SO_RCVBUF</strong> = 4098<br>
+<strong>SO_RCVLOWAT</strong> = 4100<br>
+<strong>SO_RCVTIMEO</strong> = 4102<br>
+<strong>SO_REUSEADDR</strong> = 4<br>
+<strong>SO_REUSEPORT</strong> = 512<br>
+<strong>SO_SNDBUF</strong> = 4097<br>
+<strong>SO_SNDLOWAT</strong> = 4099<br>
+<strong>SO_SNDTIMEO</strong> = 4101<br>
+<strong>SO_TYPE</strong> = 4104<br>
+<strong>SO_USELOOPBACK</strong> = 64<br>
+<strong>TCP_MAXSEG</strong> = 2<br>
+<strong>TCP_NODELAY</strong> = 1<br>
+<strong>has_ipv6</strong> = False</td></tr></table>
+</body></html>

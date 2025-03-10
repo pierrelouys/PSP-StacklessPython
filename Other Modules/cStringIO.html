@@ -1,0 +1,171 @@
+
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: built-in module cStringIO</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>cStringIO</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br>(built-in)</font></td></tr></table>
+    <p><tt>A&nbsp;simple&nbsp;fast&nbsp;partial&nbsp;StringIO&nbsp;replacement.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;provides&nbsp;a&nbsp;simple&nbsp;useful&nbsp;replacement&nbsp;for<br>
+the&nbsp;StringIO&nbsp;module&nbsp;that&nbsp;is&nbsp;written&nbsp;in&nbsp;C.&nbsp;&nbsp;It&nbsp;does&nbsp;not&nbsp;provide&nbsp;the<br>
+full&nbsp;generality&nbsp;of&nbsp;StringIO,&nbsp;but&nbsp;it&nbsp;provides&nbsp;enough&nbsp;for&nbsp;most<br>
+applications&nbsp;and&nbsp;is&nbsp;especially&nbsp;useful&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;the<br>
+pickle&nbsp;module.<br>
+&nbsp;<br>
+Usage:<br>
+&nbsp;<br>
+&nbsp;&nbsp;from&nbsp;cStringIO&nbsp;import&nbsp;StringIO<br>
+&nbsp;<br>
+&nbsp;&nbsp;an_output_stream=<a href="#-StringIO">StringIO</a>()<br>
+&nbsp;&nbsp;an_output_stream.write(some_stuff)<br>
+&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;value=an_output_stream.getvalue()<br>
+&nbsp;<br>
+&nbsp;&nbsp;an_input_stream=<a href="#-StringIO">StringIO</a>(a_string)<br>
+&nbsp;&nbsp;spam=an_input_stream.readline()<br>
+&nbsp;&nbsp;spam=an_input_stream.read(5)<br>
+&nbsp;&nbsp;an_input_stream.seek(0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;OK,&nbsp;start&nbsp;over<br>
+&nbsp;&nbsp;spam=an_input_stream.read()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;and&nbsp;read&nbsp;it&nbsp;all<br>
+&nbsp;&nbsp;<br>
+If&nbsp;someone&nbsp;else&nbsp;wants&nbsp;to&nbsp;provide&nbsp;a&nbsp;more&nbsp;complete&nbsp;implementation,<br>
+go&nbsp;for&nbsp;it.&nbsp;:-)&nbsp;&nbsp;<br>
+&nbsp;<br>
+cStringIO.c,v&nbsp;1.29&nbsp;1999/06/15&nbsp;14:10:27&nbsp;jim&nbsp;Exp</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial">StringI
+</font></dt><dt><font face="helvetica, arial">StringO
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>InputType</strong> = <a name="InputType">class StringI</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Simple&nbsp;type&nbsp;for&nbsp;treating&nbsp;strings&nbsp;as&nbsp;input&nbsp;file&nbsp;streams<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="StringI-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#InputType-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="StringI-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#InputType-close">close</a>():&nbsp;explicitly&nbsp;release&nbsp;resources&nbsp;held.</tt></dd></dl>
+
+<dl><dt><a name="StringI-flush"><strong>flush</strong></a>(...)</dt><dd><tt><a href="#InputType-flush">flush</a>():&nbsp;does&nbsp;nothing.</tt></dd></dl>
+
+<dl><dt><a name="StringI-getvalue"><strong>getvalue</strong></a>(...)</dt><dd><tt><a href="#InputType-getvalue">getvalue</a>([use_pos])&nbsp;--&nbsp;Get&nbsp;the&nbsp;string&nbsp;value.<br>
+If&nbsp;use_pos&nbsp;is&nbsp;specified&nbsp;and&nbsp;is&nbsp;a&nbsp;true&nbsp;value,&nbsp;then&nbsp;the&nbsp;string&nbsp;returned<br>
+will&nbsp;include&nbsp;only&nbsp;the&nbsp;text&nbsp;up&nbsp;to&nbsp;the&nbsp;current&nbsp;file&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="StringI-isatty"><strong>isatty</strong></a>(...)</dt><dd><tt><a href="#InputType-isatty">isatty</a>():&nbsp;always&nbsp;returns&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="StringI-next"><strong>next</strong></a>(...)</dt><dd><tt>x.<a href="#InputType-next">next</a>()&nbsp;-&gt;&nbsp;the&nbsp;next&nbsp;value,&nbsp;or&nbsp;raise&nbsp;StopIteration</tt></dd></dl>
+
+<dl><dt><a name="StringI-read"><strong>read</strong></a>(...)</dt><dd><tt><a href="#InputType-read">read</a>([s])&nbsp;--&nbsp;Read&nbsp;s&nbsp;characters,&nbsp;or&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="StringI-readline"><strong>readline</strong></a>(...)</dt><dd><tt><a href="#InputType-readline">readline</a>()&nbsp;--&nbsp;Read&nbsp;one&nbsp;line</tt></dd></dl>
+
+<dl><dt><a name="StringI-readlines"><strong>readlines</strong></a>(...)</dt><dd><tt><a href="#InputType-readlines">readlines</a>()&nbsp;--&nbsp;Read&nbsp;all&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="StringI-reset"><strong>reset</strong></a>(...)</dt><dd><tt><a href="#InputType-reset">reset</a>()&nbsp;--&nbsp;Reset&nbsp;the&nbsp;file&nbsp;position&nbsp;to&nbsp;the&nbsp;beginning</tt></dd></dl>
+
+<dl><dt><a name="StringI-seek"><strong>seek</strong></a>(...)</dt><dd><tt><a href="#InputType-seek">seek</a>(position)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;set&nbsp;the&nbsp;current&nbsp;position<br>
+<a href="#InputType-seek">seek</a>(position,&nbsp;mode)&nbsp;--&nbsp;mode&nbsp;0:&nbsp;absolute;&nbsp;1:&nbsp;relative;&nbsp;2:&nbsp;relative&nbsp;to&nbsp;EOF</tt></dd></dl>
+
+<dl><dt><a name="StringI-tell"><strong>tell</strong></a>(...)</dt><dd><tt><a href="#InputType-tell">tell</a>()&nbsp;--&nbsp;get&nbsp;the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="StringI-truncate"><strong>truncate</strong></a>(...)</dt><dd><tt><a href="#InputType-truncate">truncate</a>():&nbsp;truncate&nbsp;the&nbsp;file&nbsp;at&nbsp;the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>closed</strong></dt>
+<dd><tt>True&nbsp;if&nbsp;the&nbsp;file&nbsp;is&nbsp;closed</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><strong>OutputType</strong> = <a name="OutputType">class StringO</a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Simple&nbsp;type&nbsp;for&nbsp;output&nbsp;to&nbsp;strings.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="StringO-__iter__"><strong>__iter__</strong></a>(...)</dt><dd><tt>x.<a href="#OutputType-__iter__">__iter__</a>()&nbsp;&lt;==&gt;&nbsp;iter(x)</tt></dd></dl>
+
+<dl><dt><a name="StringO-close"><strong>close</strong></a>(...)</dt><dd><tt><a href="#OutputType-close">close</a>():&nbsp;explicitly&nbsp;release&nbsp;resources&nbsp;held.</tt></dd></dl>
+
+<dl><dt><a name="StringO-flush"><strong>flush</strong></a>(...)</dt><dd><tt><a href="#OutputType-flush">flush</a>():&nbsp;does&nbsp;nothing.</tt></dd></dl>
+
+<dl><dt><a name="StringO-getvalue"><strong>getvalue</strong></a>(...)</dt><dd><tt><a href="#OutputType-getvalue">getvalue</a>([use_pos])&nbsp;--&nbsp;Get&nbsp;the&nbsp;string&nbsp;value.<br>
+If&nbsp;use_pos&nbsp;is&nbsp;specified&nbsp;and&nbsp;is&nbsp;a&nbsp;true&nbsp;value,&nbsp;then&nbsp;the&nbsp;string&nbsp;returned<br>
+will&nbsp;include&nbsp;only&nbsp;the&nbsp;text&nbsp;up&nbsp;to&nbsp;the&nbsp;current&nbsp;file&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="StringO-isatty"><strong>isatty</strong></a>(...)</dt><dd><tt><a href="#OutputType-isatty">isatty</a>():&nbsp;always&nbsp;returns&nbsp;0</tt></dd></dl>
+
+<dl><dt><a name="StringO-next"><strong>next</strong></a>(...)</dt><dd><tt>x.<a href="#OutputType-next">next</a>()&nbsp;-&gt;&nbsp;the&nbsp;next&nbsp;value,&nbsp;or&nbsp;raise&nbsp;StopIteration</tt></dd></dl>
+
+<dl><dt><a name="StringO-read"><strong>read</strong></a>(...)</dt><dd><tt><a href="#OutputType-read">read</a>([s])&nbsp;--&nbsp;Read&nbsp;s&nbsp;characters,&nbsp;or&nbsp;the&nbsp;rest&nbsp;of&nbsp;the&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="StringO-readline"><strong>readline</strong></a>(...)</dt><dd><tt><a href="#OutputType-readline">readline</a>()&nbsp;--&nbsp;Read&nbsp;one&nbsp;line</tt></dd></dl>
+
+<dl><dt><a name="StringO-readlines"><strong>readlines</strong></a>(...)</dt><dd><tt><a href="#OutputType-readlines">readlines</a>()&nbsp;--&nbsp;Read&nbsp;all&nbsp;lines</tt></dd></dl>
+
+<dl><dt><a name="StringO-reset"><strong>reset</strong></a>(...)</dt><dd><tt><a href="#OutputType-reset">reset</a>()&nbsp;--&nbsp;Reset&nbsp;the&nbsp;file&nbsp;position&nbsp;to&nbsp;the&nbsp;beginning</tt></dd></dl>
+
+<dl><dt><a name="StringO-seek"><strong>seek</strong></a>(...)</dt><dd><tt><a href="#OutputType-seek">seek</a>(position)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&nbsp;set&nbsp;the&nbsp;current&nbsp;position<br>
+<a href="#OutputType-seek">seek</a>(position,&nbsp;mode)&nbsp;--&nbsp;mode&nbsp;0:&nbsp;absolute;&nbsp;1:&nbsp;relative;&nbsp;2:&nbsp;relative&nbsp;to&nbsp;EOF</tt></dd></dl>
+
+<dl><dt><a name="StringO-tell"><strong>tell</strong></a>(...)</dt><dd><tt><a href="#OutputType-tell">tell</a>()&nbsp;--&nbsp;get&nbsp;the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="StringO-truncate"><strong>truncate</strong></a>(...)</dt><dd><tt><a href="#OutputType-truncate">truncate</a>():&nbsp;truncate&nbsp;the&nbsp;file&nbsp;at&nbsp;the&nbsp;current&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="StringO-write"><strong>write</strong></a>(...)</dt><dd><tt><a href="#OutputType-write">write</a>(s)&nbsp;--&nbsp;Write&nbsp;a&nbsp;string&nbsp;to&nbsp;the&nbsp;file<br>
+&nbsp;<br>
+Note&nbsp;(hack:)&nbsp;writing&nbsp;None&nbsp;resets&nbsp;the&nbsp;buffer</tt></dd></dl>
+
+<dl><dt><a name="StringO-writelines"><strong>writelines</strong></a>(...)</dt><dd><tt><a href="#OutputType-writelines">writelines</a>(sequence_of_strings)&nbsp;-&gt;&nbsp;None.&nbsp;&nbsp;Write&nbsp;the&nbsp;strings&nbsp;to&nbsp;the&nbsp;file.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;newlines&nbsp;are&nbsp;not&nbsp;added.&nbsp;&nbsp;The&nbsp;sequence&nbsp;can&nbsp;be&nbsp;any&nbsp;iterable&nbsp;<a href="__builtin__.html#object">object</a><br>
+producing&nbsp;strings.&nbsp;This&nbsp;is&nbsp;equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#OutputType-write">write</a>()&nbsp;for&nbsp;each&nbsp;string.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>closed</strong></dt>
+<dd><tt>True&nbsp;if&nbsp;the&nbsp;file&nbsp;is&nbsp;closed</tt></dd>
+</dl>
+<dl><dt><strong>softspace</strong></dt>
+<dd><tt>flag&nbsp;indicating&nbsp;that&nbsp;a&nbsp;space&nbsp;needs&nbsp;to&nbsp;be&nbsp;printed;&nbsp;used&nbsp;by&nbsp;print</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-StringIO"><strong>StringIO</strong></a>(...)</dt><dd><tt><a href="#-StringIO">StringIO</a>([s])&nbsp;--&nbsp;Return&nbsp;a&nbsp;StringIO-like&nbsp;stream&nbsp;for&nbsp;reading&nbsp;or&nbsp;writing</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>cStringIO_CAPI</strong> = &lt;PyCObject object at 0x8af4bc0&gt;</td></tr></table>
+</body></html>
