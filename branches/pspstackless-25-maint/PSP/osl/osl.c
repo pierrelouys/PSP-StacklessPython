@@ -29,7 +29,6 @@
 // $Id$
 
 #include <oslib/oslib.h>
-
 #include "osl.h"
 #include "image.h"
 #include "ctrl.h"
@@ -37,7 +36,17 @@
 #include "map.h"
 #include "font.h"
 
+#ifdef WITH_OSLIB_MOD
+#include "sfont.h"
+//#include "saveload.h"
+#endif
+
 PyObject* osl_Error = NULL;
+
+#define FPS_UPDATE_RATE 0.25
+static int FPSCounter		  = 0;
+static clock_t lastFPSUpdate  = 0;
+static int FPS			      = 0;
 
 //==========================================================================
 // Functions
@@ -60,6 +69,19 @@ static PyObject* osl_doQuit(PyObject *self,
        return NULL;
 
     oslQuit();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_safeQuit(PyObject *self,
+                            PyObject *args,
+                            PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":safeQuit"))
+       return NULL;
+
+    osl_quit = 1;
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -116,6 +138,30 @@ static PyObject* osl_endDrawing(PyObject *self,
 
     oslEndDrawing();
 
+	//FPS:
+	FPSCounter++;
+    clock_t curticks = clock();
+    float tPassed = (float)(curticks - lastFPSUpdate)/(float)CLOCKS_PER_SEC;
+	if (tPassed >= FPS_UPDATE_RATE)
+	{
+		FPS = (int)((float)FPSCounter * (1.0f / tPassed));
+		FPSCounter = 0;
+        lastFPSUpdate = curticks;
+	}
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_endFrame(PyObject *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":endFrame"))
+       return NULL;
+
+    oslEndFrame();
+
     Py_INCREF(Py_None);
     return Py_None;
 }
@@ -166,7 +212,36 @@ static PyObject* osl_syncFrame(PyObject *self,
     if (!PyArg_ParseTuple(args, ":syncFrame"))
        return NULL;
 
-    oslSyncFrame();
+    int result = oslSyncFrame();
+
+    return Py_BuildValue("i", result);
+}
+
+static PyObject* osl_setFrameskip(PyObject *self,
+							      PyObject *args,
+								  PyObject *kwargs)
+{
+	int frameskip;
+    if (!PyArg_ParseTuple(args, "i:setFrameskip",
+		                  &frameskip))
+       return NULL;
+
+    oslSetFrameskip(frameskip);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_setMaxFrameskip(PyObject *self,
+							      PyObject *args,
+								  PyObject *kwargs)
+{
+	int frameskip;
+    if (!PyArg_ParseTuple(args, "i:setMaxFrameskip",
+		                  &frameskip))
+       return NULL;
+
+    oslSetMaxFrameskip(frameskip);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -197,6 +272,21 @@ static PyObject* osl_setTransparentColor(PyObject *self,
        return NULL;
 
     oslSetTransparentColor(color);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_setQuitOnLoadFailure(PyObject *self,
+							              PyObject *args,
+								          PyObject *kwargs)
+{
+	int enabled;
+    if (!PyArg_ParseTuple(args, "i:setQuitOnLoadFailure",
+		                  &enabled))
+       return NULL;
+
+    oslSetQuitOnLoadFailure(enabled);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -311,6 +401,24 @@ static PyObject* osl_setScreenClipping(PyObject *self,
     return Py_None;
 }
 
+static PyObject* osl_saveScreenshot(PyObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
+{
+    char *fileName;
+
+    if (!PyArg_ParseTuple(args, "s:saveScreenshot",
+                          &fileName))
+       return NULL;
+
+    oslWriteImageFilePNG(OSL_SECONDARY_BUFFER, fileName, OSL_WRI_ALPHA);
+
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+
 static PyObject* osl_setAlpha(PyObject *self,
                               PyObject *args,
                               PyObject *kwargs)
@@ -326,25 +434,16 @@ static PyObject* osl_setAlpha(PyObject *self,
     return Py_None;
 }
 
-static PyObject* osl_systemMessage(PyObject *self,
-                                   PyObject *args,
-                                   PyObject *kwargs)
+static PyObject* osl_setDithering(PyObject *self,
+					              PyObject *args,
+						          PyObject *kwargs)
 {
-    char *msg;
-
-    if (!PyArg_ParseTuple(args, "s:systemMessage", &msg))
+	int enabled;
+    if (!PyArg_ParseTuple(args, "i:setDithering",
+		                  &enabled))
        return NULL;
 
-    // We  strdup() here since  other threads  could destroy  the last
-    // reference to the string
-
-    msg = strdup(msg);
-
-    Py_BEGIN_ALLOW_THREADS
-       oslSystemMessage(msg);
-    Py_END_ALLOW_THREADS
-
-    free(msg);
+    oslSetDithering(enabled);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -419,7 +518,7 @@ static PyObject* osl_setDrawBuffer(PyObject *self,
 {
     PyObject* buffer;
 
-    if (!PyArg_ParseTuple(args, "O:setDrawBuffer"), &buffer)
+    if (!PyArg_ParseTuple(args, "O:setDrawBuffer", &buffer))
        return NULL;
 
     if (PyInt_Check(buffer))
@@ -607,6 +706,22 @@ static PyObject* osl_setKeyAutorepeat(PyObject *self,
     return Py_None;
 }
 
+static PyObject* osl_setKeyAnalogToDPad(PyObject *self,
+                                        PyObject *args,
+                                        PyObject *kwargs)
+{
+    int sensivity;
+
+    if (!PyArg_ParseTuple(args, "i:setKeyAnalogToDPad",
+                          &sensivity))
+       return NULL;
+
+    oslSetKeyAnalogToDPad(sensivity);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
 static PyObject* osl_setKeyAutorepeatMask(PyObject *self,
                                           PyObject *args,
                                           PyObject *kwargs)
@@ -668,20 +783,15 @@ static PyObject* osl_flushDataCache(PyObject *self,
     return Py_None;
 }
 
-static PyObject* osl_setChannelVolume(PyObject *self,
-                                      PyObject *args,
-                                      PyObject *kwargs)
-{
-    int channel, left, right;
 
-    if (!PyArg_ParseTuple(args, "iii:setChannelVolume",
-                          &channel, &left, &right))
+static PyObject* osl_getFPS(PyObject *self,
+                            PyObject *args,
+                            PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getFPS"))
        return NULL;
 
-    oslSetChannelVolume(channel, left, right);
-
-    Py_INCREF(Py_None);
-    return Py_None;
+    return Py_BuildValue("i", FPS);
 }
 
 //==========================================================================
@@ -719,6 +829,506 @@ static PyObject* osl_drawTextBox(PyObject *self,
     Py_INCREF(Py_None);
     return Py_None;
 }
+
+#ifdef WITH_OSLIB_MOD
+//==========================================================================
+//OSLib mod misc functions:
+static PyObject* osl_setHoldForAnalog(PyObject *self,
+                                      PyObject *args,
+                                      PyObject *kwargs)
+{
+    int hold;
+
+    if (!PyArg_ParseTuple(args, "i:setHoldForAnalog",
+                          &hold))
+       return NULL;
+
+    oslSetHoldForAnalog(hold);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+
+//==========================================================================
+//OSLib mod intrafont functions:
+static PyObject* osl_intraFontInit(PyObject *self,
+                                   PyObject *args,
+                                   PyObject *kwargs)
+{
+    unsigned int options;
+
+    if (!PyArg_ParseTuple(args, "I:intraFontInit",
+                          &options))
+       return NULL;
+
+    oslIntraFontInit(options);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_intraFontShutdown(PyObject *self,
+                                       PyObject *args,
+                                       PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":intraFontShutdown"))
+       return NULL;
+
+    oslIntraFontShutdown();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_intraFontSetStyle(PyObject *self,
+                                       PyObject *args,
+                                       PyObject *kwargs)
+{
+	PyFont *font;
+	float size;
+    unsigned int color, shadowcolor, options;
+
+    if (!PyArg_ParseTuple(args, "OfIII:intraFontSetStyle",
+                          &font, &size, &color, &shadowcolor, &options))
+       return NULL;
+
+    if (!PyType_IsSubtype(((PyObject*)font)->ob_type, PPyFontType))
+    {
+       PyErr_SetString(PyExc_TypeError, "Argument must be an osl.Font");
+       return NULL;
+    }
+
+    oslIntraFontSetStyle(font->pFont, size, color, shadowcolor, options);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+//==========================================================================
+//OSLib mod dialog functions:
+static PyObject* osl_initMessageDialog(PyObject *self,
+                                       PyObject *args,
+                                       PyObject *kwargs)
+{
+	char *message;
+    int enableYesno;
+
+    if (!PyArg_ParseTuple(args, "si:initMessageDialog",
+                          &message, &enableYesno))
+       return NULL;
+
+    oslInitMessageDialog(message, enableYesno);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_initErrorDialog(PyObject *self,
+                                     PyObject *args,
+                                     PyObject *kwargs)
+{
+    int error;
+
+    if (!PyArg_ParseTuple(args, "i:initErrorDialog",
+                          &error))
+       return NULL;
+
+    oslInitErrorDialog(error);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_drawDialog(PyObject *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":drawDialog"))
+       return NULL;
+
+    oslDrawDialog();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_getDialogType(PyObject *self,
+                                   PyObject *args,
+                                   PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getDialogType"))
+       return NULL;
+
+    int type = oslGetDialogType();
+    return Py_BuildValue("i", type);
+}
+
+
+static PyObject* osl_getDialogStatus(PyObject *self,
+                                   PyObject *args,
+                                   PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getDialogStatus"))
+       return NULL;
+
+    int status = oslGetDialogStatus();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_getDialogButtonPressed(PyObject *self,
+                                            PyObject *args,
+                                            PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getDialogButtonPressed"))
+       return NULL;
+
+    int button = oslGetDialogButtonPressed();
+    return Py_BuildValue("i", button);
+}
+
+static PyObject* osl_initNetDialog(PyObject *self,
+                                   PyObject *args,
+                                   PyObject *kwargs)
+{
+   if (!PyArg_ParseTuple(args, ":initNetDialog"))
+       return NULL;
+
+    oslInitNetDialog();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_dialogGetResult(PyObject *self,
+                                     PyObject *args,
+                                     PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":dialogGetResult"))
+       return NULL;
+
+    int result = oslDialogGetResult();
+    return Py_BuildValue("i", result);
+}
+
+
+static PyObject* osl_endDialog(PyObject *self,
+                               PyObject *args,
+                               PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":endDialog"))
+       return NULL;
+
+    oslEndDialog();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+//==========================================================================
+//OSLib mod save and load functions:
+/*static PyObject* osl_initSaveDialog(PyObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
+{
+	struct oslSaveLoad *saveLoad;
+
+    if (!PyArg_ParseTuple(args, "O:initSaveDialog",
+                          &saveLoad))
+       return NULL;
+
+    if (!PyType_IsSubtype(((PyObject*)saveLoad)->ob_type, PPySaveLoadType ))
+    {
+       PyErr_SetString(PyExc_TypeError, "Argument must be an osl.SaveLoad");
+       return NULL;
+    }
+
+    oslInitSaveDialog(saveLoad);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+
+static PyObject* osl_initLoadDialog(PyObject *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
+{
+	struct oslSaveLoad *saveLoad;
+
+    if (!PyArg_ParseTuple(args, "O:initLoadDialog",
+                          &saveLoad))
+       return NULL;
+
+    if (!PyType_IsSubtype(((PyObject*)saveLoad)->ob_type, PPySaveLoadType ))
+    {
+       PyErr_SetString(PyExc_TypeError, "Argument must be an osl.SaveLoad");
+       return NULL;
+    }
+
+    oslInitLoadDialog(saveLoad);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_drawSaveLoad(PyObject *self,
+                                  PyObject *args,
+                                  PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":drawSaveLoad"))
+       return NULL;
+
+    oslDrawSaveLoad();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+
+static PyObject* osl_getSaveLoadStatus(PyObject *self,
+                                       PyObject *args,
+                                       PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getSaveLoadStatus"))
+       return NULL;
+
+    int status = oslGetLoadSaveStatus();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_getSaveLoadType(PyObject *self,
+                                     PyObject *args,
+                                     PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getSaveLoadType"))
+       return NULL;
+
+    int status = oslGetSaveLoadType();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_saveLoadGetResult(PyObject *self,
+                                       PyObject *args,
+                                       PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":saveLoadGetResult"))
+       return NULL;
+
+    int status = oslSaveLoadGetResult();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_endSaveLoad(PyObject *self,
+                                 PyObject *args,
+                                 PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":endSaveLoad"))
+       return NULL;
+
+    oslEndSaveLoadDialog();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}*/
+
+//==========================================================================
+//OSLib mod OSK functions:
+static PyObject* osl_initOsk(PyObject *self,
+                             PyObject *args,
+                             PyObject *kwargs)
+{
+	char *descStr;
+	char *initialStr;
+	int textLimit, linesNumber;
+	int language = -1;
+
+    if (!PyArg_ParseTuple(args, "ssii|i:initOsk",
+                          &descStr, &initialStr, &textLimit, &linesNumber, &language))
+       return NULL;
+
+    oslInitOsk(descStr, initialStr, textLimit, linesNumber, language);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_drawOsk(PyObject *self,
+                             PyObject *args,
+                             PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":drawOsk"))
+       return NULL;
+
+    oslDrawOsk();
+
+	Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_oskIsActive(PyObject *self,
+                                 PyObject *args,
+                                 PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":oskIsActive"))
+       return NULL;
+
+    int status = oslOskIsActive();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_getOskStatus(PyObject *self,
+                                  PyObject *args,
+                                  PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getOskStatus"))
+       return NULL;
+
+    int status = oslGetOskStatus();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_oskGetResult(PyObject *self,
+                                  PyObject *args,
+                                  PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":oskGetResult"))
+       return NULL;
+
+    int status = oslOskGetResult();
+    return Py_BuildValue("i", status);
+}
+
+
+static PyObject* osl_oskGetText(PyObject *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":oskGetText"))
+       return NULL;
+
+	char result[256] = "";
+    oslOskGetText(result);
+    return Py_BuildValue("s", result);
+}
+
+static PyObject* osl_endOsk(PyObject *self,
+                            PyObject *args,
+                            PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":endOsk"))
+       return NULL;
+
+    oslEndOsk();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+//==========================================================================
+//OSLib mod network functions:
+static PyObject* osl_netInit(PyObject *self,
+                             PyObject *args,
+                             PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":netInit"))
+       return NULL;
+
+    int result = oslNetInit();;
+
+    return Py_BuildValue("i", result);
+}
+
+static PyObject* osl_netTerm(PyObject *self,
+                             PyObject *args,
+                             PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":netTerm"))
+       return NULL;
+
+    int result = oslNetTerm();;
+
+    return Py_BuildValue("i", result);
+}
+
+//==========================================================================
+//OSLib mod browser functions:
+/*static PyObject* osl_browserInit(PyObject *self,
+                                 PyObject *args,
+                                 PyObject *kwargs)
+{
+	char *url;
+	char *downloadDir;
+	int browserMemory;
+	unsigned int displaymode = PSP_UTILITY_HTMLVIEWER_DISPLAYMODE_SMART_FIT;
+	unsigned int options = PSP_UTILITY_HTMLVIEWER_DISABLE_STARTUP_LIMITS | PSP_UTILITY_HTMLVIEWER_ENABLE_FLASH;
+	unsigned int interfacemode = PSP_UTILITY_HTMLVIEWER_INTERFACEMODE_FULL;
+	unsigned int connectmode = PSP_UTILITY_HTMLVIEWER_CONNECTMODE_MANUAL_ALL;
+
+    if (!PyArg_ParseTuple(args, "ssi|IIII:browserInit", &url, &downloadDir, &browserMemory,
+		                                                &displaymode, &options, &interfacemode,
+		                                                &connectmode))
+       return NULL;
+
+    if (sceKernelTotalFreeMemSize() < browserMemory + 256)
+    {
+        setHeapSize( -(browserMemory + 256) );
+    }
+    int result = oslBrowserInit(url, downloadDir, browserMemory, displaymode, options, interfacemode, connectmode);
+
+    return Py_BuildValue("i", result);
+}
+
+
+static PyObject* osl_drawBrowser(PyObject *self,
+                                 PyObject *args,
+                                 PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":drawBrowser"))
+       return NULL;
+
+    oslDrawBrowser();
+
+	Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* osl_browserIsActive(PyObject *self,
+                                     PyObject *args,
+                                     PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":browserIsActive"))
+       return NULL;
+
+    int status = oslBrowserIsActive();
+    return Py_BuildValue("i", status);
+}
+
+static PyObject* osl_getBrowserStatus(PyObject *self,
+                                      PyObject *args,
+                                      PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":getBrowserStatus"))
+       return NULL;
+
+    int status = oslGetBrowserStatus();
+    return Py_BuildValue("i", status);
+}
+
+
+static PyObject* osl_endBrowser(PyObject *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":endBrowser"))
+       return NULL;
+
+    oslEndBrowser();
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}*/
+#endif
 
 //==========================================================================
 // Macros
@@ -814,32 +1424,41 @@ static PyObject* osl_RGBA15(PyObject *self,
 
 static PyMethodDef functions[] = {
    DECLFUNC(mustQuit, ""),
+   DECLFUNC(safeQuit, ""),
    DECLFUNC(doQuit, ""),
 
    DECLFUNC(initGfx, ""),
    DECLFUNC(startDrawing, ""),
    DECLFUNC(syncDrawing, ""),
    DECLFUNC(endDrawing, ""),
+   DECLFUNC(endFrame, ""),
    DECLFUNC(waitVSync, ""),
    DECLFUNC(swapBuffers, ""),
    DECLFUNC(endGfx, ""),
+   DECLFUNC(getFPS, ""),
 
    DECLFUNC(syncFrame, ""),
    DECLFUNC(syncFrameEx, ""),
    DECLFUNC(setTransparentColor, ""),
    DECLFUNC(disableTransparentColor, ""),
 
+   DECLFUNC(setQuitOnLoadFailure, ""),
+
+   DECLFUNC(setFrameskip, ""),
+   DECLFUNC(setMaxFrameskip, ""),
+
    DECLFUNC(drawLine, ""),
    DECLFUNC(drawRect, ""),
    DECLFUNC(drawFillRect, ""),
    DECLFUNC(drawGradientRect, ""),
 
+   DECLFUNC(saveScreenshot, ""),
    DECLFUNC(clearScreen, ""),
    DECLFUNC(setScreenClipping, ""),
 
+   DECLFUNC(setDithering, ""),
    DECLFUNC(setAlpha, ""),
 
-   DECLFUNC(systemMessage, ""),
    DECLFUNC(messageBox, ""),
 
    DECLFUNC(waitKey, ""),
@@ -864,10 +1483,9 @@ static PyMethodDef functions[] = {
    DECLFUNC(setKeyAutorepeatMask, ""),
    DECLFUNC(setKeyAutorepeatInit, ""),
    DECLFUNC(setKeyAutorepeatInterval, ""),
+   DECLFUNC(setKeyAnalogToDPad, ""),
 
    DECLFUNC(flushDataCache, ""),
-
-   DECLFUNC(setChannelVolume, ""),
 
    DECLFUNC(drawString, ""),
    DECLFUNC(drawTextBox, ""),
@@ -880,10 +1498,60 @@ static PyMethodDef functions[] = {
    DECLFUNC(RGBA12, ""),
    DECLFUNC(RGBA15, ""),
 
+#ifdef WITH_OSLIB_MOD
+   DECLFUNC(setHoldForAnalog, ""),
+
+   DECLFUNC(intraFontInit, ""),
+   DECLFUNC(intraFontShutdown, ""),
+   DECLFUNC(intraFontSetStyle, ""),
+
+   DECLFUNC(initMessageDialog, ""),
+   DECLFUNC(initErrorDialog, ""),
+   DECLFUNC(drawDialog, ""),
+   DECLFUNC(getDialogType, ""),
+   DECLFUNC(getDialogStatus, ""),
+   DECLFUNC(getDialogButtonPressed, ""),
+   DECLFUNC(initNetDialog, ""),
+   DECLFUNC(dialogGetResult, ""),
+   DECLFUNC(endDialog, ""),
+
+   DECLFUNC(initOsk, ""),
+   DECLFUNC(drawOsk, ""),
+   DECLFUNC(oskIsActive, ""),
+   DECLFUNC(getOskStatus, ""),
+   DECLFUNC(oskGetResult, ""),
+   DECLFUNC(oskGetText, ""),
+   DECLFUNC(endOsk, ""),
+
+   DECLFUNC(netInit, ""),
+   DECLFUNC(netTerm, ""),
+
+   /*DECLFUNC(initSaveDialog, ""),
+   DECLFUNC(initLoadDialog, ""),
+   DECLFUNC(drawSaveLoad, ""),
+   DECLFUNC(getSaveLoadStatus, ""),
+   DECLFUNC(getSaveLoadType, ""),
+   DECLFUNC(saveLoadGetResult, ""),
+   DECLFUNC(endSaveLoad, ""),*/
+
+   /*DECLFUNC(browserInit, ""),
+   DECLFUNC(drawBrowser, ""),
+   DECLFUNC(browserIsActive, ""),
+   DECLFUNC(getBrowserStatus, ""),
+   DECLFUNC(endBrowser, ""),*/
+
+
+#endif
+
    { NULL }
 };
 
 #define ADDINT(name) PyModule_AddIntConstant(mdl, #name, (int)OSL_##name)
+#define ADDINTWITHNAME(oslname, name) PyModule_AddIntConstant(mdl, #name, (int)#oslname)
+
+#ifdef WITH_OSLIB_MOD
+#define ADDINTRAFONTINT(name) PyModule_AddIntConstant(mdl, #name, (int)#name)
+#endif
 
 void initosl(void)
 {
@@ -903,6 +1571,14 @@ void initosl(void)
 
     if (PyType_Ready(PPyFontType) < 0)
        return;
+
+#ifdef WITH_OSLIB_MOD
+    if (PyType_Ready(PPySFontType) < 0)
+       return;
+
+    /*if (PyType_Ready(PPySaveLoadType) < 0)
+       return;*/
+#endif
 
     mdl = Py_InitModule3("osl", functions, "");
     if (!mdl)
@@ -925,6 +1601,7 @@ void initosl(void)
 
     ADDINT(IN_VRAM);
     ADDINT(IN_RAM);
+    ADDINT(SWIZZLED);
 
     ADDINT(DEFAULT_BUFFER);
     ADDINT(SECONDARY_BUFFER);
@@ -954,6 +1631,129 @@ void initosl(void)
     ADDINT(FMT_STREAM);
     ADDINT(FMT_NONE);
 
+#ifdef WITH_OSLIB_MOD
+    ADDINT(DIALOG_CANCEL);
+    ADDINT(DIALOG_OK);
+    ADDINT(DIALOG_NONE);
+    ADDINT(DIALOG_MESSAGE);
+    ADDINT(DIALOG_ERROR);
+    ADDINT(DIALOG_NETCONF);
+
+    /*ADDINT(SAVELOAD_CANCEL);
+    ADDINT(SAVELOAD_OK);
+    ADDINT(DIALOG_SAVE);
+    ADDINT(DIALOG_LOAD);*/
+
+    ADDINT(OSK_CANCEL);
+    ADDINT(OSK_OK);
+
+    ADDINT(NET_ERROR_NET);
+    ADDINT(NET_ERROR_INET);
+    ADDINT(NET_ERROR_RESOLVER);
+    ADDINT(NET_ERROR_APCTL);
+    ADDINT(NET_ERROR_APCTL);
+    ADDINT(NET_ERROR_SSL);
+    ADDINT(NET_ERROR_HTTP);
+    ADDINT(NET_ERROR_HTTPS);
+    ADDINT(NET_ERROR_CERT);
+    ADDINT(NET_ERROR_COOKIE);
+    ADDINT(ERR_APCTL_GETINFO);
+    ADDINT(ERR_APCTL_CONNECT);
+    ADDINT(ERR_APCTL_TIMEOUT);
+    ADDINT(ERR_APCTL_GETSTATE);
+    ADDINT(ERR_RESOLVER_CREATE);
+    ADDINT(ERR_RESOLVER_RESOLVING);
+    ADDINT(ERR_WLAN_OFF);
+    ADDINT(USER_ABORTED);
+
+	ADDINTWITHNAME(JAPANESE, OSK_JAPANESE);
+	ADDINTWITHNAME(ENGLISH, OSK_ENGLISH);
+	ADDINTWITHNAME(FRENCH, OSK_FRENCH);
+	ADDINTWITHNAME(SPANISH, OSK_SPANISH);
+	ADDINTWITHNAME(GERMAN, OSK_GERMAN);
+	ADDINTWITHNAME(ITALIAN, OSK_ITALIAN);
+	ADDINTWITHNAME(DUTCH, OSK_DUTCH);
+	ADDINTWITHNAME(PORTUGUESE, OSK_PORTUGUESE);
+	ADDINTWITHNAME(RUSSIAN, OSK_RUSSIAN);
+	ADDINTWITHNAME(KOREAN, OSK_KOREAN);
+	ADDINTWITHNAME(CHINESE_TRADITIONAL, OSK_CHINESE_TRADITIONAL);
+	ADDINTWITHNAME(CHINESE_SIMPLIFIED, OSK_CHINESE_SIMPLIFIED);
+
+	ADDINTRAFONTINT(INTRAFONT_ADVANCE_H);
+	ADDINTRAFONTINT(INTRAFONT_ADVANCE_V);
+	ADDINTRAFONTINT(INTRAFONT_ALIGN_LEFT);
+	ADDINTRAFONTINT(INTRAFONT_ALIGN_CENTER);
+	ADDINTRAFONTINT(INTRAFONT_ALIGN_RIGHT);
+	ADDINTRAFONTINT(INTRAFONT_ALIGN_FULL);
+	ADDINTRAFONTINT(INTRAFONT_SCROLL_LEFT);
+
+	ADDINTRAFONTINT(INTRAFONT_SCROLL_SEESAW);
+	ADDINTRAFONTINT(INTRAFONT_SCROLL_RIGHT);
+	ADDINTRAFONTINT(INTRAFONT_SCROLL_THROUGH);
+	ADDINTRAFONTINT(INTRAFONT_WIDTH_VAR);
+	ADDINTRAFONTINT(INTRAFONT_WIDTH_FIX);
+	ADDINTRAFONTINT(INTRAFONT_ACTIVE);
+	ADDINTRAFONTINT(INTRAFONT_CACHE_MED);
+	ADDINTRAFONTINT(INTRAFONT_CACHE_LARGE);
+	ADDINTRAFONTINT(INTRAFONT_CACHE_ASCII);
+	ADDINTRAFONTINT(INTRAFONT_CACHE_ALL);
+
+	ADDINTRAFONTINT(INTRAFONT_STRING_ASCII);
+	ADDINTRAFONTINT(INTRAFONT_STRING_CP437);
+	ADDINTRAFONTINT(INTRAFONT_STRING_CP850);
+	ADDINTRAFONTINT(INTRAFONT_STRING_CP866);
+	ADDINTRAFONTINT(INTRAFONT_STRING_SJIS);
+	ADDINTRAFONTINT(INTRAFONT_STRING_GBK);
+	ADDINTRAFONTINT(INTRAFONT_STRING_KOR);
+	ADDINTRAFONTINT(INTRAFONT_STRING_BIG5);
+	ADDINTRAFONTINT(INTRAFONT_STRING_CP1251);
+	ADDINTRAFONTINT(INTRAFONT_STRING_CP1252);
+	ADDINTRAFONTINT(INTRAFONT_STRING_UTF8);
+
+    /*ADDINT(BROWSER_ERROR_MEMORY);
+    ADDINT(BROWSER_ERROR_INIT);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISCONNECTMODE_ENABLE, HTMLVIEWER_DISCONNECTMODE_ENABLE);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISCONNECTMODE_DISABLE, HTMLVIEWER_DISCONNECTMODE_DISABLE);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISCONNECTMODE_CONFIRM, HTMLVIEWER_DISCONNECTMODE_CONFIRM);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_INTERFACEMODE_FULL, HTMLVIEWER_INTERFACEMODE_FULL);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_INTERFACEMODE_LIMITED, HTMLVIEWER_INTERFACEMODE_LIMITED);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_INTERFACEMODE_NONE, HTMLVIEWER_INTERFACEMODE_NONE);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_COOKIEMODE_DISABLED, HTMLVIEWER_COOKIEMODE_DISABLED);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_COOKIEMODE_ENABLED, HTMLVIEWER_COOKIEMODE_ENABLED);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_COOKIEMODE_CONFIRM, HTMLVIEWER_COOKIEMODE_CONFIRM);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_COOKIEMODE_DEFAULT, HTMLVIEWER_COOKIEMODE_DEFAULT);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_TEXTSIZE_LARGE, HTMLVIEWER_TEXTSIZE_LARGE);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_TEXTSIZE_NORMAL, HTMLVIEWER_TEXTSIZE_NORMAL);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_TEXTSIZE_SMALL, HTMLVIEWER_TEXTSIZE_SMALL);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISPLAYMODE_NORMAL, HTMLVIEWER_DISPLAYMODE_NORMAL);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISPLAYMODE_FIT, HTMLVIEWER_DISPLAYMODE_FIT);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISPLAYMODE_SMART_FIT, HTMLVIEWER_DISPLAYMODE_SMART_FIT);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_CONNECTMODE_LAST, HTMLVIEWER_CONNECTMODE_LAST);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_CONNECTMODE_MANUAL_ONCE, HTMLVIEWER_CONNECTMODE_MANUAL_ONCE);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_CONNECTMODE_MANUAL_ALL, HTMLVIEWER_CONNECTMODE_MANUAL_ALL);
+
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_OPEN_SCE_START_PAGE, HTMLVIEWER_OPEN_SCE_START_PAGE);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_STARTUP_LIMITS, HTMLVIEWER_DISABLE_STARTUP_LIMITS);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_EXIT_DIALOG, HTMLVIEWER_DISABLE_EXIT_DIALOG);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_CURSOR, HTMLVIEWER_DISABLE_CURSOR);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_DOWNLOAD_COMPLETE_DIALOG, HTMLVIEWER_DISABLE_DOWNLOAD_COMPLETE_DIALOG);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_DOWNLOAD_START_DIALOG, HTMLVIEWER_DISABLE_DOWNLOAD_START_DIALOG);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_DOWNLOAD_DESTINATION_DIALOG, HTMLVIEWER_DISABLE_DOWNLOAD_DESTINATION_DIALOG);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_LOCK_DOWNLOAD_DESTINATION_DIALOG, HTMLVIEWER_LOCK_DOWNLOAD_DESTINATION_DIALOG);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_TAB_DISPLAY, HTMLVIEWER_DISABLE_TAB_DISPLAY);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_ENABLE_ANALOG_HOLD, HTMLVIEWER_ENABLE_ANALOG_HOLD);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_ENABLE_FLASH, HTMLVIEWER_ENABLE_FLASH);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_DISABLE_LRTRIGGER, HTMLVIEWER_DISABLE_LRTRIGGER);
+	ADDINTWITHNAME(PSP_UTILITY_HTMLVIEWER_CONNECTMODE_MANUAL_ALL, HTMLVIEWER_CONNECTMODE_MANUAL_ALL);*/
+
+#endif
+
     osl_Error = PyErr_NewException("osl.Error", NULL, NULL);
     PyModule_AddObject(mdl, "Error", osl_Error);
 
@@ -971,6 +1771,14 @@ void initosl(void)
 
     Py_INCREF(PPyFontType);
     PyModule_AddObject(mdl, "Font", (PyObject*)PPyFontType);
+
+#ifdef WITH_OSLIB_MOD
+    Py_INCREF(PPySFontType);
+    PyModule_AddObject(mdl, "SFont", (PyObject*)PPySFontType);
+
+    /*Py_INCREF(PPySaveLoadType);
+    PyModule_AddObject(mdl, "SaveLoad", (PyObject*)PPySaveLoadType);*/
+#endif
 }
 
 #ifdef _GNUC

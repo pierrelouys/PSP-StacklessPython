@@ -833,6 +833,19 @@ static PyObject* PyPSP_setnickname(PyObject *self, PyObject *args)
 }
 */
 
+static PyObject* PyPSP_freemsspace(PyObject *self, PyObject *args)
+{
+    if (!PyArg_ParseTuple(args, ":freemsspace"))
+       return NULL;
+
+    unsigned int buf[5];
+    unsigned int *pbuf = buf;
+    sceIoDevctl("ms0:", 0x02425818, &pbuf, sizeof(pbuf), 0, 0);
+    double result = buf[1]*buf[3]*buf[4];
+
+    return Py_BuildValue("d", result);
+}
+
 
 //==========================================================================
 //
@@ -895,7 +908,7 @@ static PyObject* PyPSP_realmem(PyObject *self, PyObject *args)
     return Py_BuildValue("i", total);
 }
 
-static PyObject* PyPSP_sendIR(PyObject *self, PyObject *args)
+/*static PyObject* PyPSP_sendIR(PyObject *self, PyObject *args)
 {
     struct sircs_data *data;
     PyObject *params;
@@ -992,7 +1005,7 @@ static PyObject* PyPSP_sendIR(PyObject *self, PyObject *args)
 
     Py_INCREF(Py_None);
     return Py_None;
-}
+}*/
 
 //==========================================================================
 //
@@ -1035,6 +1048,8 @@ static PyMethodDef pspos_functions[] = {
 
    { "getnickname", PyPSP_getnickname, METH_VARARGS, "" },
    //{ "setnickname", PyPSP_setnickname, METH_VARARGS, "" },
+
+   { "freemsspace", PyPSP_freemsspace, METH_VARARGS, "" },
 
    { "realmem", PyPSP_realmem, METH_VARARGS, "" },
 //   { "sendIR",   PyPSP_sendIR, METH_VARARGS, "" },

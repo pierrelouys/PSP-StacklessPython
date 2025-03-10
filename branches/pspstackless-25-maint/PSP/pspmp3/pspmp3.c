@@ -71,11 +71,11 @@ static PyObject *pspmp3_pause(PyObject *self, PyObject *args) {
 
 /* Start MP3 Playback */
 static PyObject *pspmp3_play(PyObject *self, PyObject *args) {
-    if (!PyArg_ParseTuple(args, ""))
-       return NULL;
-	//printf("Starting play...\n");
+    int loop;
+    if (!PyArg_ParseTuple(args, "i", &loop))
+        return NULL;
 
-    Play();
+    Play(loop);
     //printf("Ended play...\n");
     Py_INCREF(Py_None);
     return Py_None;
@@ -104,7 +104,7 @@ static PyObject *pspmp3_gettime(PyObject *self, PyObject *args) {
 
     char time[13];
     GetTimeString(time);
-	
+
     return Py_BuildValue("s", time);
 
     Py_INCREF(Py_None);

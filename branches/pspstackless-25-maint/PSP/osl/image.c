@@ -521,7 +521,7 @@ static PyObject* image_getautoStrip(PyImage *self, void *closure)
     if (PyErr_CheckSignals())
        return NULL;
 
-    return Py_BuildValue("i", self->pImg->autoStrip);
+    return Py_BuildValue("i", oslImageGetAutoStrip(self->pImg));
 }
 
 static int image_setautoStrip(PyImage *self, PyObject *value, void *closure)
@@ -541,7 +541,7 @@ static int image_setautoStrip(PyImage *self, PyObject *value, void *closure)
        return -1;
     }
 
-    self->pImg->autoStrip = PyInt_AsLong(value);
+    oslImageSetAutoStrip(self->pImg, PyInt_AsLong(value));
 
     return 0;
 }
@@ -591,14 +591,55 @@ static PyGetSetDef image_getset[] = {
 
 //==========================================================================
 // Methods
+static PyObject* image_convert(PyImage *self,
+                               PyObject *args,
+                               PyObject *kwargs)
+{
+    OSL_IMAGE *pImg;
+	PyImage *ret;
+	int newLocation, newFormat;
+
+     if (!PyArg_ParseTuple(args, "ii:convert",
+                          &newLocation, &newFormat))
+       return NULL;
+
+    pImg = oslConvertImageTo(self->pImg, newLocation, newFormat);
+
+    if (!pImg)
+    {
+       PyErr_SetString(osl_Error, "Could not convert image");
+       return NULL;
+    }
+
+    ret = (PyImage*)PyType_GenericNew(PPyImageType, NULL, NULL);
+    ret->pImg = pImg;
+
+    return (PyObject*)ret;
+}
+
+static PyObject* image_move(PyImage *self,
+                            PyObject *args,
+                            PyObject *kwargs)
+{
+	int newLocation;
+
+    if (!PyArg_ParseTuple(args, "i:move", &newLocation))
+       return NULL;
+
+    oslMoveImageTo(self->pImg, newLocation);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
 
 static PyObject* image_copy(PyImage *self,
                             PyObject *args,
                             PyObject *kwargs)
 {
     PyImage *other;
+	int newLocation = self->pImg->location;
 
-    if (!PyArg_ParseTuple(args, "O:copy", &other))
+    if (!PyArg_ParseTuple(args, "O|i:copy", &other, &newLocation))
        return NULL;
 
     if (!PyType_IsSubtype(((PyObject*)other)->ob_type, PPyImageType))
@@ -607,7 +648,7 @@ static PyObject* image_copy(PyImage *self,
        return NULL;
     }
 
-    oslCopyImage(self->pImg, other->pImg);
+    other->pImg = oslCreateImageCopy(self->pImg, newLocation);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -630,10 +671,12 @@ static PyObject* image_draw(PyImage *self,
                             PyObject *args,
                             PyObject *kwargs)
 {
-    if (!PyArg_ParseTuple(args, ":draw"))
+    int x = self->pImg->x;
+    int y = self->pImg->y;
+    if (!PyArg_ParseTuple(args, "|ii:draw", &x, &y))
        return NULL;
 
-    oslDrawImage(self->pImg);
+    oslDrawImageXY(self->pImg, x, y);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -704,13 +747,13 @@ static PyObject* image_tile(PyImage *self,
     return (PyObject*)ret;
 }
 
-static PyObject* image_swizzle(PyImage *self,
+static PyObject* image_swizzleto(PyImage *self,
                                PyObject *args,
                                PyObject *kwargs)
 {
     PyImage *other;
 
-    if (!PyArg_ParseTuple(args, "O:swizzle", &other))
+    if (!PyArg_ParseTuple(args, "O:swizzleto", &other))
        return NULL;
 
     if (!PyType_IsSubtype(((PyObject*)other)->ob_type, PPyImageType))
@@ -719,7 +762,20 @@ static PyObject* image_swizzle(PyImage *self,
        return NULL;
     }
 
-    oslSwizzleImage(other->pImg, self->pImg);
+    oslSwizzleImageTo(other->pImg, self->pImg);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_swizzle(PyImage *self,
+                               PyObject *args,
+                               PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":swizzle"))
+       return NULL;
+
+    oslSwizzleImage(self->pImg);
 
     Py_INCREF(Py_None);
     return Py_None;
@@ -756,8 +812,129 @@ static PyObject* image_write(PyImage *self,
     return Py_None;
 }
 
+static PyObject* image_getpixel(PyImage *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    unsigned int x,y;
+
+    if (!PyArg_ParseTuple(args, "II:getpixel", &x, &y))
+       return NULL;
+
+    int result = oslConvertColorEx(self->pImg->palette, OSL_PF_8888, self->pImg->pixelFormat, oslGetImagePixel(self->pImg, x, y));
+    //int result = oslGetImagePixel(self->pImg, x, y);
+
+    return Py_BuildValue("i", result);
+}
+
+static PyObject* image_setpixel(PyImage *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+    unsigned int x,y;
+	int pixelValue;
+
+    if (!PyArg_ParseTuple(args, "IIi:setpixel", &x, &y, &pixelValue))
+       return NULL;
+
+    oslLockImage(self->pImg);
+    pixelValue = oslConvertColorEx(self->pImg->palette, self->pImg->pixelFormat, OSL_PF_8888, pixelValue);
+    oslSetImagePixel(self->pImg, x, y, pixelValue);
+    oslUnlockImage(self->pImg);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_setRotationCenter(PyImage *self,
+                                         PyObject *args,
+                                         PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":setRotationCenter"))
+       return NULL;
+
+    oslSetImageRotCenter(self->pImg);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_mirrorH(PyImage *self,
+                               PyObject *args,
+                               PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":mirrorH"))
+       return NULL;
+
+    oslMirrorImageH(self->pImg);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_mirrorV(PyImage *self,
+                               PyObject *args,
+                               PyObject *kwargs)
+{
+    if (!PyArg_ParseTuple(args, ":mirrorV"))
+       return NULL;
+
+    oslMirrorImageV(self->pImg);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_rotate(PyImage *self,
+                              PyObject *args,
+                              PyObject *kwargs)
+{
+	int angle;
+    if (!PyArg_ParseTuple(args, "i:rotate", &angle))
+       return NULL;
+
+    self->pImg->angle += angle;
+	if (self->pImg->angle > 360)
+		self->pImg->angle -= 360;
+	else if (self->pImg->angle < -360)
+		self->pImg->angle += 360;
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_setFrameSize(PyImage *self,
+                                    PyObject *args,
+                                    PyObject *kwargs)
+{
+	unsigned int w,h;
+    if (!PyArg_ParseTuple(args, "II:setFrameSize", &w, &h))
+       return NULL;
+
+	oslSetImageFrameSize(self->pImg, w, h);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
+static PyObject* image_setFrame(PyImage *self,
+                                PyObject *args,
+                                PyObject *kwargs)
+{
+	int frame;
+    if (!PyArg_ParseTuple(args, "i:setFrame", &frame))
+       return NULL;
+
+	oslSetImageFrame(self->pImg, frame);
+
+    Py_INCREF(Py_None);
+    return Py_None;
+}
+
 static PyMethodDef image_methods[] = {
+   { "convert", (PyCFunction)image_convert, METH_VARARGS, "" },
    { "copy", (PyCFunction)image_copy, METH_VARARGS, "" },
+   { "move", (PyCFunction)image_move, METH_VARARGS, "" },
    { "uncache", (PyCFunction)image_uncache, METH_VARARGS, "" },
    { "draw", (PyCFunction)image_draw, METH_VARARGS, "" },
    { "correctHalfBorder", (PyCFunction)image_correctHalfBorder, METH_VARARGS, "" },
@@ -765,9 +942,17 @@ static PyMethodDef image_methods[] = {
    { "unlock", (PyCFunction)image_unlock, METH_VARARGS, "" },
    { "tile", (PyCFunction)image_tile, METH_VARARGS, "" },
    { "swizzle", (PyCFunction)image_swizzle, METH_VARARGS, "" },
+   { "swizzleto", (PyCFunction)image_swizzleto, METH_VARARGS, "" },
    { "clear", (PyCFunction)image_clear, METH_VARARGS, "" },
    { "write", (PyCFunction)image_write, METH_VARARGS, "" },
-
+   { "getpixel", (PyCFunction)image_getpixel, METH_VARARGS, "" },
+   { "setpixel", (PyCFunction)image_setpixel, METH_VARARGS, "" },
+   { "setRotationCenter", (PyCFunction)image_setRotationCenter, METH_VARARGS, "" },
+   { "mirrorH", (PyCFunction)image_mirrorH, METH_VARARGS, "" },
+   { "mirrorV", (PyCFunction)image_mirrorV, METH_VARARGS, "" },
+   { "rotate", (PyCFunction)image_rotate, METH_VARARGS, "" },
+   { "setFrameSize", (PyCFunction)image_setFrameSize, METH_VARARGS, "" },
+   { "setFrame", (PyCFunction)image_setFrame, METH_VARARGS, "" },
    { NULL }
 };
 

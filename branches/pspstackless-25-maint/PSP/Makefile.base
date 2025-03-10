@@ -195,7 +195,7 @@ OBJS_PSP2D = psp2d/psp2d.o \
 	../../pymaging/main.o \
 	../../pymaging/mask.o \
 	../../pymaging/transform.o
-	
+
 OBJS_PSPSND = \
 	pspsnd/pspsnd.o \
 	pspsnd/sound.o \
@@ -204,6 +204,8 @@ OBJS_PSPSND = \
 OBJS_PSPNET = pspnet/pspnet.o
 
 OBJS_OSLIB = osl/osl.o osl/image.o osl/ctrl.o osl/sound.o osl/map.o osl/font.o
+OBJS_OSLIB_MOD = osl/sfont.o
+OBJS_EXCEPTION_HANDLER = exceptionhandler/exception.o
 
 OBJS_PSPOGG = pspogg/oggplayer.o pspogg/pspogg.o
 
@@ -247,8 +249,19 @@ endif
 
 ifeq ($(WITH_OSLIB),1)
 OBJS += $(OBJS_OSLIB)
-LIBS += -losl -lpng -lz -lpspgu -lpspaudio
+LIBS += -losl -lpng -lz -lpspgu -lpspgum -lpspaudio -lpsphprm -ljpeg
 CPPFLAGS += -DWITH_OSLIB
+endif
+
+ifeq ($(WITH_OSLIB_MOD),1)
+OBJS += $(OBJS_OSLIB_MOD)
+LIBS += -lpsphttp -lpspssl -lpspwlan
+CPPFLAGS += -DWITH_OSLIB_MOD
+endif
+
+ifeq ($(WITH_EXPCETION_HANDLER),1)
+OBJS += $(OBJS_EXCEPTION_HANDLER)
+CPPFLAGS += -DWITH_EXPCETION_HANDLER
 endif
 
 ifeq ($(WITH_PSPOGG),1)
@@ -259,7 +272,7 @@ endif
 
 ifeq ($(WITH_PSPMP3),1)
 OBJS += $(OBJS_PSPMP3)
-LIBS += -lmad -lpspaudiolib -lpspaudio
+LIBS += -lpspaudio -lpspaudiocodec
 CPPFLAGS += -DWITH_PSPMP3
 endif
 
@@ -276,7 +289,7 @@ CPPFLAGS += -I../Modules/expat -DHAVE_MEMMOVE
 
 LIBS += -lc -lm
 
-CFLAGS = -Os -G0 -Wall -Wno-strict-aliasing -fPIC
+CFLAGS = -Os -g -G0 -Wall -Wno-strict-aliasing -fPIC
 CXXFLAGS = $(CFLAGS) -fno-rtti -fno-strict-aliasing
 ASFLAGS = $(CFLAGS)
 
@@ -289,7 +302,7 @@ psperror.c:
 	@cp $(PSPDEV)/psp/sdk/include/pspkerror.h ./pspkerror.h
 	python generr.py
 	@rm pspkerror.h
-	
+
 release: distclean $(PSP_EBOOT)
 	@echo "###### Create release package ######"
 	@echo "1. Creating release directory $(RELEASE_DIRECTORY)/"

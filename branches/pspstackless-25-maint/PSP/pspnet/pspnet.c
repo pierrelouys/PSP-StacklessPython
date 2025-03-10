@@ -20,6 +20,9 @@
 #include <sys/socket.h>
 #include <errno.h>
 
+#define ADDPSPNETINT(name) PyModule_AddIntConstant(mdl, #name, (int)PSP_NET_##name)
+
+#define PSP_NET_APCTL_STATE_CONNECTED -1
 static PyObject* net_error = NULL;
 
 
@@ -301,7 +304,7 @@ static PyObject* connect_to_apctl(PyObject *self, PyObject *args, PyObject *kwar
           stateLast = state;
        }
 
-       if (state == 4)
+       if (state == PSP_NET_APCTL_STATE_GOT_IP)
           break;  // connected with static IP
 
        // wait a little before polling again
@@ -317,6 +320,9 @@ static PyObject* connect_to_apctl(PyObject *self, PyObject *args, PyObject *kwar
           if ((int)(now - started) >= timeout)
           {
              PyErr_SetString(net_error, "Timeout while trying to connect");
+             Py_BEGIN_ALLOW_THREADS
+               sceNetApctlDisconnect();
+             Py_END_ALLOW_THREADS
              return NULL;
           }
        }
@@ -324,7 +330,7 @@ static PyObject* connect_to_apctl(PyObject *self, PyObject *args, PyObject *kwar
 
     if (callback)
     {
-       ret = PyObject_CallFunction(callback, "i", -1);
+       ret = PyObject_CallFunction(callback, "i", PSP_NET_APCTL_STATE_CONNECTED);
        if (!ret)
           return NULL;
        Py_XDECREF(ret);
@@ -354,6 +360,8 @@ static PyObject* get_apctl_state(PyObject *self, PyObject *args)
        return NULL;
     }
 
+	if (state == PSP_NET_APCTL_STATE_GOT_IP)
+		state = PSP_NET_APCTL_STATE_CONNECTED;
     return Py_BuildValue("i", state);
 }
 
@@ -375,7 +383,7 @@ static PyObject* disconnect_apctl(PyObject *self, PyObject *args)
 
 static PyObject* get_ip(PyObject *self, PyObject *args)
 {
-    char ipaddr[32];
+    union SceNetApctlInfo info;
 
     if (!PyArg_ParseTuple(args, ":get_ip"))
        return NULL;
@@ -383,13 +391,51 @@ static PyObject* get_ip(PyObject *self, PyObject *args)
     if (PyErr_CheckSignals())
        return NULL;
 
-    if (sceNetApctlGetInfo(8, ipaddr) != 0)
+    if (sceNetApctlGetInfo(PSP_NET_APCTL_INFO_IP, &info) != 0)
     {
        PyErr_SetString(net_error, "Could not get IP");
        return NULL;
     }
 
-    return Py_BuildValue("s", ipaddr);
+    return Py_BuildValue("s", info.ip);
+}
+
+static PyObject* get_signal_strength(PyObject *self, PyObject *args)
+{
+    union SceNetApctlInfo info;
+
+    if (!PyArg_ParseTuple(args, ":get_signal_strength"))
+       return NULL;
+
+    if (PyErr_CheckSignals())
+       return NULL;
+
+    if (sceNetApctlGetInfo(PSP_NET_APCTL_INFO_STRENGTH, &info) != 0)
+    {
+       PyErr_SetString(net_error, "Could not get signal strength");
+       return NULL;
+    }
+
+    return Py_BuildValue("i", (int)info.strength);
+}
+
+static PyObject* get_channel(PyObject *self, PyObject *args)
+{
+    union SceNetApctlInfo info;
+
+    if (!PyArg_ParseTuple(args, ":get_channel"))
+       return NULL;
+
+    if (PyErr_CheckSignals())
+       return NULL;
+
+    if (sceNetApctlGetInfo(PSP_NET_APCTL_INFO_CHANNEL, &info) != 0)
+    {
+       PyErr_SetString(net_error, "Could not get ap channel");
+       return NULL;
+    }
+
+    return Py_BuildValue("i", (int)info.channel);
 }
 
 static PyObject* enum_configs(PyObject *self, PyObject *args)
@@ -468,6 +514,8 @@ static PyMethodDef methods[] = {
    { "connectToAPCTL", (PyCFunction)connect_to_apctl, METH_VARARGS|METH_KEYWORDS, "" },
    { "disconnectAPCTL", (PyCFunction)disconnect_apctl, METH_VARARGS, "" },
    { "getAPCTLState", (PyCFunction)get_apctl_state, METH_VARARGS, "" },
+   { "getAPCTLSignalStrength", (PyCFunction)get_signal_strength, METH_VARARGS, "" },
+   { "getAPCTLChannel", (PyCFunction)get_channel, METH_VARARGS, "" },
    { "getIP", (PyCFunction)get_ip, METH_VARARGS, "" },
    { "enumConfigs", (PyCFunction)enum_configs, METH_VARARGS, "" },
 
@@ -494,6 +542,15 @@ PyMODINIT_FUNC initpspnet(void)
     mdl = Py_InitModule3("pspnet", methods, "PSP-specific net functions");
     if (!mdl)
        return;
+
+    ADDPSPNETINT(APCTL_STATE_CONNECTED);
+    ADDPSPNETINT(APCTL_STATE_DISCONNECTED);
+    ADDPSPNETINT(APCTL_STATE_SCANNING);
+    ADDPSPNETINT(APCTL_STATE_JOINING);
+    ADDPSPNETINT(APCTL_STATE_GETTING_IP);
+    ADDPSPNETINT(APCTL_STATE_GOT_IP);
+    ADDPSPNETINT(APCTL_STATE_EAP_AUTH);
+    ADDPSPNETINT(APCTL_STATE_KEY_EXCHANGE);
 
     /*
     Py_INCREF((PyObject*)&PyPSP_AdHocType);

@@ -6,6 +6,10 @@
 #include <psppower.h>
 #include <psputility_netmodules.h>
 #include <psputility_sysparam.h>
+#include <pspnet.h>
+#include <pspnet_inet.h>
+#include <pspnet_apctl.h>
+#include <pspnet_resolver.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -19,6 +23,10 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include "openssl/rand.h"
+#endif
+
+#ifdef WITH_EXPCETION_HANDLER
+#include "exceptionhandler/exception.h"
 #endif
 
 #ifdef WITH_PSP2D
@@ -50,6 +58,7 @@ int exit_callback(int arg1, int arg2, void *common) {
 #else
     pspInterruptOccurred = 1;
 #endif
+    printf("--------------------------------------------------------------------------------\n");
     fclose(stdout);
     fclose(stderr);
     sceKernelExitGame();
@@ -104,28 +113,52 @@ void initTimezone() {
     tzset();
 }
 
+// Set heap size:
+/*void setHeapSize(int newSize)
+{
+    int size = newSize / 1024;
+    if (size * 1024 < newSize)
+        size++;
+    sce_newlib_heap_kb_size = size;
+}*/
+
 int main(int argc, char *argv[]) {
     SetupCallbacks();
     stdout = fopen("pytrace.txt", "a+");
     stderr = stdout;
     setenv("PYTHONPATH", "python.zip", 1);
+    setenv("PYTHONHOME", "ms0:/", 1);
 
+#ifdef WITH_EXPCETION_HANDLER
+    initExceptionHandler();
+#endif
     initTimezone();
     time_t now;
     sceKernelLibcTime(&now);
 
-    if (sceUtilityLoadNetModule(1) < 0)
+#ifdef WITH_PSPNET
+    if (sceUtilityLoadNetModule(PSP_NET_MODULE_COMMON) < 0)
         return 1;
-    if(sceUtilityLoadNetModule(3) < 0)
+    if(sceUtilityLoadNetModule(PSP_NET_MODULE_INET) < 0)
         return 1;
-    if(pspSdkInetInit() != 0)
-        return 1;
+    //if(pspSdkInetInit() != 0)
+    //    return 1;
+   if (sceNetInit(0x20000, 0x20, 0x1000, 0x20, 0x1000) != 0)
+      return 1;
+   if (sceNetInetInit() != 0)
+      return 1;
+   if (sceNetResolverInit() != 0)
+      return 1;
+   if (sceNetApctlInit(0x1400, 0x42) != 0)
+      return 1;
+#endif
 
 #ifdef WITH_PSP2D
     sceGuInit();
 #endif
 #ifdef WITH_OSLIB
     oslInit(1);
+    oslSetExitCallback(exit_callback);
 #endif
 
 #ifdef WITH_SSL
@@ -137,9 +170,10 @@ int main(int argc, char *argv[]) {
 
     char path[1024];
     printf("-------------- Python-PSP started %s\n", ctime(&now));
-    printf("Free memory: %d\n", sceKernelTotalFreeMemSize());
-    printf("PyPSP running in: %s\n", getcwd(path, sizeof(path)));
-    printf("Search path: %s\n", Py_GetPath());
+    printf("Free stack memory: %d\n", sceKernelGetThreadStackFreeSize(0));
+    printf("Free memory      : %d\n", sceKernelTotalFreeMemSize());
+    printf("PyPSP running in : %s\n", getcwd(path, sizeof(path)));
+    printf("Search path      : %s\n", Py_GetPath());
     printf("\n");
 
     //scePowerSetClockFrequency(333, 333, 166);
@@ -149,7 +183,7 @@ int main(int argc, char *argv[]) {
 
     Py_Initialize();
     PySys_SetArgv(argc, argv);
-    
+
     fp = fopen("script.py", "r");
     if (fp) {
         PyRun_SimpleFile(fp, "script.py");

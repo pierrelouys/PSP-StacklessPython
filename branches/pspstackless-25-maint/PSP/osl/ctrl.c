@@ -6,7 +6,6 @@
 /**********************************************************************
 
   Created: 17 Feb 2007
-
     Copyright (C) 2007 fraca7@free.fr
 
     This library  is free software; you can  redistribute it and/or
