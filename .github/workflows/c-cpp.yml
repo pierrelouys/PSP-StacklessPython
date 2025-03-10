@@ -25,7 +25,7 @@ jobs:
         run: |
           git submodule update --init --recursive --remote 
           # cd branches/pspstackless-25-maint/PSP/
-          # make
+          # make -f Makefile.base
       - name: Publish artifacts
         uses: actions/upload-artifact@v4
         with:
