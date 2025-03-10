@@ -1,0 +1,32 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: pspdev/pspdev:latest
+
+    steps:
+      - name: Install dependencies
+        run: |
+          apk add bash cmake git gmp mpc1 mpfr4 make
+      
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Build
+        run: |
+          git submodule update --init --recursive --remote 
+          # cd branches/pspstackless-25-maint/PSP/
+          # make
+      - name: Publish artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Python
+          path: |
+            EBOOT.PBP
